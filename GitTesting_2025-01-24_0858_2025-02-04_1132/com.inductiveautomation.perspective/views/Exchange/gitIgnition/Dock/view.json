@@ -286,54 +286,110 @@
         "type": "ia.input.button"
       },
       {
-        "events": {
-          "component": {
-            "onActionPerformed": {
-              "config": {
-                "script": "\tgitScripts.checkout_branch(self.view.custom.localRepoPath, self.view.custom.branch, \u0027main\u0027)\n\tsystem.perspective.sendMessage(\u0027update\u0027)"
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tgitScripts.checkout_branch(self.view.custom.localRepoPath, self.view.custom.branch, \u0027main\u0027)\n\tsystem.perspective.sendMessage(\u0027update\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "SetToken_0"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.localRepoPath}!\u003d\u0027\u0027"
+                  },
+                  "type": "expr"
+                }
               },
-              "scope": "G",
-              "type": "script"
-            }
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.custom.branch}\u003d\u0027main\u0027,\u0027green\u0027,\u0027\u0027)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/input"
+                }
+              },
+              "primary": false,
+              "style": {
+                "margin": "2px",
+                "whiteSpace": "pre-wrap"
+              },
+              "text": "Pull Main",
+              "textStyle": {
+                "whiteSpace": "normal"
+              }
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.branch"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn value not in [None, \u0027\u0027 , \u0027main\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.branch"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
           }
-        },
+        ],
         "meta": {
-          "name": "SetToken_0"
+          "name": "FlexContainer"
         },
         "position": {
-          "basis": "185px"
-        },
-        "propConfig": {
-          "props.enabled": {
-            "binding": {
-              "config": {
-                "expression": "{view.custom.localRepoPath}!\u003d\u0027\u0027"
-              },
-              "type": "expr"
-            }
-          },
-          "props.style.backgroundColor": {
-            "binding": {
-              "config": {
-                "expression": "if({view.custom.branch}\u003d\u0027main\u0027,\u0027green\u0027,\u0027\u0027)"
-              },
-              "type": "expr"
-            }
-          }
+          "basis": "200px"
         },
         "props": {
-          "image": {
-            "icon": {
-              "path": "material/input"
-            }
-          },
-          "primary": false,
-          "style": {
-            "margin": "2px"
-          },
-          "text": "Pull Main"
+          "direction": "column"
         },
-        "type": "ia.input.button"
+        "type": "ia.container.flex"
       }
     ],
     "meta": {
