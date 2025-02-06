@@ -112,7 +112,7 @@ def push_to_main(local_repo_path, commit_message):
         # Commit changes
         subprocess.check_call(["git", "-C", local_repo_path, "commit", "-m", commit_message])
         # Force push to the main branch
-        subprocess.check_call(["git", "-C", local_repo_path, "push", "-u", "origin", "main"])
+        subprocess.check_call(["git", "-C", local_repo_path, "push", "-u", "origin", dateTimeString])
         logger.info("Changes pushed to main successfully!")
     except subprocess.CalledProcessError as e:
         logger.info("Error during Git operation: {}".format(e))
