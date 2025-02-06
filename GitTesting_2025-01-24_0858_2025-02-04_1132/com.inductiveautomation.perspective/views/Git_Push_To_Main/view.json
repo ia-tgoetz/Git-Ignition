@@ -148,7 +148,6 @@
             "margin": "4px",
             "marginLeft": "208px"
           },
-          "value": 1,
           "writingState": {
             "icon": {
               "path": "material/hourglass_empty",
@@ -173,7 +172,8 @@
           "style": {
             "margin": "4px",
             "marginLeft": "208px"
-          }
+          },
+          "text": "Changes pushed to main successfully!\nPull Request Will "
         },
         "type": "ia.input.text-area"
       }
