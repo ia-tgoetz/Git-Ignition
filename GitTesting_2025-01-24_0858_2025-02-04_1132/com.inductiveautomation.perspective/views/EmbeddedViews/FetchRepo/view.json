@@ -1,0 +1,382 @@
+{
+  "custom": {
+    "PATSaved": false
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\timport os\n\tself.custom.PATSaved\u003dos.path.exists(\"/usr/local/bin/ignition/data/tmp/gitPAT.json\")"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "directory": null
+  },
+  "propConfig": {
+    "custom.PATSaved": {
+      "persistent": true
+    },
+    "params.directory": {
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 225
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "200px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "marginRight": "4px"
+              },
+              "text": "Git Repo URL:",
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "TextField"
+            },
+            "position": {
+              "basis": "150px",
+              "grow": 1
+            },
+            "props": {
+              "text": "https://github.com/ia-tgoetz/Git-Ignition.git"
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "name": "Repo"
+        },
+        "position": {
+          "basis": "36px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "200px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "marginRight": "4px"
+              },
+              "text": "Branch:",
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "TextField"
+            },
+            "position": {
+              "basis": "150px",
+              "grow": 1
+            },
+            "props": {
+              "text": "main"
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "name": "Branch"
+        },
+        "position": {
+          "basis": "36px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "200px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "marginRight": "4px"
+              },
+              "text": "Username:",
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "TextField"
+            },
+            "position": {
+              "basis": "150px",
+              "grow": 1
+            },
+            "props": {
+              "text": "ia-tgoetz"
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "name": "Username"
+        },
+        "position": {
+          "basis": "36px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "200px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "marginRight": "4px"
+              },
+              "text": "Personal Access Token:",
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.PATSaved"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "red",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "green"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.PATSaved"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "material/cancel",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "material/check_circle"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "draggable": true,
+                    "id": "JBkwxHoQ",
+                    "modal": false,
+                    "overlayDismiss": false,
+                    "resizable": true,
+                    "showCloseIcon": true,
+                    "title": "Set Personal Access Token",
+                    "type": "open",
+                    "viewPath": "EmbeddedViews/storeGitToken",
+                    "viewportBound": false
+                  },
+                  "scope": "C",
+                  "type": "popup"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "213px"
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "expression": "!{view.custom.PATSaved}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "marginLeft": "8px"
+              },
+              "text": "Set Token"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Token"
+        },
+        "position": {
+          "basis": "36px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tlogger\u003dsystem.util.getLogger(\u0027gitExecution\u0027)\n\trepo_url \u003d self.parent.getChild(\"Repo\").getChild(\"TextField\").props.text\n\tbranch \u003d self.parent.getChild(\"Branch\").getChild(\"TextField\").props.text\n\tusername \u003d self.parent.getChild(\"Username\").getChild(\"TextField\").props.text\n\ttoken \u003d system.util.jsonDecode(fileSystem.read_file(file_path\u003d\"/usr/local/bin/ignition/data/tmp/gitPAT.json\"))[\u0027token\u0027]\n\t\n\ttemp_repo_path \u003d gitScripts.pull_git_repo(repo_url, branch, username, token)\n\tif temp_repo_path:\n\t    logger.info(\"Repository cloned to: {}\".format(temp_repo_path))\n\t    self.view.params.directory\u003dtemp_repo_path\n\telse:\n\t    logger.warn(\"Failed to pull the repository.\")\n\tself.props.value\u003d0"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "OneShotButton"
+        },
+        "position": {
+          "basis": "45px"
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.PATSaved}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "readyState": {
+            "icon": {
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Fetch Repo"
+          },
+          "style": {
+            "margin": "4px",
+            "marginLeft": "208px"
+          },
+          "writingState": {
+            "icon": {
+              "path": "material/hourglass_empty",
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Fetching..."
+          }
+        },
+        "type": "ia.input.oneshotbutton"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}
