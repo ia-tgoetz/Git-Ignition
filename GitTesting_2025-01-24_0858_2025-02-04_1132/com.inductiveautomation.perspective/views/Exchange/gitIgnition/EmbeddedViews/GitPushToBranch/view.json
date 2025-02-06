@@ -1,32 +1,9 @@
 {
-  "custom": {
-    "key": [
-      "GitTesting_2025-01-24_0858_2025-02-04_1132/com.inductiveautomation.perspective/views/Exchange/gitIgnition/EmbeddedViews/GitPushToBranch/resource.json",
-      "GitTesting_2025-01-24_0858_2025-02-04_1132/com.inductiveautomation.perspective/views/Exchange/gitIgnition/EmbeddedViews/GitPushToBranch/thumbnail.png",
-      "GitTesting_2025-01-24_0858_2025-02-04_1132/com.inductiveautomation.perspective/views/Exchange/gitIgnition/EmbeddedViews/GitPushToBranch/view.json",
-      "GitTesting_2025-01-24_0858_2025-02-04_1132/ignition/script-python/gitScripts/code.py",
-      "GitTesting_2025-01-24_0858_2025-02-04_1132/ignition/script-python/gitScripts/resource.json"
-    ]
-  },
+  "custom": {},
   "params": {
     "directory": "/usr/local/bin/ignition/data/projects"
   },
   "propConfig": {
-    "custom.key": {
-      "binding": {
-        "config": {
-          "path": "view.params.directory"
-        },
-        "transforms": [
-          {
-            "code": "\treturn gitScripts.add_and_get_staged_files(value)",
-            "type": "script"
-          }
-        ],
-        "type": "property"
-      },
-      "persistent": true
-    },
     "params.directory": {
       "paramDirection": "input",
       "persistent": true

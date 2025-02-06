@@ -121,7 +121,7 @@ def push_to_main(local_repo_path, commit_message, branch=None, user=""):
 			staged_message = "<br /><br />Staged Files:<br />{}".format(bullet_list)
 		else:
 			staged_message = "<br /><br />No files were staged."
-		message='<pre>Changes pushed to "{}" successfully!<br /><br />Pull Request for Branch "{}" Will Need to Be Merged Into Main </pre>{}'.format(branch,branch, addStaged)
+		message='<pre>Changes pushed to "{}" successfully!<br /><br />Pull Request for Branch "{}" Will Need to Be Merged Into Main </pre>{}'.format(branch,branch, staged_message)
 	except subprocess.CalledProcessError as e:
 		message="Error during Git operation: {}".format(e)
 		logger.info(message)
