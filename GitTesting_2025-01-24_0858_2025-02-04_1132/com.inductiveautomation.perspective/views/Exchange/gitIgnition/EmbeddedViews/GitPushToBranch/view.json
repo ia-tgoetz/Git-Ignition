@@ -5,7 +5,7 @@
   },
   "propConfig": {
     "params.directory": {
-      "paramDirection": "output",
+      "paramDirection": "input",
       "persistent": true
     }
   },

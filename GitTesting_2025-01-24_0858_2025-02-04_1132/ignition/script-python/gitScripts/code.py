@@ -125,9 +125,8 @@ def push_to_main(local_repo_path, commit_message, branch=None, user=""):
 	return message
 
 
-
-
-
+def checkout_branch(local_repo_path, branch='main'):
+	subprocess.check_call(["git", "-C", local_repo_path, "checkout", branch])
 
 
 
