@@ -102,23 +102,26 @@ def create_gitignore_file(repo_path, patterns):
         logger.warn("Failed to create .gitignore file: {}".format(e))
 
 
-def push_to_main(local_repo_path, commit_message):
-    try:
-    	dateTimeString=system.date.format(system.date.now(),"YYYYMMddHHmmss")
-        # Checkout branch
-        subprocess.check_call(["git", "-C", local_repo_path, "checkout", "-b", dateTimeString])
-        # Stage changes
-        subprocess.check_call(["git", "-C", local_repo_path, "add", "."])
-        # Commit changes
-        subprocess.check_call(["git", "-C", local_repo_path, "commit", "-m", commit_message])
-        # Force push to the main branch
-        subprocess.check_call(["git", "-C", local_repo_path, "push", "-u", "origin", dateTimeString])
-        logger.info("Changes pushed to main successfully!")
-    except subprocess.CalledProcessError as e:
-        logger.info("Error during Git operation: {}".format(e))
-    except Exception as e:
-        logger.info("Unexpected error: {}".format(e))
-
+def push_to_main(local_repo_path, commit_message, branch=None, user=""):
+	if branch is None:
+		branch="{}/{}".format(user ,system.date.format(system.date.now(),"YYYYMMddHHmmss"))
+	try:
+		subprocess.check_call(["git", "-C", local_repo_path, "checkout", "-b", branch])
+		# Stage changes
+		subprocess.check_call(["git", "-C", local_repo_path, "add", "."])
+		# Commit changes
+		subprocess.check_call(["git", "-C", local_repo_path, "commit", "-m", commit_message])
+		# Force push to the main branch
+		subprocess.check_call(["git", "-C", local_repo_path, "push", "-u", "origin", branch])
+		logger.info("Changes pushed to main successfully!")
+		message='{}\n{}'.format("Changes pushed to main successfully!", "Pull Request Will ")
+	except subprocess.CalledProcessError as e:
+		message="Error during Git operation: {}".format(e)
+		logger.info(message)
+	except Exception as e:
+		message="Unexpected error: {}".format(e)
+		logger.info(message)
+	return message
 
 
 
