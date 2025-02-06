@@ -174,7 +174,7 @@
           "params": {
             "PATSaved": true
           },
-          "path": "PersonalAccessTokenCheck",
+          "path": "EmbeddedViews/PersonalAccessTokenCheck",
           "style": {
             "marginLeft": "4px"
           }
