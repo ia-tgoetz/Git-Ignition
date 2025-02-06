@@ -290,7 +290,7 @@
           "component": {
             "onActionPerformed": {
               "config": {
-                "script": "\tgitScripts.checkout_branch(self.view.custom.localRepoPath, self.view.custom.branch, \u0027main\u0027)"
+                "script": "\tgitScripts.checkout_branch(self.view.custom.localRepoPath, self.view.custom.branch, \u0027main\u0027)\n\tsystem.perspective.sendMessage(\u0027update\u0027)"
               },
               "scope": "G",
               "type": "script"
@@ -357,6 +357,13 @@
           "messageType": "localDir",
           "pageScope": true,
           "script": "\t#\tsystem.perspective.sendMessage(\u0027localDir\u0027, {\u0027dir\u0027:directory})\n\tself.view.custom.localRepoPath\u003dpayload[\u0027dir\u0027]",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "update",
+          "pageScope": true,
+          "script": "\tself.view.refreshBinding(\u0027custom.branch\u0027)",
           "sessionScope": false,
           "viewScope": false
         }
