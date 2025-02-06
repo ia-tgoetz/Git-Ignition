@@ -1,6 +1,7 @@
 {
   "custom": {
-    "PATSaved": false,
+    "PATSaved": true,
+    "branch": "",
     "localRepoPath": ""
   },
   "events": {
@@ -16,6 +17,21 @@
   },
   "params": {},
   "propConfig": {
+    "custom.branch": {
+      "binding": {
+        "config": {
+          "path": "view.custom.localRepoPath"
+        },
+        "transforms": [
+          {
+            "code": "\treturn gitScripts.get_current_branch(value)",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
     "custom.localRepoPath": {
       "persistent": true
     }
@@ -274,7 +290,7 @@
           "component": {
             "onActionPerformed": {
               "config": {
-                "script": "\tgitScripts.checkout_branch(self.view.custom.localRepoPath)"
+                "script": "\tgitScripts.checkout_branch(self.view.custom.localRepoPath, self.view.custom.branch, \u0027main\u0027)"
               },
               "scope": "G",
               "type": "script"
@@ -292,6 +308,14 @@
             "binding": {
               "config": {
                 "expression": "{view.custom.localRepoPath}!\u003d\u0027\u0027"
+              },
+              "type": "expr"
+            }
+          },
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "expression": "if({view.custom.branch}\u003d\u0027main\u0027,\u0027green\u0027,\u0027\u0027)"
               },
               "type": "expr"
             }
