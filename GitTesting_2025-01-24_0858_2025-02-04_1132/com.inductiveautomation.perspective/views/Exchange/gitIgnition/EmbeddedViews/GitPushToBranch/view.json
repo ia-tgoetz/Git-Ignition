@@ -178,6 +178,9 @@
           "basis": "200px"
         },
         "props": {
+          "markdown": {
+            "escapeHtml": false
+          },
           "source": "",
           "style": {
             "margin": "4px",
