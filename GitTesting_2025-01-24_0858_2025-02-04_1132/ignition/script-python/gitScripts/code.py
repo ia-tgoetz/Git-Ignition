@@ -156,7 +156,7 @@ def add_and_get_staged_files(local_repo_path):
         staged_files = subprocess.check_output(["git", "-C", local_repo_path, "diff", "--cached", "--name-only"])
         
         # Decode and split output into a list of filenames
-#        staged_files = staged_files.decode("utf-8").strip().split("\n")
+        staged_files = staged_files.decode("utf-8").strip().split("\n")
 
         return staged_files
     except subprocess.CalledProcessError as e:
