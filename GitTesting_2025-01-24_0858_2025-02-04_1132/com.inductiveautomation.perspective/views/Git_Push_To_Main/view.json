@@ -11,7 +11,7 @@
   },
   "props": {
     "defaultSize": {
-      "height": 149
+      "height": 317
     }
   },
   "root": {
@@ -96,7 +96,7 @@
             },
             "props": {
               "deferUpdates": false,
-              "text": "test"
+              "text": "Test"
             },
             "type": "ia.input.text-field"
           }
@@ -120,7 +120,7 @@
           "component": {
             "onActionPerformed": {
               "config": {
-                "script": "\tlogger\u003dsystem.util.getLogger(\u0027GitHub\u0027)\n\tcommitMessage\u003dself.parent.getChild(\"Commit_Message\").getChild(\"TextField\").props.text\n\tbranch\u003dself.parent.getChild(\"Branch\").getChild(\"TextField\").props.text\n\tif branch in [\u0027\u0027,None]:\n\t\tbranch\u003dNone\n\tdirectory\u003dself.view.params.directory\n\tgitScripts.push_to_main(directory, commitMessage, branch)\n\tself.props.value\u003d0"
+                "script": "\tlogger\u003dsystem.util.getLogger(\u0027GitHub\u0027)\n\tcommitMessage\u003dself.parent.getChild(\"Commit_Message\").getChild(\"TextField\").props.text\n\tbranch\u003dself.parent.getChild(\"Branch\").getChild(\"TextField\").props.text\n\tif branch in [\u0027\u0027,None]:\n\t\tbranch\u003dNone\n\tdirectory\u003dself.view.params.directory\n\tmessage\u003dgitScripts.push_to_main(directory, commitMessage, branch, self.session.props.auth.user.userName)\n\tself.getSibling(\"TextArea\").props.text\u003dmessage\n\tself.props.value\u003d0"
               },
               "scope": "G",
               "type": "script"
@@ -161,6 +161,21 @@
           }
         },
         "type": "ia.input.oneshotbutton"
+      },
+      {
+        "meta": {
+          "name": "TextArea"
+        },
+        "position": {
+          "basis": "160px"
+        },
+        "props": {
+          "style": {
+            "margin": "4px",
+            "marginLeft": "208px"
+          }
+        },
+        "type": "ia.input.text-area"
       }
     ],
     "meta": {
