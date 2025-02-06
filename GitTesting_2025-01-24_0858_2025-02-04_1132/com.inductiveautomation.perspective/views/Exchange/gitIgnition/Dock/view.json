@@ -319,6 +319,7 @@
                   "config": {
                     "expression": "if({view.custom.branch}\u003d\u0027main\u0027,\u0027green\u0027,\u0027\u0027)"
                   },
+                  "enabled": false,
                   "type": "expr"
                 }
               }
@@ -331,6 +332,7 @@
               },
               "primary": false,
               "style": {
+                "backgroundColor": "",
                 "margin": "2px",
                 "whiteSpace": "pre-wrap"
               },
