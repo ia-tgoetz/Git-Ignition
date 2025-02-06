@@ -16,7 +16,8 @@
   "params": {},
   "props": {
     "defaultSize": {
-      "height": 45
+      "height": 45,
+      "width": 923
     }
   },
   "root": {
@@ -34,7 +35,7 @@
                 "showCloseIcon": true,
                 "title": "Set Personal Access Token",
                 "type": "open",
-                "viewPath": "Exchange/gitIgnition/EmbeddedViews/storeGitToken",
+                "viewPath": "Exchange/gitIgnition/EmbeddedViews/StoreGitToken",
                 "viewportBound": false
               },
               "scope": "C",
@@ -179,7 +180,7 @@
           }
         },
         "meta": {
-          "name": "SetRemote_0"
+          "name": "PushRemote"
         },
         "position": {
           "basis": "185px"
@@ -230,7 +231,7 @@
           }
         },
         "meta": {
-          "name": "SetRemote_1"
+          "name": "PullRemote"
         },
         "position": {
           "basis": "185px"
@@ -256,6 +257,92 @@
             "margin": "2px"
           },
           "text": "Pull From Repo"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": true,
+                "id": "PAT",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "Set Personal Access Token",
+                "type": "open",
+                "viewPath": "Exchange/gitIgnition/EmbeddedViews/StoreGitToken",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "SetToken_0"
+        },
+        "position": {
+          "basis": "185px"
+        },
+        "propConfig": {
+          "props.image.icon.color": {
+            "binding": {
+              "config": {
+                "path": "view.custom.PATSaved"
+              },
+              "transforms": [
+                {
+                  "fallback": "red",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "green"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.image.icon.path": {
+            "binding": {
+              "config": {
+                "path": "view.custom.PATSaved"
+              },
+              "transforms": [
+                {
+                  "fallback": "material/lock",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "material/check"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "enabled": false,
+          "image": {
+            "icon": {}
+          },
+          "primary": false,
+          "style": {
+            "margin": "2px"
+          },
+          "text": "Pull Main"
         },
         "type": "ia.input.button"
       }
