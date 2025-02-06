@@ -11,7 +11,7 @@
   },
   "props": {
     "defaultSize": {
-      "height": 146,
+      "height": 403,
       "width": 605
     }
   },
@@ -176,7 +176,8 @@
           "name": "Markdown"
         },
         "position": {
-          "basis": "200px"
+          "basis": "200px",
+          "grow": 1
         },
         "props": {
           "markdown": {
@@ -184,8 +185,7 @@
           },
           "source": "",
           "style": {
-            "margin": "4px",
-            "marginLeft": "208px"
+            "margin": "4px"
           }
         },
         "type": "ia.display.markdown"
