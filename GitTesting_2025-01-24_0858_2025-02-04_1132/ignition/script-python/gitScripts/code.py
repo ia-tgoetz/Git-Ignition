@@ -118,7 +118,7 @@ def push_to_main(local_repo_path, commit_message, branch=None, user=""):
 		    # Format staged files as a bullet list with only filenames (not full paths)
 		if staged_files and staged_files[0]:  # Ensure list is not empty
 			bullet_list = ''
-			for files in stagedFile:
+			for files in staged_files:
 				bullet_list+="<br />{}".format(files)
 			staged_message = "<br /><br />Staged Files:<br />{}".format(bullet_list)
 		else:
