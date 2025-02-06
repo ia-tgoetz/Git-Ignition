@@ -129,6 +129,7 @@ def checkout_branch(local_repo_path, current_branch, checkout_branch='main'):
 	if current_branch!=checkout_branch:
 		subprocess.check_call(["git", "-C", local_repo_path, "checkout", checkout_branch])
 	subprocess.check_call(["git", "-C", local_repo_path, "pull"])
+	system.project.requestScan()
 
 
 def get_current_branch(local_repo_path):
