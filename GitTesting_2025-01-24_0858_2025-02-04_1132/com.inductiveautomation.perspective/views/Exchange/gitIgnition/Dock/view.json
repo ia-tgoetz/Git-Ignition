@@ -290,7 +290,7 @@
           "component": {
             "onActionPerformed": {
               "config": {
-                "script": "\tgitScripts.checkout_branch(self.view.custom.localRepoPath, self.view.custom.branch, \u0027main\u0027)"
+                "script": "\tgitScripts.checkout_branch(self.view.custom.localRepoPath, self.view.custom.branch, \u0027main\u0027)\n\tsystem.perspective.sendMessage(\u0027update\u0027)"
               },
               "scope": "G",
               "type": "script"
