@@ -47,7 +47,7 @@
             },
             "props": {
               "deferUpdates": false,
-              "text": "myCommit"
+              "text": "test"
             },
             "type": "ia.input.text-field"
           }
