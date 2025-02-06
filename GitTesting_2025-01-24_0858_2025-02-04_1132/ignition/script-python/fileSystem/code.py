@@ -70,3 +70,16 @@ def read_file(file_path="/usr/local/bin/ignition/data/tmp/gitPAT.json"):
 	except ValueError as e:
 		logger.warn("Error decoding JSON: {}".format(e))
 		return None
+		
+def delete_directory(directory_path):
+    logger = system.util.getLogger("FileSystemDeleteDirectory")
+    try:
+        # Check if the directory exists
+        if os.path.exists(directory_path):
+            # Remove the directory and all its contents
+            shutil.rmtree(directory_path)
+            logger.trace("Directory and all its contents deleted successfully: {}".format(directory_path))
+        else:
+            logger.trace("Directory does not exist: {}".format(directory_path))
+    except OSError as e:
+        logger.warn("Error deleting directory: {}".format(e))
