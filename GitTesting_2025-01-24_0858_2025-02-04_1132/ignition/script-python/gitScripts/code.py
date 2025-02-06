@@ -117,7 +117,9 @@ def push_to_main(local_repo_path, commit_message, branch=None, user=""):
 		logger.info("Changes pushed to main successfully!")
 		    # Format staged files as a bullet list with only filenames (not full paths)
 		if staged_files and staged_files[0]:  # Ensure list is not empty
-			bullet_list = "<br />".join("- {}".format(file) for file in staged_files)
+			bullet_list = ''
+			for files in stagedFile:
+				bullet_list+="<br />{}".format(files)
 			staged_message = "<br /><br />Staged Files:<br />{}".format(bullet_list)
 		else:
 			staged_message = "<br /><br />No files were staged."
