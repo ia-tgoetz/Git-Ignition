@@ -105,6 +105,7 @@ def create_gitignore_file(repo_path, patterns):
 def push_to_main(local_repo_path, commit_message, branch=None, user=""):
 	if branch is None:
 		branch="{}/{}".format(user ,system.date.format(system.date.now(),"YYYYMMddHHmmss"))
+		
 	try:
 		subprocess.check_call(["git", "-C", local_repo_path, "checkout", "-b", branch])
 		# Stage changes
@@ -114,7 +115,7 @@ def push_to_main(local_repo_path, commit_message, branch=None, user=""):
 		# Force push to the main branch
 		subprocess.check_call(["git", "-C", local_repo_path, "push", "-u", "origin", branch])
 		logger.info("Changes pushed to main successfully!")
-		message='Changes pushed to main successfully! \n Pull Request for Branch "{}" Will Need to Be Merged Into Main '.format(branch)
+		message='<pre>Changes pushed to "{}" successfully!<br /><br />Pull Request for Branch "{}" Will Need to Be Merged Into Main </pre>'.format(branch,branch)
 	except subprocess.CalledProcessError as e:
 		message="Error during Git operation: {}".format(e)
 		logger.info(message)
