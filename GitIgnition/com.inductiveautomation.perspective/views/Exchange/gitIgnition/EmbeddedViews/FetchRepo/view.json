@@ -46,7 +46,7 @@
               "grow": 1
             },
             "props": {
-              "text": "https://github.com/ia-tgoetz/Git-Ignitions.git"
+              "text": "https://github.com/ia-tgoetz/Git-Ignition.git"
             },
             "type": "ia.input.text-field"
           }
