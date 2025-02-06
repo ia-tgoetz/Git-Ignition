@@ -109,13 +109,19 @@ def push_to_main(local_repo_path, commit_message, branch=None, user=""):
 	try:
 		subprocess.check_call(["git", "-C", local_repo_path, "checkout", "-b", branch])
 		# Stage changes
-		subprocess.check_call(["git", "-C", local_repo_path, "add", "."])
+		staged_files=add_and_get_staged_files(local_repo_path)
 		# Commit changes
 		subprocess.check_call(["git", "-C", local_repo_path, "commit", "-m", commit_message])
 		# Force push to the main branch
 		subprocess.check_call(["git", "-C", local_repo_path, "push", "-u", "origin", branch])
 		logger.info("Changes pushed to main successfully!")
-		message='<pre>Changes pushed to "{}" successfully!<br /><br />Pull Request for Branch "{}" Will Need to Be Merged Into Main </pre>'.format(branch,branch)
+		    # Format staged files as a bullet list with only filenames (not full paths)
+		if staged_files and staged_files[0]:  # Ensure list is not empty
+			bullet_list = "<br />".join("- {}".format(file.split("/")[-1]) for file in staged_files)
+			staged_message = "<br /><br />Staged Files:<br />{}".format(bullet_list)
+		else:
+			staged_message = "<br /><br />No files were staged."
+		message='<pre>Changes pushed to "{}" successfully!<br /><br />Pull Request for Branch "{}" Will Need to Be Merged Into Main </pre>{}'.format(branch,branch, addStaged)
 	except subprocess.CalledProcessError as e:
 		message="Error during Git operation: {}".format(e)
 		logger.info(message)
@@ -139,6 +145,19 @@ def get_current_branch(local_repo_path):
     except subprocess.CalledProcessError as e:
         return None
 
+def add_and_get_staged_files(local_repo_path):
+    try:
+        # Run `git add .`
+        subprocess.check_call(["git", "-C", local_repo_path, "add", "."])
 
+        # Get staged files using `git diff --cached --name-only`
+        staged_files = subprocess.check_output(["git", "-C", local_repo_path, "diff", "--cached", "--name-only"])
+        
+        # Decode and split output into a list of filenames
+        staged_files = staged_files.decode("utf-8").strip().split("\n")
+
+        return staged_files
+    except subprocess.CalledProcessError as e:
+        return None
 
 
