@@ -1,0 +1,27 @@
+{
+  "pages": {
+    "/": {
+      "title": "",
+      "viewPath": "Exchange/gitIgnition/Main"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom",
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "autoHide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 50,
+        "viewParams": {},
+        "viewPath": "Exchange/gitIgnition/Dock"
+      }
+    ]
+  }
+}

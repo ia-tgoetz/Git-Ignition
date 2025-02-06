@@ -1,0 +1,432 @@
+{
+  "custom": {
+    "PATSaved": true,
+    "branch": null,
+    "localRepoPath": ""
+  },
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\timport os\n\tself.custom.PATSaved\u003dos.path.exists(\"/usr/local/bin/ignition/data/tmp/gitPAT.json\")"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {},
+  "propConfig": {
+    "custom.branch": {
+      "binding": {
+        "config": {
+          "path": "view.custom.localRepoPath"
+        },
+        "transforms": [
+          {
+            "code": "\treturn gitScripts.get_current_branch(value)",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.localRepoPath": {
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 45,
+      "width": 923
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": true,
+                "id": "PAT",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "Set Personal Access Token",
+                "type": "open",
+                "viewPath": "Exchange/gitIgnition/EmbeddedViews/StoreGitToken",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "SetToken"
+        },
+        "position": {
+          "basis": "185px"
+        },
+        "propConfig": {
+          "props.image.icon.color": {
+            "binding": {
+              "config": {
+                "path": "view.custom.PATSaved"
+              },
+              "transforms": [
+                {
+                  "fallback": "red",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "green"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.image.icon.path": {
+            "binding": {
+              "config": {
+                "path": "view.custom.PATSaved"
+              },
+              "transforms": [
+                {
+                  "fallback": "material/lock",
+                  "inputType": "scalar",
+                  "mappings": [
+                    {
+                      "input": true,
+                      "output": "material/check"
+                    }
+                  ],
+                  "outputType": "scalar",
+                  "type": "map"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "image": {
+            "icon": {}
+          },
+          "primary": false,
+          "style": {
+            "margin": "2px"
+          },
+          "text": "Set Personal Token"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": true,
+                "id": "Remote",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "Setup Remote Repo",
+                "type": "open",
+                "viewPath": "Exchange/gitIgnition/EmbeddedViews/SetupRepo",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "SetRemote"
+        },
+        "position": {
+          "basis": "185px"
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.custom.PATSaved"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "path": "material/file_copy"
+            }
+          },
+          "primary": false,
+          "style": {
+            "margin": "2px"
+          },
+          "text": "Setup Repo"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": true,
+                "id": "Push",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "Push to Remote",
+                "type": "open",
+                "viewParams": {
+                  "directory": "{view.custom.localRepoPath}"
+                },
+                "viewPath": "Exchange/gitIgnition/EmbeddedViews/GitPushToBranch",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "PushRemote"
+        },
+        "position": {
+          "basis": "185px"
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{view.custom.PATSaved}\u0026\u0026\r\n{view.custom.localRepoPath}!\u003d\u0027\u0027"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "path": "material/double_arrow"
+            }
+          },
+          "primary": false,
+          "style": {
+            "margin": "2px"
+          },
+          "text": "Push to Repo"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "draggable": true,
+                "id": "Pull",
+                "modal": false,
+                "overlayDismiss": false,
+                "resizable": true,
+                "showCloseIcon": true,
+                "title": "Pull and Transfer",
+                "type": "open",
+                "viewPath": "Exchange/gitIgnition/EmbeddedViews/GitPullAndTransfer",
+                "viewportBound": false
+              },
+              "scope": "C",
+              "type": "popup"
+            }
+          }
+        },
+        "meta": {
+          "name": "PullRemote"
+        },
+        "position": {
+          "basis": "185px"
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.custom.PATSaved"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "image": {
+            "icon": {
+              "path": "material/cloud_download"
+            }
+          },
+          "primary": false,
+          "style": {
+            "margin": "2px"
+          },
+          "text": "Pull From Repo"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tgitScripts.checkout_branch(self.view.custom.localRepoPath, self.view.custom.branch, \u0027main\u0027)\n\tsystem.perspective.sendMessage(\u0027update\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "SetToken_0"
+            },
+            "position": {
+              "grow": 1
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.localRepoPath}!\u003d\u0027\u0027"
+                  },
+                  "type": "expr"
+                }
+              },
+              "props.style.backgroundColor": {
+                "binding": {
+                  "config": {
+                    "expression": "if({view.custom.branch}\u003d\u0027main\u0027,\u0027green\u0027,\u0027\u0027)"
+                  },
+                  "enabled": false,
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/input"
+                }
+              },
+              "primary": false,
+              "style": {
+                "backgroundColor": "",
+                "margin": "2px",
+                "whiteSpace": "pre-wrap"
+              },
+              "text": "Pull Main",
+              "textStyle": {
+                "whiteSpace": "normal"
+              }
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.branch"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn value not in [None, \u0027\u0027 , \u0027main\u0027]",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.branch"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontSize": 10
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "justify": "center"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "token",
+          "pageScope": true,
+          "script": "\timport os\n\tself.view.custom.PATSaved\u003dos.path.exists(\"/usr/local/bin/ignition/data/tmp/gitPAT.json\")",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "localDir",
+          "pageScope": true,
+          "script": "\t#\tsystem.perspective.sendMessage(\u0027localDir\u0027, {\u0027dir\u0027:directory})\n\tself.view.custom.localRepoPath\u003dpayload[\u0027dir\u0027]",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "update",
+          "pageScope": true,
+          "script": "\tself.view.refreshBinding(\u0027custom.branch\u0027)",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}
