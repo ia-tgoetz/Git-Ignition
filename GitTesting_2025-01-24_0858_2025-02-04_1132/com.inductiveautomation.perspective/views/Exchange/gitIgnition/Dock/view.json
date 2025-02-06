@@ -359,6 +359,13 @@
           "script": "\t#\tsystem.perspective.sendMessage(\u0027localDir\u0027, {\u0027dir\u0027:directory})\n\tself.view.custom.localRepoPath\u003dpayload[\u0027dir\u0027]",
           "sessionScope": false,
           "viewScope": false
+        },
+        {
+          "messageType": "update",
+          "pageScope": true,
+          "script": "\tself.view.refreshBinding(\u0027custom.branch\u0027)",
+          "sessionScope": false,
+          "viewScope": false
         }
       ]
     },
