@@ -151,7 +151,7 @@
                 "width": "2rem"
               }
             },
-            "text": "Set Remote Repo"
+            "text": "Push to Repo"
           },
           "style": {
             "margin": "4px",
@@ -165,7 +165,7 @@
                 "width": "2rem"
               }
             },
-            "text": "Creating Remote Repo..."
+            "text": "Pushing to Repo"
           }
         },
         "type": "ia.input.oneshotbutton"
