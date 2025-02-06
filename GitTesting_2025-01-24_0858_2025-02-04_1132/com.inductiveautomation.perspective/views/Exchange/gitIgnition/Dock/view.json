@@ -1,6 +1,7 @@
 {
   "custom": {
-    "PATSaved": false
+    "PATSaved": false,
+    "localRepoPath": ""
   },
   "events": {
     "system": {
@@ -14,6 +15,11 @@
     }
   },
   "params": {},
+  "propConfig": {
+    "custom.localRepoPath": {
+      "persistent": true
+    }
+  },
   "props": {
     "defaultSize": {
       "height": 45,
@@ -171,6 +177,9 @@
                 "showCloseIcon": true,
                 "title": "Push to Remote",
                 "type": "open",
+                "viewParams": {
+                  "directory": "{view.custom.localRepoPath}"
+                },
                 "viewPath": "Exchange/gitIgnition/EmbeddedViews/GitPushToBranch",
                 "viewportBound": false
               },
@@ -189,9 +198,9 @@
           "props.enabled": {
             "binding": {
               "config": {
-                "path": "view.custom.PATSaved"
+                "expression": "{view.custom.PATSaved}\u0026\u0026\r\n{view.custom.localRepoPath}!\u003d\u0027\u0027"
               },
-              "type": "property"
+              "type": "expr"
             }
           }
         },
@@ -265,19 +274,10 @@
           "component": {
             "onActionPerformed": {
               "config": {
-                "draggable": true,
-                "id": "PAT",
-                "modal": false,
-                "overlayDismiss": false,
-                "resizable": true,
-                "showCloseIcon": true,
-                "title": "Set Personal Access Token",
-                "type": "open",
-                "viewPath": "Exchange/gitIgnition/EmbeddedViews/StoreGitToken",
-                "viewportBound": false
+                "script": "\tgitScripts.checkout_branch(self.view.custom.localRepoPath)"
               },
-              "scope": "C",
-              "type": "popup"
+              "scope": "G",
+              "type": "script"
             }
           }
         },
@@ -288,55 +288,20 @@
           "basis": "185px"
         },
         "propConfig": {
-          "props.image.icon.color": {
+          "props.enabled": {
             "binding": {
               "config": {
-                "path": "view.custom.PATSaved"
+                "expression": "{view.custom.localRepoPath}!\u003d\u0027\u0027"
               },
-              "transforms": [
-                {
-                  "fallback": "red",
-                  "inputType": "scalar",
-                  "mappings": [
-                    {
-                      "input": true,
-                      "output": "green"
-                    }
-                  ],
-                  "outputType": "scalar",
-                  "type": "map"
-                }
-              ],
-              "type": "property"
-            }
-          },
-          "props.image.icon.path": {
-            "binding": {
-              "config": {
-                "path": "view.custom.PATSaved"
-              },
-              "transforms": [
-                {
-                  "fallback": "material/lock",
-                  "inputType": "scalar",
-                  "mappings": [
-                    {
-                      "input": true,
-                      "output": "material/check"
-                    }
-                  ],
-                  "outputType": "scalar",
-                  "type": "map"
-                }
-              ],
-              "type": "property"
+              "type": "expr"
             }
           }
         },
         "props": {
-          "enabled": false,
           "image": {
-            "icon": {}
+            "icon": {
+              "path": "material/input"
+            }
           },
           "primary": false,
           "style": {
@@ -361,6 +326,13 @@
           "messageType": "token",
           "pageScope": true,
           "script": "\timport os\n\tself.view.custom.PATSaved\u003dos.path.exists(\"/usr/local/bin/ignition/data/tmp/gitPAT.json\")",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "localDir",
+          "pageScope": true,
+          "script": "\t#\tsystem.perspective.sendMessage(\u0027localDir\u0027, {\u0027dir\u0027:directory})\n\tself.view.custom.localRepoPath\u003dpayload[\u0027dir\u0027]",
           "sessionScope": false,
           "viewScope": false
         }
