@@ -127,7 +127,7 @@ def push_to_main(local_repo_path, commit_message, branch=None, user=""):
 
 def checkout_branch(local_repo_path, current_branch, checkout_branch='main'):
 	if current_branch!=checkout_branch:
-		subprocess.check_call(["git", "-C", local_repo_path, "checkout", branch])
+		subprocess.check_call(["git", "-C", local_repo_path, "checkout", checkout_branch])
 	subprocess.check_call(["git", "-C", local_repo_path, "pull"])
 
 
