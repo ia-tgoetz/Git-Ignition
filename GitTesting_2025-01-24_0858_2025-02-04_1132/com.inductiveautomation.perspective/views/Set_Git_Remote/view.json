@@ -1,18 +1,5 @@
 {
-  "custom": {
-    "PATSaved": true
-  },
-  "events": {
-    "system": {
-      "onStartup": {
-        "config": {
-          "script": "\timport os\n\tself.custom.PATSaved\u003dos.path.exists(\"/usr/local/bin/ignition/data/tmp/gitPAT.json\")"
-        },
-        "scope": "G",
-        "type": "script"
-      }
-    }
-  },
+  "custom": {},
   "params": {
     "directory": "/usr/local/bin/ignition/data/projects"
   },
@@ -129,140 +116,22 @@
         "type": "ia.container.flex"
       },
       {
-        "children": [
-          {
-            "meta": {
-              "name": "Label"
-            },
-            "position": {
-              "basis": "200px",
-              "shrink": 0
-            },
-            "props": {
-              "style": {
-                "marginRight": "4px"
-              },
-              "text": "Personal Access Token:",
-              "textStyle": {
-                "textAlign": "right"
-              }
-            },
-            "type": "ia.display.label"
-          },
-          {
-            "meta": {
-              "name": "Icon"
-            },
-            "position": {
-              "basis": "30px"
-            },
-            "propConfig": {
-              "props.color": {
-                "binding": {
-                  "config": {
-                    "path": "view.custom.PATSaved"
-                  },
-                  "transforms": [
-                    {
-                      "fallback": "red",
-                      "inputType": "scalar",
-                      "mappings": [
-                        {
-                          "input": true,
-                          "output": "green"
-                        }
-                      ],
-                      "outputType": "scalar",
-                      "type": "map"
-                    }
-                  ],
-                  "type": "property"
-                }
-              },
-              "props.path": {
-                "binding": {
-                  "config": {
-                    "path": "view.custom.PATSaved"
-                  },
-                  "transforms": [
-                    {
-                      "fallback": "material/cancel",
-                      "inputType": "scalar",
-                      "mappings": [
-                        {
-                          "input": true,
-                          "output": "material/check_circle"
-                        }
-                      ],
-                      "outputType": "scalar",
-                      "type": "map"
-                    }
-                  ],
-                  "type": "property"
-                }
-              }
-            },
-            "type": "ia.display.icon"
-          },
-          {
-            "events": {
-              "component": {
-                "onActionPerformed": {
-                  "config": {
-                    "draggable": true,
-                    "id": "JBkwxHoQ",
-                    "modal": false,
-                    "overlayDismiss": false,
-                    "resizable": true,
-                    "showCloseIcon": true,
-                    "title": "Set Personal Access Token",
-                    "type": "open",
-                    "viewPath": "EmbeddedViews/storeGitToken",
-                    "viewportBound": false
-                  },
-                  "scope": "C",
-                  "type": "popup"
-                }
-              }
-            },
-            "meta": {
-              "name": "Button"
-            },
-            "position": {
-              "basis": "213px"
-            },
-            "propConfig": {
-              "position.display": {
-                "binding": {
-                  "config": {
-                    "expression": "!{view.custom.PATSaved}"
-                  },
-                  "type": "expr"
-                }
-              }
-            },
-            "props": {
-              "style": {
-                "marginLeft": "8px"
-              },
-              "text": "Set Token"
-            },
-            "type": "ia.input.button"
-          }
-        ],
         "meta": {
-          "name": "Token_0"
+          "name": "PersonalAccessTokenCheck"
         },
         "position": {
-          "basis": "36px",
           "shrink": 0
         },
         "props": {
+          "params": {
+            "PATSaved": true
+          },
+          "path": "PersonalAccessTokenCheck",
           "style": {
-            "margin": "4px"
+            "marginLeft": "4px"
           }
         },
-        "type": "ia.container.flex"
+        "type": "ia.display.view"
       },
       {
         "children": [
@@ -332,6 +201,16 @@
         "position": {
           "basis": "45px",
           "shrink": 0
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "../PersonalAccessTokenCheck.props.params.PATSaved"
+              },
+              "type": "property"
+            }
+          }
         },
         "props": {
           "readyState": {
