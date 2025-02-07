@@ -3,6 +3,14 @@ import shutil
 import json 
 
 logger = system.util.getLogger("GitHub")
+
+def getProjectDirectory():
+	from com.inductiveautomation.ignition.gateway import IgnitionGateway
+	context = IgnitionGateway.get()
+	projectParentFolder = '{}/projects'.format(context.systemManager.dataDir.absoluteFile).replace('\\','/')
+#	projectParentFolder = '{}'.format(context.systemManager.dataDir.absoluteFile).replace('\\','/')
+	return projectParentFolder
+	
 def copy_item(src, dest):
     """
     Copy a file or folder to the destination. If the destination already contains the file or folder,
@@ -30,7 +38,15 @@ def copy_item(src, dest):
     else:
         raise ValueError("Source is neither a file nor a directory: {}".format(src))
 
-
+def list_directories(directory):
+    """
+    List directories in the given directory.
+    """
+    try:
+        return [item for item in os.listdir(directory) if os.path.isdir(os.path.join(directory, item))]
+    except OSError as e:
+        print("Error listing directories: {}".format(e))
+        return []
 
 def save_file_to_directory(token, file_name='gitPAT.json',directory_path="/usr/local/bin/ignition/data/tmp"):
 	logger = system.util.getLogger("FileSystemSave")
