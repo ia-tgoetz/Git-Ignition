@@ -186,6 +186,7 @@ def project_update_from_git(repo_url, branch, username, token, projectsToUpdate=
 			if folder not in ignoreFolders and (projectsToUpdate==[] or folder in projectsToUpdate):
 				fileSystem.copy_item('{}/{}'.format(temp_repo_path,folder), projectDir)
 				logger.debug("Project '{}' copied".format(folder))
+		logger.debug("Projects from GitHub copied Successfully")
 		fileSystem.delete_directory(temp_repo_path)
 	else:
 		logger.warn("Failed to pull the remote repository.")
