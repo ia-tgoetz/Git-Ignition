@@ -170,7 +170,6 @@ def project_update_from_git(repo_url, branch, username, token, projectsToUpdate=
 	ignoreFolders=[".git"]
 	temp_repo_path = gitScripts.pull_git_repo(repo_url, branch, username, token)
 	if temp_repo_path:
-		logger.info("Remote Repository cloned to: {}".format(temp_repo_path))
 		#gather projects folder name
 		try:
 			projectDir=fileSystem.getProjectDirectory()
