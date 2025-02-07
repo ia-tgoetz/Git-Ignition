@@ -162,7 +162,7 @@ def add_and_get_staged_files(local_repo_path):
     except subprocess.CalledProcessError as e:
         return None
         
-def project_update_from_git(repo_url, branch, username, token, projectsToUpdate=[]):
+def project_update_from_git(repo_url, branch, username, token, projectsToUpdate=[], gitSubFolder=""):
 	'''
 	This script assumes that the repository is a copy of a projects folder from ignition 
 	i.e. the first level in the repository is a list of project folders users are planning to copy
@@ -177,11 +177,15 @@ def project_update_from_git(repo_url, branch, username, token, projectsToUpdate=
 		except:
 			logger.warn("Failed to identify gateway project directory")
 			return False
-		listProjects=fileSystem.list_directories(temp_repo_path)
+		if gitSubFolder!="":
+			gitProjectPath="{}/{}".format(temp_repo_path,gitSubFolder)
+		else:
+			gitProjectPath=temp_repo_path
+		listProjects=fileSystem.list_directories(gitProjectPath)
 		for folder in listProjects:
 			if folder not in ignoreFolders and (projectsToUpdate==[] or folder in projectsToUpdate):
 				fileSystem.copy_item('{}/{}'.format(temp_repo_path,folder), projectDir)
-				logger.debug("Project {} copied".format(folder))
+				logger.debug("Project '{}' copied".format(folder))
 		fileSystem.delete_directory(temp_repo_path)
 	else:
 		logger.warn("Failed to pull the remote repository.")
