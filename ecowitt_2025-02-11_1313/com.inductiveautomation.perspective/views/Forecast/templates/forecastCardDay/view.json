@@ -1,0 +1,589 @@
+{
+  "custom": {},
+  "params": {
+    "lat": "",
+    "lng": "",
+    "period": {}
+  },
+  "propConfig": {
+    "params.lat": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.lng": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.period": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 375,
+      "width": 76
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.period.time"
+              },
+              "transforms": [
+                {
+                  "code": "\tparsed_date \u003d value\n\tif system.date.format(system.date.now(), \"yyyy-MM-dd\")\u003d\u003dsystem.date.format(parsed_date, \"yyyy-MM-dd\"):\n\t\treturn \"Today\"\n\t# Format to 12-hour time with AM/PM\n\tformatted_time \u003d system.date.format(parsed_date, \"EEE dd\")\n\treturn formatted_time",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "style": {
+            "filter": "drop-shadow(2px 2px 2px #000000)",
+            "marginTop": "8px"
+          },
+          "textStyle": {
+            "fontSize": "12px",
+            "key": "value",
+            "marginBottom": "2px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.period"
+              },
+              "transforms": [
+                {
+                  "code": "\tif \u0027daily\u0027 in value.keys():\n\t\treturn \"\"\n\telse:\n\t\tparsed_date \u003d value[\u0027time\u0027]\n\t\tformatted_time \u003d system.date.format(parsed_date, \"h a\")\n\t\treturn formatted_time",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "style": {
+            "filter": "drop-shadow(2px 2px 2px #000000)",
+            "overflow": "visible"
+          },
+          "textStyle": {
+            "fontSize": "12px",
+            "key": "value",
+            "marginBottom": "2px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Image"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "propConfig": {
+                  "props.source": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.period.isDaytime"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "/system/images/WeatherIcons/thermometer-moon.svg",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": true,
+                              "output": "/system/images/WeatherIcons/thermometer-sun.svg"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "fit": {
+                    "mode": "contain"
+                  }
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "temp": "{view.params.period.temperature}",
+                          "unit": "{view.params.period.units.temperature}"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\t\n\tif value[\u0027unit\u0027]\u003d\u003d\"wmoUnit:degC\":\n\t\tval\u003dWeatherAPI.WeatherScripts.convertTodegF(value[\u0027temp\u0027])\n\telse:\n\t\tval\u003dvalue[\u0027temp\u0027]\n\treturn int(val)",
+                          "type": "script"
+                        },
+                        {
+                          "expression": "{value}+\"°F\"",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginRight": "4px"
+                  },
+                  "textStyle": {
+                    "fontSize": 14
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "High"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "justify": "flex-end",
+              "style": {
+                "color": "--neutral-90",
+                "filter": "drop-shadow(2px 2px 2px #000000)"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Metrics"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "marginBottom": "1px",
+            "marginTop": "1px",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "50px",
+          "display": false,
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.period.weather[0].weather"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "filter": "drop-shadow(2px 2px 2px #000000)",
+            "marginRight": "2px",
+            "overflow": "visible",
+            "paddingLeft": "2px"
+          },
+          "textStyle": {
+            "fontSize": "10px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Image"
+        },
+        "position": {
+          "basis": "49px"
+        },
+        "propConfig": {
+          "props.source": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "cloud": "{view.params.period.skyCover}",
+                  "conditions": "{view.params.period.weather}",
+                  "isDay": "{view.params.period.isDaytime}",
+                  "precip": "{view.params.period.probabilityOfPrecipitation}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tconditions\u003d[]\t\n\tfor weather in value[\u0027conditions\u0027]:\n\t\tval\u003dweather[\u0027weather\u0027]\n\t\tfor x in [\u0027snow\u0027, \u0027rain\u0027, \u0027sleet\u0027, \u0027mix\u0027, \u0027ice\u0027]:\n\t\t\tif val is not None and str(x) in val:\n\t\t\t\tconditions.append(x)\n\t\t\n\treturn WeatherAPI.WeatherScripts.select_weather_icon_detailed(value[\u0027cloud\u0027], value[\u0027precip\u0027], conditions, value[\u0027isDay\u0027])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "fit": {
+            "mode": "contain"
+          }
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Image"
+                },
+                "position": {
+                  "basis": "30px"
+                },
+                "props": {
+                  "fit": {
+                    "mode": "fill"
+                  },
+                  "source": "/system/images/WeatherIcons/raindrop.svg"
+                },
+                "type": "ia.display.image"
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "position": {
+                  "grow": 1,
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.period.probabilityOfPrecipitation"
+                      },
+                      "transforms": [
+                        {
+                          "code": "\tif value is None:\n\t\tvalue\u003d0\n\treturn \u0027{}%\u0027.format(value)",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "fontSize": 14,
+                    "textAlign": "left"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "High"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "props": {
+              "justify": "flex-end",
+              "style": {
+                "color": "--neutral-90",
+                "filter": "drop-shadow(2px 2px 2px #000000)"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "Precipitation"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "props": {
+          "alignItems": "center",
+          "direction": "column",
+          "justify": "center",
+          "style": {
+            "marginBottom": "1px",
+            "marginTop": "1px",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "propConfig": {
+          "meta.visible": {
+            "binding": {
+              "config": {
+                "path": "view.params.period.snowfallAmount"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value is None or value\u003d\u003d0:\n\t\treturn False\n\treturn True",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "total": "{view.params.period.snowfallAmount}",
+                  "unit": "{view.params.period.units.snowfallAmount}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tif value[\u0027unit\u0027]\u003d\u003d\"wmoUnit:mm\":\n\t\tval\u003dWeatherAPI.WeatherScripts.convert_length(value[\u0027total\u0027], \"mm\", \"in\")\n\telse:\n\t\tval\u003dvalue[\u0027total\u0027]\n\treturn \u0027{} in\u0027.format(round(val,2))",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "filter": "drop-shadow(2px 2px 2px #000000)"
+          },
+          "textStyle": {
+            "fontSize": "14px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.period.skyCover"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value is None:\n\t\tvalue\u003d0\n\treturn \"Cloud: {}%\".format(int(round(value,0)))",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "filter": "drop-shadow(2px 2px 2px #000000)"
+          },
+          "textStyle": {
+            "fontSize": "10px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label_3"
+            },
+            "props": {
+              "style": {
+                "marginTop": "4px"
+              },
+              "text": "Wind",
+              "textStyle": {
+                "fontSize": "12px",
+                "fontWeight": "bolder",
+                "textAlign": "center",
+                "whiteSpace": "pre"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_5"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "dir": "{view.params.period.windDirection}",
+                      "speed": "{view.params.period.windSpeed}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\treturn \"{} @\\n{} mph\".format(WindRose.PopulateData.degree_to_compass(float(value[\u0027dir\u0027])),int(round(WeatherAPI.WeatherScripts.kmh_to_mph(value[\u0027speed\u0027]),0)))",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "textStyle": {
+                "fontSize": "12px",
+                "fontWeight": "normal",
+                "textAlign": "center",
+                "whiteSpace": "pre"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Wind"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "direction": "column",
+          "style": {
+            "filter": "drop-shadow(2px 2px 2px #000000)",
+            "marginBottom": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "enabled": true,
+        "location": "center",
+        "style": {
+          "whiteSpace": "pre-wrap"
+        },
+        "width": "200px"
+      }
+    },
+    "propConfig": {
+      "meta.tooltip.text": {
+        "binding": {
+          "config": {
+            "path": "view.params.detailedForecast"
+          },
+          "type": "property"
+        }
+      },
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "path": "view.params.period.isDaytime"
+          },
+          "transforms": [
+            {
+              "fallback": "--neutral-20",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": true,
+                  "output": "--neutral-60"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": "16px",
+        "borderBottomRightRadius": "16px",
+        "borderTopLeftRadius": "16px",
+        "borderTopRightRadius": "16px",
+        "margin": "2px",
+        "marginBottom": "8px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

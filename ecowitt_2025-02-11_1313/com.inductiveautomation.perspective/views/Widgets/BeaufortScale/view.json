@@ -1,0 +1,205 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\timport uuid\n\t\n\t# Generate a random UUID\n\tself.params.uuid\u003dstr(uuid.uuid4())"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "configuring": false,
+    "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array",
+    "uuid": "00d17621-0d59-459a-b51d-bc0a845c57b3"
+  },
+  "propConfig": {
+    "params.configuring": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value:\n\t\tsystem.perspective.openPopup(id\u003dself.params.uuid, view\u003d\"templates/Tag Selector\", params\u003d{\"uuid\": self.params.uuid}, title\u003d\"Display Value\", viewportBound\u003dTrue)"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.uuid": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value!\u003d \"\" and self.params.tagPath\u003d\u003d\u0027\u0027:\n\t\tsystem.perspective.openPopup(id\u003dself.params.uuid, view\u003d\"templates/Tag Selector\", params\u003d{\"uuid\": self.params.uuid}, title\u003d\"Display Value\", viewportBound\u003dTrue)"
+      },
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 102,
+      "width": 220
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}/Beaufort_Scale_Text.Tooltip"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "valueDisplay/header",
+            "color": "--neutral-90",
+            "filter": "drop-shadow(0px 0px 5px #000000) drop-shadow(0px 0px 5px #000000)",
+            "marginRight": "15%",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Value"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "custom.format": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "tagPath": "{view.params.tagPath}"
+                    },
+                    "tagPath": "{tagPath}.FormatString"
+                  },
+                  "type": "tag"
+                }
+              },
+              "custom.value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "tagPath": "{view.params.tagPath}"
+                    },
+                    "tagPath": "{tagPath}/Beaufort_Scale_Text"
+                  },
+                  "type": "tag"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if(typeOf({this.custom.value})\u003d\"String\", {this.custom.value}, numberFormat({this.custom.value},{this.custom.format}))"
+                  },
+                  "overlayOptOut": true,
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "valueDisplay/value",
+                "filter": "drop-shadow(0px 0px 5px #000000) drop-shadow(0px 0px 5px #000000)"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "ValueDisplay"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "justify": "center",
+          "style": {
+            "classes": "valueDisplay/valueUnit",
+            "marginRight": "15%",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundImage": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "indirect",
+            "references": {
+              "tagPath": "{view.params.tagPath}"
+            },
+            "tagPath": "{tagPath}/Beaufort_Scale"
+          },
+          "transforms": [
+            {
+              "code": "\treturn \u0027url(\"/system/images/WeatherIcons/wind-beaufort-{}.svg\")\u0027.format(int(value))",
+              "type": "script"
+            }
+          ],
+          "type": "tag"
+        }
+      }
+    },
+    "props": {
+      "alignItems": "center",
+      "direction": "column",
+      "justify": "center",
+      "style": {
+        "background-position": "100% 50%",
+        "background-repeat": "no-repeat",
+        "classes": "valueDisplay/root",
+        "overflow": "visible"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "changeDisplayValue",
+          "pageScope": true,
+          "script": "\tif payload[\u0027uuid\u0027]\u003d\u003dself.view.params.uuid:\n\t\tself.view.params.tagPath\u003dpayload[\u0027tagPath\u0027]\n",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

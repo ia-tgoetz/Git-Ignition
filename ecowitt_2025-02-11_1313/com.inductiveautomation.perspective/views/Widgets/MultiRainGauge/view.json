@@ -1,0 +1,187 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 175,
+      "width": 634
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}.Tooltip"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "basis": "320px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.instances[0].tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027{}/Rain_Hourly\u0027.format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.instances[1].tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027{}/Rain_Daily\u0027.format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.instances[2].tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027{}/Rain_Weekly\u0027.format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.instances[3].tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027{}/Rain_Monthly\u0027.format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.instances[4].tagPath": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027{}/Rain_Yearly\u0027.format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignContent": "flex-start",
+          "elementPosition": {
+            "basis": "auto",
+            "grow": 0
+          },
+          "elementStyle": {
+            "overflow": "hidden"
+          },
+          "instances": [
+            {
+              "configuring": false,
+              "maximum": 0,
+              "uuid": "8aa24485-6410-42d8-b1c9-97594de8939e"
+            },
+            {
+              "configuring": false,
+              "maximum": 0,
+              "uuid": "c9baa52a-be66-4aef-af4c-ff34c3367cfa"
+            },
+            {
+              "configuring": false,
+              "maximum": 0,
+              "uuid": "38b7aed6-9220-44d7-8456-9d65ba2c382f"
+            },
+            {
+              "configuring": false,
+              "maximum": 0,
+              "uuid": "0bba38d1-9533-4a52-b23a-417e83d591a7"
+            },
+            {
+              "configuring": false,
+              "maximum": 0,
+              "uuid": "61b4ea14-21a6-4f81-988e-1cbf83888ef4"
+            }
+          ],
+          "path": "Widgets/RainGauge",
+          "style": {
+            "min-width": "320px"
+          },
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "justify": "flex-end",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

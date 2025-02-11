@@ -1,0 +1,950 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[ecowitt]WeatherStation"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 685,
+      "width": 1087
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Image"
+                    },
+                    "position": {
+                      "basis": "75px"
+                    },
+                    "propConfig": {
+                      "props.source": {
+                        "binding": {
+                          "config": {
+                            "path": "parent.custom.currentConditions.weather[0].icon"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\treturn  \u0027https://openweathermap.org/img/wn/{}@2x.png\u0027.format(value)\n",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "fit": {
+                        "mode": "contain"
+                      }
+                    },
+                    "type": "ia.display.image"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "Label_1"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "props": {
+                          "text": "Current Conditions",
+                          "textStyle": {
+                            "fontSize": 20,
+                            "fontWeight": "bolder",
+                            "textAlign": "center"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "Label_0"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "props": {
+                          "text": "Saint Marys, PA",
+                          "textStyle": {
+                            "fontSize": 20,
+                            "fontWeight": "bolder",
+                            "textAlign": "center"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      },
+                      {
+                        "meta": {
+                          "name": "Label"
+                        },
+                        "position": {
+                          "shrink": 0
+                        },
+                        "propConfig": {
+                          "props.text": {
+                            "binding": {
+                              "config": {
+                                "path": "..../Header.custom.currentConditions.weather[0].main"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "textStyle": {
+                            "textAlign": "center"
+                          }
+                        },
+                        "type": "ia.display.label"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "200px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "direction": "column"
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "meta": {
+                      "name": "Image_0"
+                    },
+                    "position": {
+                      "basis": "75px"
+                    },
+                    "propConfig": {
+                      "props.source": {
+                        "binding": {
+                          "config": {
+                            "path": "parent.custom.currentConditions.weather[0].icon"
+                          },
+                          "transforms": [
+                            {
+                              "code": "\treturn  \u0027https://openweathermap.org/img/wn/{}@2x.png\u0027.format(value)\n",
+                              "type": "script"
+                            }
+                          ],
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "fit": {
+                        "mode": "contain"
+                      }
+                    },
+                    "type": "ia.display.image"
+                  }
+                ],
+                "meta": {
+                  "name": "Header"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "custom.currentConditions": {
+                    "binding": {
+                      "config": {
+                        "struct": {
+                          "lat": "{this.custom.lat}",
+                          "lng": "{this.custom.lng}",
+                          "update": "now(10000)"
+                        },
+                        "waitOnAll": true
+                      },
+                      "transforms": [
+                        {
+                          "code": "\treturn  WeatherAPI.WeatherScripts.getCurrentWeather(value[\u0027lat\u0027],value[\u0027lng\u0027])",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr-struct"
+                    }
+                  },
+                  "custom.lat": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "tagPath": "{view.params.tagPath}"
+                        },
+                        "tagPath": "{tagPath}/Parameters/lat"
+                      },
+                      "type": "tag"
+                    }
+                  },
+                  "custom.lng": {
+                    "binding": {
+                      "config": {
+                        "fallbackDelay": 2.5,
+                        "mode": "indirect",
+                        "references": {
+                          "tagPath": "{view.params.tagPath}"
+                        },
+                        "tagPath": "{tagPath}/Parameters/lng"
+                      },
+                      "type": "tag"
+                    }
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "Temp"
+                            },
+                            "position": {
+                              "basis": "50%"
+                            },
+                            "props": {
+                              "params": {
+                                "color": "--info",
+                                "configuring": false,
+                                "showAvg": false,
+                                "showHi": true,
+                                "showLo": true,
+                                "showRate": true,
+                                "showTrend": true,
+                                "tagPath": "[ecowitt]WeatherStation/WM32_Outdoor_Thermometer/Temperature",
+                                "timeSpanHour": 24,
+                                "uuid": "d1448d98-a72a-45da-81b7-d06668ee8692"
+                              },
+                              "path": "Widgets/valueHistoryDisplay",
+                              "style": {
+                                "margin": "4px",
+                                "overflow": "visible"
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "Temp_0"
+                            },
+                            "position": {
+                              "basis": "50%"
+                            },
+                            "props": {
+                              "params": {
+                                "color": "--info",
+                                "configuring": false,
+                                "showAvg": false,
+                                "showHi": true,
+                                "showLo": true,
+                                "showRate": true,
+                                "showTrend": true,
+                                "tagPath": "[ecowitt]WeatherStation/GW1200_WIFI_Gateway/Barometric_Pressure_REL",
+                                "timeSpanHour": 24,
+                                "uuid": "432f2850-7e4a-4174-92c1-02bd4a485238"
+                              },
+                              "path": "Widgets/valueHistoryDisplay",
+                              "style": {
+                                "margin": "4px"
+                              }
+                            },
+                            "type": "ia.display.view"
+                          }
+                        ],
+                        "meta": {
+                          "name": "FlexContainer_0"
+                        },
+                        "position": {
+                          "basis": "145px",
+                          "grow": 1
+                        },
+                        "props": {
+                          "direction": "column",
+                          "style": {
+                            "overflow": "visible"
+                          }
+                        },
+                        "type": "ia.container.flex"
+                      },
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "FeelsLike"
+                            },
+                            "position": {
+                              "basis": "40px",
+                              "grow": 1,
+                              "shrink": 0
+                            },
+                            "props": {
+                              "params": {
+                                "color": "--info",
+                                "configuring": false,
+                                "showAvg": false,
+                                "showHi": false,
+                                "showLo": false,
+                                "showRate": false,
+                                "showTrend": true,
+                                "tagPath": "[ecowitt]WeatherStation/WM32_Outdoor_Thermometer/Feels_Like",
+                                "timeSpanHour": 24,
+                                "uuid": "7e020d7c-7bee-4639-b6a3-08ba4368d0c9"
+                              },
+                              "path": "Widgets/valueHistoryDisplay",
+                              "style": {
+                                "margin": "4px"
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "Humidity"
+                            },
+                            "position": {
+                              "basis": "40px",
+                              "grow": 1,
+                              "shrink": 0
+                            },
+                            "props": {
+                              "params": {
+                                "color": "--info",
+                                "configuring": false,
+                                "showAvg": false,
+                                "showHi": false,
+                                "showLo": false,
+                                "showRate": false,
+                                "showTrend": true,
+                                "tagPath": "[ecowitt]WeatherStation/WM32_Outdoor_Thermometer/Humidity",
+                                "timeSpanHour": 24,
+                                "uuid": "91dba0c0-7c6d-4519-a9fc-2c8a987ea2e5"
+                              },
+                              "path": "Widgets/valueHistoryDisplay",
+                              "style": {
+                                "margin": "4px"
+                              }
+                            },
+                            "type": "ia.display.view"
+                          },
+                          {
+                            "meta": {
+                              "name": "DewPoint"
+                            },
+                            "position": {
+                              "basis": "40px",
+                              "grow": 1,
+                              "shrink": 0
+                            },
+                            "props": {
+                              "params": {
+                                "color": "--info",
+                                "configuring": false,
+                                "showAvg": false,
+                                "showHi": false,
+                                "showLo": false,
+                                "showRate": false,
+                                "showTrend": true,
+                                "tagPath": "[ecowitt]WeatherStation/WM32_Outdoor_Thermometer/Dew_Point",
+                                "timeSpanHour": 24,
+                                "uuid": "da374a01-2ab5-4b78-8cce-05e2f4b49902"
+                              },
+                              "path": "Widgets/valueHistoryDisplay",
+                              "style": {
+                                "margin": "4px"
+                              }
+                            },
+                            "type": "ia.display.view"
+                          }
+                        ],
+                        "meta": {
+                          "name": "FlexContainer"
+                        },
+                        "position": {
+                          "basis": "50%"
+                        },
+                        "props": {
+                          "direction": "column"
+                        },
+                        "type": "ia.container.flex"
+                      }
+                    ],
+                    "meta": {
+                      "name": "TempHum"
+                    },
+                    "position": {
+                      "basis": "293px",
+                      "grow": 1,
+                      "shrink": 0
+                    },
+                    "props": {
+                      "style": {
+                        "overflow": "visible"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "R1Data"
+                },
+                "position": {
+                  "basis": "175px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "overflow": "visible"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "FeelsLike_0"
+                },
+                "position": {
+                  "basis": "50px",
+                  "shrink": 0
+                },
+                "props": {
+                  "params": {
+                    "configuring": false,
+                    "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array/Thermal_Perception",
+                    "uuid": "84d7b90e-17e9-4434-8abe-9eff341851f1"
+                  },
+                  "path": "Widgets/valueDisplay",
+                  "style": {
+                    "margin": "4px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "FeelsLike_1"
+                },
+                "position": {
+                  "basis": "50px",
+                  "shrink": 0
+                },
+                "props": {
+                  "params": {
+                    "configuring": false,
+                    "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array/Rain_State",
+                    "uuid": "bcff04d9-eca8-4904-89ae-123950c9601f"
+                  },
+                  "path": "Widgets/valueDisplay",
+                  "style": {
+                    "margin": "4px"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "FeelsLike"
+                        },
+                        "position": {
+                          "basis": "64px",
+                          "shrink": 0
+                        },
+                        "props": {
+                          "params": {
+                            "color": "--info",
+                            "configuring": false,
+                            "showAvg": false,
+                            "showHi": true,
+                            "showLo": false,
+                            "showRate": false,
+                            "showTrend": false,
+                            "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array/Rain_Rate",
+                            "timeSpanHour": 24,
+                            "uuid": "b0d809f8-6429-4791-8b86-daa3ce645d0d"
+                          },
+                          "path": "Widgets/valueHistoryDisplay",
+                          "style": {
+                            "margin": "4px"
+                          }
+                        },
+                        "type": "ia.display.view"
+                      },
+                      {
+                        "meta": {
+                          "name": "RainGauge"
+                        },
+                        "props": {
+                          "params": {
+                            "configuring": false,
+                            "maximum": 0,
+                            "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array/Rain_Daily",
+                            "uuid": "37f14e8c-3258-4985-b6f3-d554ccb5ae99"
+                          },
+                          "path": "Widgets/RainGauge"
+                        },
+                        "type": "ia.display.view"
+                      }
+                    ],
+                    "meta": {
+                      "name": "Piezo Rain"
+                    },
+                    "position": {
+                      "basis": "50%"
+                    },
+                    "props": {
+                      "direction": "column"
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "FeelsLike"
+                        },
+                        "position": {
+                          "basis": "64px",
+                          "shrink": 0
+                        },
+                        "props": {
+                          "params": {
+                            "color": "--info",
+                            "configuring": false,
+                            "showAvg": false,
+                            "showHi": true,
+                            "showLo": false,
+                            "showRate": false,
+                            "showTrend": false,
+                            "tagPath": "[ecowitt]WeatherStation/WH40_Rain_Gauge/Rain_Rate",
+                            "timeSpanHour": 24,
+                            "uuid": "a11d9401-45c6-4a9a-8e06-5c72ed0b66a7"
+                          },
+                          "path": "Widgets/valueHistoryDisplay",
+                          "style": {
+                            "margin": "4px"
+                          }
+                        },
+                        "type": "ia.display.view"
+                      },
+                      {
+                        "meta": {
+                          "name": "RainGauge"
+                        },
+                        "props": {
+                          "params": {
+                            "configuring": false,
+                            "maximum": 0,
+                            "tagPath": "[ecowitt]WeatherStation/WH40_Rain_Gauge/Rain_Daily",
+                            "uuid": "41a4dcfb-f3b9-46b4-bb53-84604861aeee"
+                          },
+                          "path": "Widgets/RainGauge"
+                        },
+                        "type": "ia.display.view"
+                      }
+                    ],
+                    "meta": {
+                      "name": "Piezo Rain_0"
+                    },
+                    "position": {
+                      "basis": "50%"
+                    },
+                    "props": {
+                      "direction": "column"
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "Rain"
+                },
+                "position": {
+                  "basis": "249px"
+                },
+                "props": {
+                  "style": {
+                    "min-height": "200px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "400px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "overflow": "visible"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "FeelsLike_0"
+                    },
+                    "position": {
+                      "basis": "40px",
+                      "grow": 1,
+                      "shrink": 0
+                    },
+                    "props": {
+                      "params": {
+                        "configuring": false,
+                        "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array",
+                        "uuid": "df81f6a4-6faf-4a15-a988-b5af972f17e5"
+                      },
+                      "path": "Widgets/BeaufortScale",
+                      "style": {
+                        "margin": "4px"
+                      }
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "WindSpeed"
+                    },
+                    "position": {
+                      "basis": "40px",
+                      "grow": 1,
+                      "shrink": 0
+                    },
+                    "props": {
+                      "params": {
+                        "color": "--info",
+                        "configuring": false,
+                        "showAvg": true,
+                        "showHi": true,
+                        "showLo": false,
+                        "showRate": false,
+                        "showTrend": true,
+                        "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array/Wind_Speed\n",
+                        "timeSpanHour": 24,
+                        "uuid": "f0fd10ca-4343-4574-89fe-9888586f7a83"
+                      },
+                      "path": "Widgets/valueHistoryDisplay",
+                      "style": {
+                        "margin": "4px"
+                      }
+                    },
+                    "type": "ia.display.view"
+                  },
+                  {
+                    "meta": {
+                      "name": "Wind Gust"
+                    },
+                    "position": {
+                      "basis": "40px",
+                      "grow": 1,
+                      "shrink": 0
+                    },
+                    "props": {
+                      "params": {
+                        "color": "--info",
+                        "configuring": false,
+                        "showAvg": true,
+                        "showHi": true,
+                        "showLo": false,
+                        "showRate": false,
+                        "showTrend": true,
+                        "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array/Wind_Gust",
+                        "timeSpanHour": 24,
+                        "uuid": "9a59106d-7b7f-4fc8-a8f4-b51f88051983"
+                      },
+                      "path": "Widgets/valueHistoryDisplay",
+                      "style": {
+                        "margin": "4px"
+                      }
+                    },
+                    "type": "ia.display.view"
+                  }
+                ],
+                "meta": {
+                  "name": "Wind"
+                },
+                "position": {
+                  "basis": "90px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "width": "600px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "WindRose"
+                        },
+                        "position": {
+                          "basis": "473px"
+                        },
+                        "props": {
+                          "loading": {
+                            "order": "with-parent"
+                          },
+                          "params": {
+                            "axisColor": "#555555",
+                            "backColor": "transparent",
+                            "configuring": false,
+                            "edit": true,
+                            "endDate": null,
+                            "labelColor": "#AAAAAA",
+                            "pastHrs": 12,
+                            "periodSec": 15,
+                            "startDate": null,
+                            "title": "Wind Rose",
+                            "titleColor": "#FFFFFF"
+                          },
+                          "path": "Widgets/WindRose",
+                          "style": {
+                            "borderBottomLeftRadius": 32,
+                            "borderBottomRightRadius": 32,
+                            "borderColor": "--neutral-50",
+                            "borderStyle": "solid",
+                            "borderTopLeftRadius": 32,
+                            "borderTopRightRadius": 32,
+                            "margin": "4px"
+                          }
+                        },
+                        "type": "ia.display.view"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer_0"
+                    },
+                    "position": {
+                      "basis": "350px",
+                      "shrink": 0
+                    },
+                    "props": {
+                      "direction": "column"
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "meta": {
+                              "name": "windSimple"
+                            },
+                            "position": {
+                              "height": 1,
+                              "width": 1
+                            },
+                            "props": {
+                              "params": {
+                                "headingRotate": false,
+                                "lineColor": "var(--info)",
+                                "sensorArrayPath": "[ecowitt]WeatherStation/WS85_Sensor_Array",
+                                "timeSpanHour": 1
+                              },
+                              "path": "templates/wind"
+                            },
+                            "type": "ia.display.view"
+                          }
+                        ],
+                        "meta": {
+                          "name": "CoordinateContainer"
+                        },
+                        "position": {
+                          "basis": "240px",
+                          "grow": 1
+                        },
+                        "props": {
+                          "mode": "percent",
+                          "style": {
+                            "min-height": "150px",
+                            "overflow": "visible"
+                          }
+                        },
+                        "type": "ia.container.coord"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "250px"
+                    },
+                    "props": {
+                      "alignContent": "flex-start",
+                      "direction": "column"
+                    },
+                    "type": "ia.container.flex"
+                  }
+                ],
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "200px",
+                  "grow": 1
+                },
+                "props": {
+                  "alignItems": "flex-start",
+                  "style": {
+                    "min-height": "474px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "700px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "EmbeddedView"
+        },
+        "position": {
+          "basis": "320px",
+          "shrink": 0
+        },
+        "props": {
+          "params": {
+            "color": "--info",
+            "showAvg": true,
+            "showHi": true,
+            "showLo": false,
+            "showRate": false,
+            "showTrend": true,
+            "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array/Wind_Speed\n",
+            "timeSpanHour": 24,
+            "uuid": "25919260-4c4e-452d-9019-1a44053824a1"
+          },
+          "path": "CurrentConditions/expandedView",
+          "style": {
+            "backgroundColor": "transparent",
+            "classes": "shrink-area"
+          }
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "custom": {
+      "clickEvents": {
+        "x": 509,
+        "y": 141
+      },
+      "key": {
+        "color": "--info",
+        "showAvg": false,
+        "showHi": true,
+        "showLo": false,
+        "showRate": false,
+        "showTrend": false,
+        "tagPath": "[ecowitt]WeatherStation/WH40_Rain_Gauge/Rain_Rate",
+        "timeSpanHour": 24,
+        "uuid": "4c646771-5b32-4cf1-a469-511d9cc32a03"
+      }
+    },
+    "events": {
+      "dom": {
+        "onClick": {
+          "config": {
+            "script": "\tself.custom.clickEvents\u003d{\u0027x\u0027:event.pageX, \u0027y\u0027:event.pageY}\n#\tself.getChild(\"EmbeddedView\").props.style.top\u003devent.pageY\n#\tself.getChild(\"EmbeddedView\").props.style.left\u003devent.pageX"
+          },
+          "scope": "G",
+          "type": "script"
+        }
+      }
+    },
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "visible"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "resize",
+          "pageScope": true,
+          "script": "\tself.getChild(\"EmbeddedView\").props.params\u003dpayload\n\tself.getChild(\"EmbeddedView\").props.style.classes\u003d\"grow-area\"",
+          "sessionScope": false,
+          "viewScope": false
+        },
+        {
+          "messageType": "close",
+          "pageScope": true,
+          "script": "\tself.getChild(\"EmbeddedView\").props.style.classes\u003d\"shrink-area\"",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

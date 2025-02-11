@@ -1,0 +1,16 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "stylesheet.css"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "tomg55",
+      "timestamp": "2025-01-22T11:16:55Z"
+    },
+    "lastModificationSignature": "ed819c17af983d25e3a464d7b30a3c27d14499d3751fdde5132073bc86086fe2"
+  }
+}

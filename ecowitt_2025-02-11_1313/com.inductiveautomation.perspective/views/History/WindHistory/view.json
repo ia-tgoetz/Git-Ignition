@@ -1,0 +1,161 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "TimeSeriesChart"
+        },
+        "position": {
+          "basis": "400px"
+        },
+        "propConfig": {
+          "props.series[0].data": {
+            "binding": {
+              "config": {
+                "aggregate": "MinMax",
+                "avoidScanClassValidation": true,
+                "dateRange": {
+                  "mostRecent": "1",
+                  "mostRecentUnits": "DAY"
+                },
+                "enableValueCache": true,
+                "ignoreBadQuality": false,
+                "polling": {
+                  "enabled": false,
+                  "rate": "30"
+                },
+                "preventInterpolation": false,
+                "returnFormat": "Wide",
+                "returnSize": {
+                  "numRows": "100",
+                  "type": "FIXED"
+                },
+                "tags": [
+                  {
+                    "aggregate": "Average",
+                    "path": "[ecowitt]WeatherStation/WS85_Sensor_Array/Wind_Speed"
+                  }
+                ],
+                "valueFormat": "DATASET"
+              },
+              "type": "tag-history"
+            }
+          }
+        },
+        "props": {
+          "plots": [
+            {
+              "axes": [
+                {
+                  "alignment": "left",
+                  "grid": {
+                    "color": "",
+                    "dashArray": 0,
+                    "opacity": 0.9,
+                    "style": {
+                      "classes": ""
+                    },
+                    "visible": false
+                  },
+                  "label": {
+                    "font": {
+                      "color": "",
+                      "size": 10
+                    },
+                    "offset": 0,
+                    "style": {
+                      "classes": ""
+                    },
+                    "text": "Wind Speed",
+                    "visible": true
+                  },
+                  "max": "",
+                  "min": "",
+                  "name": "Wind Speed",
+                  "style": {
+                    "classes": ""
+                  },
+                  "tick": {
+                    "color": "",
+                    "count": "Auto",
+                    "label": {
+                      "font": {
+                        "color": "",
+                        "size": 10
+                      },
+                      "format": "Auto",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "width": 20
+                }
+              ],
+              "markers": [],
+              "relativeWeight": 2,
+              "trends": [
+                {
+                  "axis": "Wind Speed",
+                  "baselines": [
+                    {
+                      "axis": "Wind Speed",
+                      "color": "",
+                      "column": "",
+                      "dashArray": 0,
+                      "function": "avg",
+                      "label": {
+                        "font": {
+                          "color": "",
+                          "size": 10
+                        },
+                        "position": "right",
+                        "style": {
+                          "classes": ""
+                        },
+                        "text": ""
+                      },
+                      "opacity": 0.5,
+                      "style": {
+                        "classes": ""
+                      },
+                      "visible": true,
+                      "width": 1
+                    }
+                  ],
+                  "breakLine": false,
+                  "columns": [],
+                  "interpolation": "curveLinear",
+                  "radius": 2,
+                  "series": "Speed",
+                  "stack": true,
+                  "type": "line",
+                  "visible": true
+                }
+              ]
+            }
+          ],
+          "series": [
+            {
+              "name": "Speed"
+            }
+          ]
+        },
+        "type": "ia.chart.timeseries"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

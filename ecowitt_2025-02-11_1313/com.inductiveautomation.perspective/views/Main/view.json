@@ -1,0 +1,600 @@
+{
+  "custom": {
+    "forecast": null,
+    "forecastData": null,
+    "lat": null,
+    "lng": null
+  },
+  "params": {
+    "tagPath": "[ecowitt]WeatherStation"
+  },
+  "propConfig": {
+    "custom.forecast": {
+      "binding": {
+        "config": {
+          "struct": {
+            "lat": "{view.custom.lat}",
+            "lng": "{view.custom.lng}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\treturn  WeatherAPI.WeatherScripts.getGridForcast(value[\u0027lat\u0027],value[\u0027lng\u0027])",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.forecastData": {
+      "binding": {
+        "config": {
+          "path": "view.params.url"
+        },
+        "transforms": [
+          {
+            "code": "\turl\u003dvalue.strip(\"/forecast\")\n\treturn WeatherAPI.WeatherScripts.generalAPICall(url)",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.lat": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "direct",
+          "tagPath": "[ecowitt]WeatherStation/Parameters.lat"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "custom.lng": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "direct",
+          "tagPath": "[ecowitt]WeatherStation/Parameters.lng"
+        },
+        "type": "tag"
+      },
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Primary"
+        },
+        "props": {
+          "path": "CurrentConditions/Primary"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "meta": {
+          "name": "Main"
+        },
+        "position": {
+          "tabIndex": 2
+        },
+        "props": {
+          "params": {
+            "tagPath": "[ecowitt]WeatherStation"
+          },
+          "path": "Map/Main"
+        },
+        "type": "ia.display.view"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "ForecastDay"
+            },
+            "propConfig": {
+              "props.params.lat": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.lat"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.lng": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.lng"
+                  },
+                  "type": "property"
+                }
+              },
+              "props.params.url": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.forecast.properties.forecast"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "Forecast/templates/ForecastDay"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "Forecast"
+        },
+        "position": {
+          "tabIndex": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Temp"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "params": {
+                    "color": "--info",
+                    "configuring": false,
+                    "showAvg": true,
+                    "showHi": true,
+                    "showLo": true,
+                    "showRate": true,
+                    "showTrend": true,
+                    "tagPath": "[Shelly]Trigger/BoxTemp",
+                    "timeSpanHour": 24,
+                    "uuid": "bbc678e9-afbe-49b1-9903-186f7fcc683f"
+                  },
+                  "path": "Widgets/valueHistoryDisplay",
+                  "style": {
+                    "margin": "4px",
+                    "overflow": "visible"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "Temp_0"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "params": {
+                    "color": "--info",
+                    "configuring": false,
+                    "showAvg": true,
+                    "showHi": true,
+                    "showLo": true,
+                    "showRate": true,
+                    "showTrend": true,
+                    "tagPath": "[Shelly]Trigger/ShedTemp",
+                    "timeSpanHour": 24,
+                    "uuid": "21d64aa1-40c9-474e-a700-d6c586d3aef7"
+                  },
+                  "path": "Widgets/valueHistoryDisplay",
+                  "style": {
+                    "margin": "4px",
+                    "overflow": "visible"
+                  }
+                },
+                "type": "ia.display.view"
+              },
+              {
+                "meta": {
+                  "name": "Temp_1"
+                },
+                "position": {
+                  "basis": "200px"
+                },
+                "props": {
+                  "params": {
+                    "color": "--info",
+                    "configuring": false,
+                    "showAvg": true,
+                    "showHi": true,
+                    "showLo": true,
+                    "showRate": true,
+                    "showTrend": true,
+                    "tagPath": "[Shelly]Trigger/OutsideTemp",
+                    "timeSpanHour": 24,
+                    "uuid": "6b1f3795-34dd-432a-bcbc-0de586b3c09a"
+                  },
+                  "path": "Widgets/valueHistoryDisplay",
+                  "style": {
+                    "margin": "4px",
+                    "overflow": "visible"
+                  }
+                },
+                "type": "ia.display.view"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "90px",
+              "shrink": 0
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "meta": {
+              "name": "PowerChart"
+            },
+            "position": {
+              "basis": "600px",
+              "grow": 1
+            },
+            "props": {
+              "config": {
+                "endDate": {
+                  "$": [
+                    "ts",
+                    0,
+                    1737462029189
+                  ],
+                  "$ts": 1737460859504
+                },
+                "rangeEndDate": {
+                  "$": [
+                    "ts",
+                    0,
+                    1737467086371
+                  ],
+                  "$ts": 1737466942320
+                },
+                "rangeStartDate": {
+                  "$": [
+                    "ts",
+                    0,
+                    1737467086371
+                  ],
+                  "$ts": 1737423886320
+                },
+                "startDate": {
+                  "$": [
+                    "ts",
+                    0,
+                    1737462029189
+                  ],
+                  "$ts": 1737406946665
+                },
+                "unitOfTime": 12,
+                "visibility": {
+                  "buttons": {
+                    "showTagBrowserButton": false
+                  }
+                }
+              },
+              "interaction": {
+                "chartZoomLevel": 1,
+                "mode": "xTrace",
+                "panAndZoom": {
+                  "freeRange": true
+                },
+                "rangeZoomLevel": 1
+              },
+              "pens": [
+                {
+                  "axis": "",
+                  "data": {
+                    "aggregateMode": "default",
+                    "source": "histprov:Database152:/drv:ourhouse:shelly:/tag:trigger/boxtemp"
+                  },
+                  "display": {
+                    "breakLine": true,
+                    "interpolation": "curveLinear",
+                    "radius": 3,
+                    "styles": {
+                      "highlighted": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      },
+                      "muted": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 0.4
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 0.4,
+                          "width": 1
+                        }
+                      },
+                      "normal": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 0.8
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 0.8,
+                          "width": 1
+                        }
+                      },
+                      "selected": {
+                        "fill": {
+                          "color": "#63BEA2",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#63BEA2",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      }
+                    },
+                    "type": "line"
+                  },
+                  "enabled": true,
+                  "name": "Box",
+                  "plot": 0,
+                  "selectable": true,
+                  "visible": true
+                },
+                {
+                  "axis": "",
+                  "data": {
+                    "aggregateMode": "default",
+                    "source": "histprov:Database152:/drv:ourhouse:shelly:/tag:trigger/shedtemp"
+                  },
+                  "display": {
+                    "breakLine": true,
+                    "interpolation": "curveLinear",
+                    "radius": 3,
+                    "styles": {
+                      "highlighted": {
+                        "fill": {
+                          "color": "#FC8D62",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#fc8d62",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      },
+                      "muted": {
+                        "fill": {
+                          "color": "#FC8D62",
+                          "opacity": 0.4
+                        },
+                        "stroke": {
+                          "color": "#fc8d62",
+                          "dashArray": 0,
+                          "opacity": 0.4,
+                          "width": 1
+                        }
+                      },
+                      "normal": {
+                        "fill": {
+                          "color": "#FC8D62",
+                          "opacity": 0.8
+                        },
+                        "stroke": {
+                          "color": "#fc8d62",
+                          "dashArray": 0,
+                          "opacity": 0.8,
+                          "width": 1
+                        }
+                      },
+                      "selected": {
+                        "fill": {
+                          "color": "#FC8D62",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#fc8d62",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      }
+                    },
+                    "type": "line"
+                  },
+                  "enabled": true,
+                  "name": "Shed",
+                  "plot": 0,
+                  "selectable": true,
+                  "visible": true
+                },
+                {
+                  "axis": "",
+                  "data": {
+                    "aggregateMode": "default",
+                    "source": "histprov:Database152:/drv:ourhouse:shelly:/tag:trigger/outsidetemp"
+                  },
+                  "display": {
+                    "breakLine": true,
+                    "interpolation": "curveLinear",
+                    "radius": 3,
+                    "styles": {
+                      "highlighted": {
+                        "fill": {
+                          "color": "#8DA0CB",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#8DA0CB",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      },
+                      "muted": {
+                        "fill": {
+                          "color": "#8DA0CB",
+                          "opacity": 0.4
+                        },
+                        "stroke": {
+                          "color": "#8DA0CB",
+                          "dashArray": 0,
+                          "opacity": 0.4,
+                          "width": 1
+                        }
+                      },
+                      "normal": {
+                        "fill": {
+                          "color": "#8DA0CB",
+                          "opacity": 0.8
+                        },
+                        "stroke": {
+                          "color": "#8DA0CB",
+                          "dashArray": 0,
+                          "opacity": 0.8,
+                          "width": 1
+                        }
+                      },
+                      "selected": {
+                        "fill": {
+                          "color": "#8DA0CB",
+                          "opacity": 1
+                        },
+                        "stroke": {
+                          "color": "#8DA0CB",
+                          "dashArray": 0,
+                          "opacity": 1,
+                          "width": 1
+                        }
+                      }
+                    },
+                    "type": "line"
+                  },
+                  "enabled": true,
+                  "name": "Outside",
+                  "plot": 0,
+                  "selectable": true,
+                  "visible": true
+                }
+              ],
+              "plots": [
+                {
+                  "color": "#000000",
+                  "markers": [],
+                  "relativeWeight": 1,
+                  "style": {
+                    "classes": ""
+                  }
+                }
+              ],
+              "style": {
+                "min-height": "400px"
+              }
+            },
+            "type": "ia.chart.powerchart"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "tabIndex": 3
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Main_0"
+        },
+        "position": {
+          "tabIndex": 4
+        },
+        "props": {
+          "path": "Admin/Main"
+        },
+        "type": "ia.display.view"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.tabs[3].disabled": {
+        "binding": {
+          "config": {
+            "fallbackDelay": 2.5,
+            "mode": "direct",
+            "publishInitial": false,
+            "tagPath": "[Shelly]Trigger/DisablePublicAccess"
+          },
+          "type": "tag"
+        }
+      },
+      "props.tabs[4].disabled": {
+        "binding": {
+          "config": {
+            "expression": "!isAuthorized(true, \u0027Authenticated/Roles/Administrator\u0027)"
+          },
+          "type": "expr"
+        }
+      }
+    },
+    "props": {
+      "contentStyle": {
+        "backgroundColor": "--neutral-10"
+      },
+      "tabs": [
+        "Current",
+        {
+          "disabled": false,
+          "runWhileHidden": true,
+          "text": "Forecast"
+        },
+        {
+          "disabled": true,
+          "text": "Map"
+        },
+        {
+          "text": "Shed"
+        },
+        {
+          "text": "Admin"
+        }
+      ]
+    },
+    "type": "ia.container.tab"
+  }
+}

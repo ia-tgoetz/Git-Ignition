@@ -1,0 +1,173 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 32,
+      "width": 500
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "position": {
+          "grow": 1,
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "alignSelf": null
+          },
+          "text": "Current Conditions in Saint Marys, PA",
+          "textStyle": {
+            "fontSize": "2vmin",
+            "fontWeight": "bolder",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {},
+              "scope": "C",
+              "type": "login"
+            }
+          }
+        },
+        "meta": {
+          "name": "Login"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "!{session.props.auth.authenticated}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "material/login"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "events": {
+          "dom": {
+            "onClick": {
+              "config": {},
+              "scope": "C",
+              "type": "logout"
+            }
+          }
+        },
+        "meta": {
+          "name": "Logout"
+        },
+        "position": {
+          "basis": "30px"
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{session.props.auth.authenticated}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "material/exit_to_app"
+        },
+        "type": "ia.display.icon"
+      },
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{session.props.auth.authenticated}"
+              },
+              "type": "expr"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "session.props.auth.user.userName"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontSize": "1vmin",
+            "fontWeight": "bolder",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[System]Gateway/SystemName"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "alignSelf": "flex-start"
+          },
+          "textStyle": {
+            "fontSize": "1vmin",
+            "fontWeight": "bolder",
+            "marginLeft": "4px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "margin": "4px",
+        "paddingBottom": "4px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

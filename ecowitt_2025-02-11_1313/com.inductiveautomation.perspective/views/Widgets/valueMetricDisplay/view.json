@@ -1,0 +1,748 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\timport uuid\n\t\n\t# Generate a random UUID\n\tself.params.uuid\u003dstr(uuid.uuid4())"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "configuring": false,
+    "showAvg": true,
+    "showHi": true,
+    "showLo": true,
+    "showRate": true,
+    "showSpark": true,
+    "tagPath": "[ecowitt]WeatherStation/GW1200_WIFI_Gateway/Barometric_Pressure_REL",
+    "uuid": "275c34a5-7c9d-4c7d-9631-f4d40f60a1e2"
+  },
+  "propConfig": {
+    "params.configuring": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value:\n\t\tsystem.perspective.openPopup(id\u003dself.params.uuid, view\u003d\"templates/Tag Selector\", params\u003d{\"uuid\": self.params.uuid}, title\u003d\"Display Value\", viewportBound\u003dTrue)"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.showAvg": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.showHi": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.showLo": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.showRate": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.showSpark": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.uuid": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value!\u003d \"\" and self.params.tagPath\u003d\u003d\u0027\u0027:\n\t\tsystem.perspective.openPopup(id\u003dself.params.uuid, view\u003d\"templates/Tag Selector\", params\u003d{\"uuid\": self.params.uuid}, title\u003d\"Display Value\", viewportBound\u003dTrue)"
+      },
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 104,
+      "width": 192
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}.Tooltip"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "classes": "valueDisplay/header"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Value"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "custom.format": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "tagPath": "{view.params.tagPath}"
+                    },
+                    "tagPath": "{tagPath}.FormatString"
+                  },
+                  "type": "tag"
+                }
+              },
+              "custom.value": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "tagPath": "{view.params.tagPath}"
+                    },
+                    "tagPath": "{tagPath}"
+                  },
+                  "type": "tag"
+                }
+              },
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "if(typeOf({this.custom.value})\u003d\"String\", {this.custom.value}, numberFormat({this.custom.value},{this.custom.format}))"
+                  },
+                  "overlayOptOut": true,
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "valueDisplay/value",
+                "filter": "drop-shadow(2px 2px 2px #000000)"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Unit"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "fallbackDelay": 2.5,
+                    "mode": "indirect",
+                    "references": {
+                      "tagPath": "{view.params.tagPath}"
+                    },
+                    "tagPath": "{tagPath}.EngUnit"
+                  },
+                  "overlayOptOut": true,
+                  "type": "tag"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "valueDisplay/value",
+                "filter": "drop-shadow(2px 2px 2px #000000)"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "ValueDisplay_0"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "justify": "center",
+          "style": {
+            "classes": "valueDisplay/valueUnit"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "16px",
+                  "shrink": 0
+                },
+                "props": {
+                  "path": "material/vertical_align_top",
+                  "style": {
+                    "width": "16px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "..../Metrics.custom.metricsDay[0].Maximum"
+                      },
+                      "transforms": [
+                        {
+                          "formatType": "numeric",
+                          "formatValue": "#,##0.0#",
+                          "type": "format"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "High"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.showHi"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "justify": "flex-end",
+              "style": {
+                "classes": "valueDisplay/valueMetric",
+                "color": "--qual-10",
+                "filter": "drop-shadow(2px 2px 2px #000000)",
+                "marginLeft": "1px",
+                "marginRight": "1px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "16px",
+                  "shrink": 0
+                },
+                "props": {
+                  "path": "material/vertical_align_bottom",
+                  "style": {
+                    "width": "16px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "..../Metrics.custom.metricsDay[0].Minimum"
+                      },
+                      "transforms": [
+                        {
+                          "formatType": "numeric",
+                          "formatValue": "#,##0.0#",
+                          "type": "format"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Low"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.showLo"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "valueDisplay/valueMetric",
+                "color": "--div-11",
+                "filter": "drop-shadow(2px 2px 2px #000000)",
+                "marginLeft": "1px",
+                "marginRight": "1px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Icon"
+                },
+                "position": {
+                  "basis": "16px",
+                  "shrink": 0
+                },
+                "props": {
+                  "path": "material/vertical_align_center",
+                  "style": {
+                    "width": "16px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "Value"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "path": "..../Metrics.custom.metricsDay[0].Average"
+                      },
+                      "transforms": [
+                        {
+                          "formatType": "numeric",
+                          "formatValue": "#,##0.0#",
+                          "type": "format"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "Avg"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "position.display": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.showAvg"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "classes": "valueDisplay/valueMetric",
+                "color": "--neutral-100",
+                "filter": "drop-shadow(2px 2px 2px #000000)",
+                "marginLeft": "1px",
+                "marginRight": "1px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "custom": {
+          "taghistory": [
+            {
+              "aggregate": "Average"
+            }
+          ]
+        },
+        "meta": {
+          "name": "Metrics"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "custom.hourValue": {
+            "binding": {
+              "config": {
+                "avoidScanClassValidation": true,
+                "calculations": [
+                  "LastValue"
+                ],
+                "dateRange": {
+                  "endDate": "dateArithmetic(now(0), -1, \u0027hour\u0027)",
+                  "startDate": "dateArithmetic(now(0), -2, \u0027hour\u0027)"
+                },
+                "enableValueCache": true,
+                "ignoreBadQuality": false,
+                "preventInterpolation": false,
+                "returnFormat": "Calculations",
+                "tags": "{this.custom.taghistory}",
+                "valueFormat": "DOCUMENT"
+              },
+              "type": "tag-history"
+            }
+          },
+          "custom.metricsDay": {
+            "binding": {
+              "config": {
+                "avoidScanClassValidation": true,
+                "calculations": [
+                  "Maximum",
+                  "Minimum",
+                  "Average"
+                ],
+                "dateRange": {
+                  "endDate": "now(5000)",
+                  "startDate": "midnight(now(5000))"
+                },
+                "enableValueCache": true,
+                "ignoreBadQuality": false,
+                "preventInterpolation": false,
+                "returnFormat": "Calculations",
+                "tags": "{this.custom.taghistory}",
+                "valueFormat": "DOCUMENT"
+              },
+              "type": "tag-history"
+            }
+          },
+          "custom.nowValue": {
+            "binding": {
+              "config": {
+                "avoidScanClassValidation": true,
+                "calculations": [
+                  "LastValue"
+                ],
+                "dateRange": {
+                  "mostRecent": "1",
+                  "mostRecentUnits": "HOUR"
+                },
+                "enableValueCache": true,
+                "ignoreBadQuality": false,
+                "polling": {
+                  "enabled": false,
+                  "rate": "30"
+                },
+                "preventInterpolation": false,
+                "returnFormat": "Calculations",
+                "tags": "{this.custom.taghistory}",
+                "valueFormat": "DOCUMENT"
+              },
+              "type": "tag-history"
+            }
+          },
+          "custom.rate": {
+            "binding": {
+              "config": {
+                "expression": "{this.custom.nowValue[0].LastValue}-{this.custom.hourValue[0].LastValue}"
+              },
+              "transforms": [
+                {
+                  "code": "\tval\u003dround(value,2)\n\tif val\u003c0:\n\t\treturn {\u0027trend\u0027: -1, \u0027val\u0027: abs(val)}\n\telse:\n\t\treturn {\u0027trend\u0027: 1, \u0027val\u0027: abs(val)}\n\treturn value",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          },
+          "custom.taghistory[0].alias": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}.Tooltip"
+              },
+              "overlayOptOut": true,
+              "type": "tag"
+            }
+          },
+          "custom.taghistory[0].path": {
+            "binding": {
+              "config": {
+                "path": "view.params.tagPath"
+              },
+              "type": "property"
+            }
+          },
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.showHi}||{view.params.showLo}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "justify": "center",
+          "style": {
+            "classes": "valueDisplay/valueUnit",
+            "marginBottom": "1px",
+            "marginTop": "1px",
+            "overflow": "visible"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "16px",
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "path": ".../Metrics.custom.rate.trend"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "--qual-10",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": -1,
+                          "output": "--div-11"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.path": {
+                "binding": {
+                  "config": {
+                    "path": ".../Metrics.custom.rate.trend"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "material/trending_up",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": -1,
+                          "output": "material/trending_down"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "marginRight": "2px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "meta": {
+              "name": "Value"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": ".../Metrics.custom.rate.val"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Value_0"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "expression": "tag({view.params.tagPath}+\u0027.engunit\u0027)+\u0027/hr\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "marginLeft": "2px"
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "Rate"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.showRate"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "justify": "center",
+          "style": {
+            "classes": "valueDisplay/valueMetric",
+            "color": "var(--neutral-80)",
+            "filter": "drop-shadow(2px 2px 2px #000000)",
+            "marginLeft": "1px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "propConfig": {
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "path": "view.params.configuring"
+          },
+          "transforms": [
+            {
+              "fallback": "",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": true,
+                  "output": "orange"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "justify": "center",
+      "style": {
+        "classes": "valueDisplay/root",
+        "overflow": "visible"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "changeDisplayValue",
+          "pageScope": true,
+          "script": "\tif payload[\u0027uuid\u0027]\u003d\u003dself.view.params.uuid:\n\t\tself.view.params.tagPath\u003dpayload[\u0027tagPath\u0027]\n",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}
