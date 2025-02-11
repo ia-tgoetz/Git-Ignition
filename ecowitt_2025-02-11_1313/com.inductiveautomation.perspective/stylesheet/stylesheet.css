@@ -1,0 +1,105 @@
+/* Direct stylesheet authoring is an advanced feature. Knowledge of CSS required.*/
+
+.psc-rotate {
+  animation: rotation 3s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+  margin: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  padding: 2px;
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-90); 
+  border-radius: 6px;
+  box-shadow: inset 0 0 5px var(--neutral-30); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover { 
+  background:var(--neutral-70);  */
+} 
+
+.psc-shrink-area{
+  position: absolute;
+/*  pointer-events: none; /* Prevent interaction with the element */
+  transform-origin: center;
+  width: 0px;
+  height: 0px;
+/*  animation: grow 1s ease-out reverse !important;*/
+  z-index: 0;
+}
+
+.psc-grow-area {
+  position: absolute;
+  left: calc(50vw - 10px) !important;
+  transform: translateX(-50%);
+  /* Constrains the element within the viewport */
+/*  pointer-events: none; /* Prevent interaction with the element */
+  transform-origin: center;
+  animation: grow 1s ease-out forwards !important;
+}
+
+/* Keyframes for the growth animation */
+@keyframes grow {
+  0% {
+    width: 0px;
+    height: 0px;
+    z-index: 0;
+  }
+  100% {
+    width: 800px;
+    height: 800px;
+    
+    max-width: calc(100vw - 20px); /* Prevent overflow on the right */
+    max-height: calc(100vh - 20px); /* Prevent overflow on the bottom */
+    z-index: 100;
+  }
+}
+
+
+.psc-east{
+  animation: rotate-east 0.5s ease-out forwards !important;
+}
+@keyframes rotate-east {
+  0% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+.psc-west{
+  animation: rotate-west 0.5s ease-out forwards !important;
+}
+
+@keyframes rotate-west {
+  0% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+

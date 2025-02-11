@@ -1,0 +1,479 @@
+{
+  "custom": {},
+  "params": {
+    "axisColor": "#555555",
+    "backColor": "#161616",
+    "configuring": false,
+    "edit": true,
+    "endDate": null,
+    "labelColor": "#AAAAAA",
+    "pastHrs": 24,
+    "periodSec": 15,
+    "startDate": null,
+    "title": "570 N Michael",
+    "titleColor": "#FFFFFF"
+  },
+  "propConfig": {
+    "params.axisColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.backColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.configuring": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.edit": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.endDate": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.labelColor": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.pastHrs": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.periodSec": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.startDate": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.title": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.titleColor": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 563,
+      "width": 344
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "IFrame"
+            },
+            "position": {
+              "height": 1,
+              "width": 1
+            },
+            "propConfig": {
+              "position.shrink": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.configuring"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": 0,
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": 1
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.src": {
+                "binding": {
+                  "config": {
+                    "struct": {
+                      "axisColor": "{view.params.axisColor}",
+                      "backColor": "{view.params.backColor}",
+                      "endDate": "{view.params.endDate}",
+                      "labelColor": "{view.params.labelColor}",
+                      "pastHrs": "{view.params.pastHrs}",
+                      "periodSec": "{view.params.periodSec}",
+                      "startDate": "{view.params.startDate}",
+                      "title": "{view.params.title}",
+                      "titleColor": "{view.params.titleColor}"
+                    },
+                    "waitOnAll": true
+                  },
+                  "transforms": [
+                    {
+                      "code": "\tdef getColorString(colorString):\n\t\tcolor\u003dvalue[colorString]\n\t\tif value[colorString][0]\u003d\u003d\"#\":\n\t\t\tcolor\u003dcolor.replace(\"#\",\"%23\")\n\t\treturn \u0027\u0026{}\u003d{}\u0027.format(colorString,color)\n\t\n\tdef formatDate(dateTime):\n\t\treturn system.date.format(dateTime, \u0027yyyy-MM-dd-HH-mm-ss\u0027)\n\t\n\tcolorStrings\u003d\u0027\u0027\n\tcolorStringVars\u003d[\u0027backColor\u0027, \u0027titleColor\u0027, \u0027axisColor\u0027, \u0027labelColor\u0027]\n\n\tfor c in colorStringVars:\n\t\tcolorStrings+\u003dgetColorString(c)\n\tdateRange\u003d\u0027\u0027\n\tif value[\u0027startDate\u0027] is not None and value[\u0027endDate\u0027] is not None:\n\t\tstartDate\u003dformatDate(value[\u0027startDate\u0027])\n\t\tendDate\u003dformatDate(value[\u0027endDate\u0027])\n\t\tdateRange\u003d\u0027\u0026startDate\u003d{startDate}\u0026endDate\u003d{endDate}\u0027.format(startDate\u003dstartDate, endDate\u003dendDate)\n\n\t\n\treturn \u0027/system/webdev/ecowitt/windRose?title\u003d{title}{colorStrings}\u0026periodSec\u003d{periodSec}\u0026pastHrs\u003d{pastHrs}{dateRange}\u0027.format(title\u003dvalue[\u0027title\u0027],colorStrings\u003dcolorStrings, periodSec\u003dvalue[\u0027periodSec\u0027],pastHrs\u003dvalue[\u0027pastHrs\u0027],dateRange\u003ddateRange)",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "expr-struct"
+                }
+              }
+            },
+            "props": {
+              "allowFullScreen": true,
+              "style": {
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.display.iframe"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label_0"
+                    },
+                    "propConfig": {
+                      "props.textStyle.color": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.labelColor"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": "Realtime"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "ToggleSwitch"
+                    },
+                    "propConfig": {
+                      "props.selected": {
+                        "onChange": {
+                          "enabled": null,
+                          "script": "\tif currentValue.value:\n\t\tself.parent.parent.getChild(\"Historical\").getChild(\"FlexContainer\").getChild(\"DateTimeInput\").props.value\u003dsystem.date.midnight(system.date.now())\n\t\tself.parent.parent.getChild(\"Historical\").getChild(\"FlexContainer\").getChild(\"DateTimeInput_0\").props.value\u003dsystem.date.now()\n\telse:\t\n\t\tself.parent.parent.getChild(\"Historical\").getChild(\"FlexContainer\").getChild(\"DateTimeInput\").props.value\u003dNone\n\t\tself.parent.parent.getChild(\"Historical\").getChild(\"FlexContainer\").getChild(\"DateTimeInput_0\").props.value\u003dNone"
+                        }
+                      }
+                    },
+                    "props": {
+                      "label": {
+                        "position": "left"
+                      },
+                      "style": {
+                        "zoom": 0.85
+                      }
+                    },
+                    "type": "ia.input.toggle-switch"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "propConfig": {
+                      "props.textStyle.color": {
+                        "binding": {
+                          "config": {
+                            "path": "view.params.labelColor"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "props": {
+                      "text": "Historical"
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Toggle"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "props": {
+                  "justify": "center",
+                  "style": {
+                    "fontSize": "12px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "meta": {
+                          "name": "DateTimeInput"
+                        },
+                        "propConfig": {
+                          "props.value": {
+                            "binding": {
+                              "config": {
+                                "bidirectional": true,
+                                "path": "view.params.startDate"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "formattedValue": null,
+                          "inputProps": {
+                            "style": {
+                              "fontSize": "12px"
+                            }
+                          },
+                          "modalStyle": {
+                            "fontSize": "12px"
+                          },
+                          "placeholder": "Start Date",
+                          "style": {
+                            "fontSize": "12px"
+                          }
+                        },
+                        "type": "ia.input.date-time-input"
+                      },
+                      {
+                        "meta": {
+                          "name": "DateTimeInput_0"
+                        },
+                        "propConfig": {
+                          "props.value": {
+                            "binding": {
+                              "config": {
+                                "bidirectional": true,
+                                "path": "view.params.endDate"
+                              },
+                              "type": "property"
+                            }
+                          }
+                        },
+                        "props": {
+                          "formattedValue": null,
+                          "inputProps": {
+                            "style": {
+                              "fontSize": "12px"
+                            }
+                          },
+                          "placeholder": "End Date",
+                          "style": {
+                            "marginTop": "4px"
+                          }
+                        },
+                        "type": "ia.input.date-time-input"
+                      }
+                    ],
+                    "meta": {
+                      "name": "FlexContainer"
+                    },
+                    "position": {
+                      "basis": "200px",
+                      "grow": 1
+                    },
+                    "props": {
+                      "direction": "column",
+                      "style": {
+                        "margin": "4pz"
+                      }
+                    },
+                    "type": "ia.container.flex"
+                  },
+                  {
+                    "events": {
+                      "dom": {
+                        "onClick": {
+                          "config": {
+                            "script": "\tself.parent.getChild(\"FlexContainer\").getChild(\"DateTimeInput\").props.value\u003dNone\n\tself.parent.getChild(\"FlexContainer\").getChild(\"DateTimeInput_0\").props.value\u003dNone"
+                          },
+                          "scope": "G",
+                          "type": "script"
+                        }
+                      }
+                    },
+                    "meta": {
+                      "name": "Icon"
+                    },
+                    "position": {
+                      "basis": "30px"
+                    },
+                    "props": {
+                      "path": "material/clear"
+                    },
+                    "type": "ia.display.icon"
+                  }
+                ],
+                "meta": {
+                  "name": "Historical"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "path": "../Toggle/ToggleSwitch.props.selected"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "children": [
+                  {
+                    "meta": {
+                      "name": "Label"
+                    },
+                    "props": {
+                      "style": {
+                        "marginRight": "4px"
+                      },
+                      "text": "Show Last:"
+                    },
+                    "type": "ia.display.label"
+                  },
+                  {
+                    "meta": {
+                      "name": "NumericEntryField"
+                    },
+                    "position": {
+                      "basis": "50px"
+                    },
+                    "propConfig": {
+                      "props.value": {
+                        "binding": {
+                          "config": {
+                            "bidirectional": true,
+                            "path": "view.params.pastHrs"
+                          },
+                          "type": "property"
+                        }
+                      }
+                    },
+                    "type": "ia.input.numeric-entry-field"
+                  },
+                  {
+                    "meta": {
+                      "name": "Label_0"
+                    },
+                    "props": {
+                      "style": {
+                        "marginLeft": "2px"
+                      },
+                      "text": "hrs"
+                    },
+                    "type": "ia.display.label"
+                  }
+                ],
+                "meta": {
+                  "name": "Realtime"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "position.display": {
+                    "binding": {
+                      "config": {
+                        "expression": "!{../Toggle/ToggleSwitch.props.selected}"
+                      },
+                      "type": "expr"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "path": "view.params.labelColor"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "justify": "center",
+                  "style": {
+                    "fontSize": "12px",
+                    "margin": "4px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "Configuring"
+            },
+            "position": {
+              "height": 0.1312,
+              "width": 1,
+              "y": 1
+            },
+            "propConfig": {
+              "meta.visible": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.params.configuring}||{view.params.edit}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "min-height": "80px",
+                "overflow": "hidden",
+                "padding": "8px",
+                "paddingTop": "0px",
+                "transform": "translateY(-100%)",
+                "width": "100%"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "CoordinateContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "mode": "percent",
+          "style": {
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.container.coord"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

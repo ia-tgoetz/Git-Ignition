@@ -1,0 +1,91 @@
+{
+  "custom": {},
+  "params": {
+    "uuid": ""
+  },
+  "propConfig": {
+    "params.uuid": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "width": 281
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "TagBrowseTree"
+        },
+        "position": {
+          "basis": "400px",
+          "grow": 1
+        },
+        "props": {
+          "filter": {
+            "enabled": true
+          },
+          "root": {
+            "path": "[ecowitt]WeatherStation"
+          },
+          "selection": {
+            "mode": "single",
+            "values": [
+              "[ecowitt]WeatherStation/Parameters"
+            ]
+          }
+        },
+        "type": "ia.display.tag-browse-tree"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tpath\u003dself.getSibling(\"TagBrowseTree\").props.selection.values[0]\n\tpayload\u003d{\u0027uuid\u0027:self.view.params.uuid, \u0027tagPath\u0027:self.getSibling(\"TagBrowseTree\").props.selection.values[0]}\n\tsystem.perspective.sendMessage(\"changeDisplayValue\", payload\u003dpayload, scope\u003d\"page\")\n\tsystem.perspective.closePopup(self.view.params.uuid)"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "34px"
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "path": "../TagBrowseTree.props.selection.values"
+              },
+              "transforms": [
+                {
+                  "code": "\tif len(value)\u003d\u003d0:\n\t\treturn False\n\telif value[0] is None:\n\t\treturn False\n\telif str(system.tag.getConfiguration(value[0], False)[0][\u0027tagType\u0027]) in [\"Folder\", \"Unknown\"]:\n\t\treturn False\t\t\n\telse:\n\t\treturn True",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "text": "Apply"
+        },
+        "type": "ia.input.button"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

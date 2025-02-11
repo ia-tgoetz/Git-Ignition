@@ -1,0 +1,642 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "width": 1246
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Dashboard"
+        },
+        "position": {
+          "basis": "400px",
+          "grow": 1
+        },
+        "props": {
+          "availableWidgets": [
+            {
+              "body": {
+                "style": {}
+              },
+              "category": "Value Display",
+              "defaultSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "header": {
+                "enabled": false,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "isConfigurable": true,
+              "minSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "name": "Metric View",
+              "style": {
+                "borderStyle": "none",
+                "classes": ""
+              },
+              "viewParams": {
+                "configuring": false,
+                "tagPath": "",
+                "uuid": ""
+              },
+              "viewPath": "Widgets/valueDisplay"
+            },
+            {
+              "body": {
+                "style": {}
+              },
+              "category": "Value Display",
+              "defaultSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "header": {
+                "enabled": false,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "isConfigurable": true,
+              "minSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "name": "Metric History View",
+              "style": {
+                "borderStyle": "none",
+                "classes": ""
+              },
+              "viewParams": {
+                "color": "--info",
+                "configuring": false,
+                "tagPath": "",
+                "timeSpanHour": 1,
+                "uuid": ""
+              },
+              "viewPath": "Widgets/valueHistoryDisplay"
+            },
+            {
+              "body": {
+                "style": {}
+              },
+              "category": "Value Display",
+              "defaultSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "header": {
+                "enabled": false,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "isConfigurable": true,
+              "minSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "name": "Metric Stats View",
+              "style": {
+                "borderStyle": "none",
+                "classes": ""
+              },
+              "viewParams": {
+                "color": "--info",
+                "configuring": false,
+                "tagPath": "",
+                "timeSpanHour": 1,
+                "uuid": ""
+              },
+              "viewPath": "Widgets/valueMetricDisplay"
+            },
+            {
+              "body": {
+                "style": {
+                  "classes": ""
+                }
+              },
+              "category": "",
+              "defaultSize": {
+                "columnSpan": 2,
+                "rowSpan": 2
+              },
+              "header": {
+                "enabled": false,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "isConfigurable": false,
+              "minSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "name": "History View",
+              "style": {
+                "classes": ""
+              },
+              "viewParams": {
+                "baseHistoryPath": "histprov:Database152:/drv:ourhouse:ecowitt:/tag:weatherstation/",
+                "preconfiguredPens": []
+              },
+              "viewPath": "Widgets/historyDisplay"
+            },
+            {
+              "body": {
+                "style": {
+                  "classes": ""
+                }
+              },
+              "category": "",
+              "defaultSize": {
+                "columnSpan": 2,
+                "rowSpan": 1
+              },
+              "header": {
+                "enabled": false,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "isConfigurable": true,
+              "minSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "name": "Header View",
+              "style": {
+                "classes": ""
+              },
+              "viewParams": {
+                "configuring": false,
+                "headerText": "value"
+              },
+              "viewPath": "Widgets/HeaderView"
+            },
+            {
+              "body": {
+                "style": {
+                  "classes": ""
+                }
+              },
+              "category": "Rain",
+              "defaultSize": {
+                "columnSpan": 2,
+                "rowSpan": 2
+              },
+              "header": {
+                "enabled": false,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "isConfigurable": true,
+              "minSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "name": "Rain View",
+              "style": {
+                "classes": ""
+              },
+              "viewParams": {
+                "configuring": false,
+                "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array",
+                "uuid": ""
+              },
+              "viewPath": "Widgets/RainDisplay"
+            },
+            {
+              "body": {
+                "style": {
+                  "classes": ""
+                }
+              },
+              "category": "Gauges",
+              "defaultSize": {
+                "columnSpan": 2,
+                "rowSpan": 2
+              },
+              "header": {
+                "enabled": false,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "isConfigurable": false,
+              "minSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "name": "Wind Compass",
+              "style": {
+                "classes": ""
+              },
+              "viewParams": {
+                "headingRotate": false,
+                "lineColor": "var(--info)",
+                "sensorArrayPath": "[ecowitt]WeatherStation/WS85_Sensor_Array",
+                "timeSpanHour": 1
+              },
+              "viewPath": "templates/wind"
+            },
+            {
+              "body": {
+                "style": {
+                  "classes": ""
+                }
+              },
+              "category": "Gauges",
+              "defaultSize": {
+                "columnSpan": 2,
+                "rowSpan": 2
+              },
+              "header": {
+                "enabled": false,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "isConfigurable": true,
+              "minSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "name": "Wind Rose",
+              "style": {
+                "classes": ""
+              },
+              "viewParams": {
+                "axisColor": "#555555",
+                "backColor": "#161616",
+                "configuring": true,
+                "edit": true,
+                "endDate": null,
+                "labelColor": "#AAAAAA",
+                "pastHrs": 12,
+                "periodSec": 15,
+                "startDate": null,
+                "title": "570 N Michael",
+                "titleColor": "#FFFFFF"
+              },
+              "viewPath": "Widgets/WindRose"
+            },
+            {
+              "body": {
+                "style": {
+                  "classes": ""
+                }
+              },
+              "category": "Rain",
+              "defaultSize": {
+                "columnSpan": 2,
+                "rowSpan": 2
+              },
+              "header": {
+                "enabled": false,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "isConfigurable": true,
+              "minSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "name": "Rain Gauge",
+              "style": {
+                "classes": ""
+              },
+              "viewParams": {},
+              "viewPath": "Widgets/RainGauge"
+            }
+          ],
+          "isEditing": true,
+          "pack": false,
+          "stretch": {
+            "columnCount": 36,
+            "columnGutterSize": 2,
+            "rowCount": 18,
+            "rowGutterSize": 2
+          },
+          "widgets": [
+            {
+              "body": {
+                "style": {
+                  "classes": ""
+                }
+              },
+              "header": {
+                "enabled": false,
+                "style": {
+                  "classes": ""
+                },
+                "title": ""
+              },
+              "index": 0,
+              "isConfigurable": true,
+              "minSize": {
+                "columnSpan": 1,
+                "rowSpan": 1
+              },
+              "name": "Wind Rose",
+              "position": {
+                "columnEnd": 37,
+                "columnStart": 1,
+                "rowEnd": 12,
+                "rowStart": 1
+              },
+              "style": {
+                "classes": ""
+              },
+              "viewParams": {
+                "axisColor": "#555555",
+                "backColor": "#161616",
+                "configuring": true,
+                "edit": true,
+                "endDate": null,
+                "labelColor": "#AAAAAA",
+                "pastHrs": 12,
+                "periodSec": 15,
+                "startDate": null,
+                "title": "570 N Michael",
+                "titleColor": "#FFFFFF"
+              },
+              "viewPath": "Widgets/WindRose"
+            }
+          ]
+        },
+        "type": "ia.display.dashboard"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "36px"
+            },
+            "propConfig": {
+              "custom.mongoIds": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.mongoValues"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\toptions\u003d[]\n\tfor x in value:\n\t\toptions.append(str(x[\u0027_id\u0027]))\n\treturn options",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "custom.mongoValues": {
+                "binding": {
+                  "config": {
+                    "collection": "Dashboards",
+                    "connector": "WeatherDashboards",
+                    "enableValueCache": true,
+                    "polling": {
+                      "enabled": false,
+                      "rate": "30"
+                    },
+                    "struct": {
+                      "collation": {},
+                      "filter": {},
+                      "limit": 100,
+                      "projection": {},
+                      "skip": 0,
+                      "sort": {}
+                    },
+                    "type": "Find"
+                  },
+                  "type": "connectorMongoDb.query"
+                }
+              },
+              "custom.selectedFilename": {
+                "binding": {
+                  "config": {
+                    "path": "this.props.value"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\t# Retrieve a both a connector name and collection name to query from.\n\tif value is None:\n\t\treturn None\n\ttry:\n\t\tfrom system.mongodb.types import ObjectId\n\t\tconnector \u003d \"WeatherDashboards\"\n\t\tcollection \u003d \"Dashboards\"   \n\t\tfilter \u003d {\"_id\":ObjectId(value)}\n\t\tproject\u003d{\"_id\":1, \"filename\":1, \"dashboardData\":1}\n\t\t# Apply parameters for function call.\n\t\treturn system.mongodb.findOne(connector, collection, filter, project)\n\texcept:\n\t\treturn None",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "path": "this.custom.mongoValues"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\toptions\u003d[]\n\tfor x in value:\n\t\toptions.append({\n\t\t  \"value\": x[\u0027_id\u0027],\n\t\t  \"label\": x[\u0027filename\u0027]\n\t\t})\n\treturn options",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "allowCustomOptions": true,
+              "showClearIcon": true,
+              "style": {
+                "margin": "8px",
+                "marginTop": "0px",
+                "overflow": "auto"
+              },
+              "value": null
+            },
+            "type": "ia.input.dropdown"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tfrom system.mongodb.types import ObjectId\n\tmongoId\u003dstr(self.getSibling(\"Dropdown\").props.value)\n\tmongoIds\u003dself.getSibling(\"Dropdown\").custom.mongoIds\n\tconnector\u003dstr(\"WeatherDashboards\")\n\tcollection\u003d str(\"Dashboards\")\n\tdashboardRawData\u003dself.parent.parent.getChild(\"Dashboard\").props.widgets\n\tdashboardData\u003dsystem.util.jsonDecode(system.util.jsonEncode(dashboardRawData))\n\tsaveDate\u003dsystem.date.now()\n\t\n\tif mongoId not in mongoIds:\n\t\tfilename\u003dmongoId\n\telse:\n\t\tfilename\u003dself.getSibling(\"Dropdown\").custom.selectedFilename.filename\n\t\t\n\tsaveItems\u003d{\n\t\t\t\u0027filename\u0027:filename,\n\t\t\t\u0027saveDate\u0027:saveDate,\n\t\t\t\u0027dashboardData\u0027:dashboardData,\n\t\t\t\u0027deviceID\u0027: self.session.props.device.identifier\n\t\t\t}\n\t\n\tif mongoId not in mongoIds:\n\t\t # Insert new document into MongoDB\n\t\tmongoid\u003dsystem.mongodb.insertOne(connector, collection, saveItems)\n\t\tself.getSibling(\"Dropdown\").refreshBinding(\u0027custom.mongoValues\u0027)\n\t\tself.getSibling(\"Dropdown\").refreshBinding(\u0027custom.mongoIds\u0027)\n\n\telse:\n\t\t# Update existing document in MongoDB\n\t\tsystem.perspective.print(saveItems)\n\t\tfilter \u003d {\"_id\": ObjectId(str(mongoId))}\n\t\tsystem.mongodb.replaceOne(connector, collection, filter, saveItems)\n\t\tself.getSibling(\"Dropdown\").refreshBinding(\u0027custom.mongoValues\u0027)\n\t\tself.getSibling(\"Dropdown\").refreshBinding(\u0027custom.mongoIds\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{../Dropdown.props.value}!\u003dNull"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--success",
+                "margin": "8px",
+                "marginTop": "0px",
+                "overflow": "auto"
+              },
+              "text": "Save"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tself.parent.parent.getChild(\"Dashboard\").props.widgets\u003dself.getSibling(\"Dropdown\").custom.selectedFilename.dashboardData\n\tself.getSibling(\"Dropdown\").refreshBinding(\u0027custom.mongoValues\u0027)\n\tself.getSibling(\"Dropdown\").refreshBinding(\u0027custom.mongoIds\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button_0"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{../Dropdown.props.value}!\u003dNull \u0026\u0026{../Dropdown.custom.selectedFilename}!\u003dNull"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--success",
+                "margin": "8px",
+                "marginTop": "0px",
+                "overflow": "auto"
+              },
+              "text": "Load"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tfrom system.mongodb.types import ObjectId\n\tmongoId\u003dstr(self.getSibling(\"Dropdown\").props.value)\n\tmongoIds\u003dself.getSibling(\"Dropdown\").custom.mongoIds\n\tconnector\u003d\"WeatherDashboards\"\n\tcollection\u003d \"Dashboards\"\n\tif mongoId in mongoIds:\n\t\tsystem.perspective.print(mongoId)\n\t\tfilter \u003d {\"_id\": ObjectId(mongoId)}\n\t\tsystem.mongodb.deleteOne(connector, collection, filter)\n\t\tself.getSibling(\"Dropdown\").refreshBinding(\u0027custom.mongoValues\u0027)\n\t\tself.getSibling(\"Dropdown\").refreshBinding(\u0027custom.mongoIds\u0027)\n\t\tself.getSibling(\"Dropdown\").props.value\u003dNone\n\t\tself.parent.parent.getChild(\"Dashboard\").props.widgets\u003d[]"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button_1"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "{../Dropdown.props.value}!\u003dNull \u0026\u0026{../Dropdown.custom.selectedFilename}!\u003dNull"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "backgroundColor": "--success",
+                "margin": "8px",
+                "marginTop": "0px",
+                "overflow": "auto"
+              },
+              "text": "Delete"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "session.props.device.identifier"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "../Dashboard.props.isEditing"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "type": "ia.container.flex"
+  }
+}

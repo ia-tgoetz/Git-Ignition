@@ -1,0 +1,317 @@
+{
+  "custom": {
+    "addLocation": false
+  },
+  "params": {},
+  "propConfig": {
+    "custom.addLocation": {
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "events": {
+          "component": {
+            "onMapClick": {
+              "config": {
+                "script": "\tif self.view.custom.addLocation:\n\t\tlat\u003devent.lat\n\t\tlng\u003devent.lng\n\t\ttrue\u003dTrue\n\t\tfalse\u003dFalse\n\t\tnull\u003dNone\n\t\tnewPoint\u003d{\n\t\t\t  \"name\": \"\",\n\t\t\t  \"properties\": {},\n\t\t\t  \"enabled\": true,\n\t\t\t  \"lat\": lat,\n\t\t\t  \"lng\": lng,\n\t\t\t  \"opacity\": 1,\n\t\t\t  \"icon\": {\n\t\t\t    \"path\": \"material/location_on\",\n\t\t\t    \"color\": \"#4190F7\",\n\t\t\t    \"rotate\": 0,\n\t\t\t    \"size\": {\n\t\t\t      \"width\": 36,\n\t\t\t      \"height\": 36\n\t\t\t    },\n\t\t\t    \"style\": {\n\t\t\t      \"classes\": \"\"\n\t\t\t    }\n\t\t\t  },\n\t\t\t  \"event\": {\n\t\t\t    \"stopPropagation\": false\n\t\t\t  },\n\t\t\t  \"tooltip\": {\n\t\t\t    \"content\": {\n\t\t\t      \"text\": \"\",\n\t\t\t      \"view\": {\n\t\t\t        \"path\": \"\",\n\t\t\t        \"params\": {}\n\t\t\t      }\n\t\t\t    },\n\t\t\t    \"direction\": \"auto\",\n\t\t\t    \"permanent\": false,\n\t\t\t    \"sticky\": false,\n\t\t\t    \"opacity\": 1\n\t\t\t  },\n\t\t\t  \"popup\": {\n\t\t\t    \"enabled\": false,\n\t\t\t    \"content\": {\n\t\t\t      \"text\": \"Local Weather\",\n\t\t\t      \"view\": {\n\t\t\t        \"path\": \"LocationView\",\n\t\t\t        \"params\": {\n\t\t\t          \"lng\":lng,\n\t\t\t          \"lat\": lat\n\t\t\t        }\n\t\t\t      }\n\t\t\t    },\n\t\t\t    \"width\": {\n\t\t\t      \"max\": 400,\n\t\t\t      \"min\": 50\n\t\t\t    },\n\t\t\t    \"height\": {\n\t\t\t      \"max\": null\n\t\t\t    },\n\t\t\t    \"pan\": {\n\t\t\t      \"auto\": true\n\t\t\t    },\n\t\t\t    \"closeButton\": true,\n\t\t\t    \"autoClose\": true,\n\t\t\t    \"closeOnEscapeKey\": true,\n\t\t\t    \"closeOnClick\": null\n\t\t\t  }\n\t\t\t}\n\t\tself.props.layers.ui.marker.append(newPoint)\n\tself.view.custom.addLocation\u003dFalse"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Map"
+        },
+        "position": {
+          "basis": "658px",
+          "grow": 1
+        },
+        "props": {
+          "init": {
+            "center": {
+              "lat": 40.078071427,
+              "lng": -96.416015625
+            },
+            "zoom": 4
+          },
+          "layers": {
+            "raster": {
+              "tile": [
+                {
+                  "WMS": {
+                    "format": "image/jpeg",
+                    "layers": "",
+                    "styles": "",
+                    "transparent": false,
+                    "uppercase": false,
+                    "version": "1.1.1"
+                  },
+                  "options": {
+                    "attribution": "Map data \u0026copy; \u003ca href\u003d\u0027https://www.openstreetmap.org/\u0027\u003eOpenStreetMap\u003c/a\u003e contributors, \u003ca href\u003d\u0027https://creativecommons.org/licenses/by-sa/2.0/\u0027\u003eCC-BY-SA\u003c/a\u003e",
+                    "crossOrigin": false,
+                    "detectRetina": false,
+                    "errorTileUrl": "",
+                    "opacity": 1,
+                    "subdomains": [
+                      "a",
+                      "b",
+                      "c"
+                    ],
+                    "tileSize": {
+                      "height": 256,
+                      "width": 256
+                    },
+                    "tms": false,
+                    "update": {
+                      "interval": 200,
+                      "whenIdle": false,
+                      "whenZooming": true
+                    },
+                    "zIndex": 1,
+                    "zoom": {
+                      "max": 18,
+                      "min": 0,
+                      "native": {
+                        "max": null,
+                        "min": null
+                      },
+                      "offset": 0,
+                      "reverse": false
+                    }
+                  },
+                  "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                  "urlTemplateParams": {}
+                },
+                {
+                  "WMS": {
+                    "format": "image/jpeg",
+                    "layers": "",
+                    "styles": "",
+                    "transparent": false,
+                    "uppercase": false,
+                    "version": "1.1.1"
+                  },
+                  "options": {
+                    "attribution": "",
+                    "crossOrigin": false,
+                    "detectRetina": false,
+                    "errorTileUrl": "",
+                    "opacity": 0.5,
+                    "subdomains": [
+                      "a",
+                      "b",
+                      "c"
+                    ],
+                    "tileSize": {
+                      "height": 256,
+                      "width": 256
+                    },
+                    "tms": false,
+                    "update": {
+                      "interval": 200,
+                      "whenIdle": false,
+                      "whenZooming": true
+                    },
+                    "zIndex": 1,
+                    "zoom": {
+                      "max": 18,
+                      "min": 0,
+                      "native": {
+                        "max": null,
+                        "min": null
+                      },
+                      "offset": 0,
+                      "reverse": false
+                    }
+                  },
+                  "url": "https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-900913/{z}/{x}/{y}.png",
+                  "urlTemplateParams": {}
+                }
+              ]
+            },
+            "ui": {
+              "marker": [
+                {
+                  "enabled": true,
+                  "event": {
+                    "stopPropagation": false
+                  },
+                  "icon": {
+                    "color": "#4190F7",
+                    "path": "material/location_on",
+                    "rotate": 0,
+                    "size": {
+                      "height": 36,
+                      "width": 36
+                    },
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "lat": 39.36827914916014,
+                  "lng": -96.6796875,
+                  "name": "",
+                  "opacity": 1,
+                  "popup": {
+                    "autoClose": true,
+                    "closeButton": true,
+                    "closeOnClick": null,
+                    "closeOnEscapeKey": true,
+                    "content": {
+                      "text": "Local Weather",
+                      "view": {
+                        "params": {
+                          "lat": 39.36827914916014,
+                          "lng": -96.6796875
+                        },
+                        "path": "LocationView"
+                      }
+                    },
+                    "enabled": false,
+                    "height": {
+                      "max": null
+                    },
+                    "pan": {
+                      "auto": true
+                    },
+                    "width": {
+                      "max": 400,
+                      "min": 50
+                    }
+                  },
+                  "properties": {},
+                  "tooltip": {
+                    "content": {
+                      "text": "",
+                      "view": {
+                        "params": {},
+                        "path": ""
+                      }
+                    },
+                    "direction": "auto",
+                    "opacity": 1,
+                    "permanent": false,
+                    "sticky": false
+                  }
+                }
+              ]
+            }
+          },
+          "style": {
+            "z-index": 0
+          }
+        },
+        "type": "ia.display.map"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.parent.getChild(\"Map\").props.layers.ui.marker\u003d[]"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/delete_sweep",
+              "style": {
+                "cursor": "pointer",
+                "margin": "4px"
+              }
+            },
+            "type": "ia.display.icon"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.custom.addLocation\u003d not self.view.custom.addLocation"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon_0"
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "propConfig": {
+              "props.color": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.addLocation"
+                  },
+                  "transforms": [
+                    {
+                      "fallback": "",
+                      "inputType": "scalar",
+                      "mappings": [
+                        {
+                          "input": true,
+                          "output": "green"
+                        }
+                      ],
+                      "outputType": "scalar",
+                      "type": "map"
+                    }
+                  ],
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "path": "material/add_location_alt",
+              "style": {
+                "margin": "4px"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#D5D5D5C7",
+            "height": "32px",
+            "position": "absolute",
+            "right": "2px",
+            "top": "2px",
+            "z-index": 999
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

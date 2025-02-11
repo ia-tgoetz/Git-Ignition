@@ -1,0 +1,207 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\timport uuid\n\t\n\t# Generate a random UUID\n\tself.params.uuid\u003dstr(uuid.uuid4())"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "configuring": false,
+    "header": "value",
+    "tagPath": "[ecowitt]WeatherStation/WS85_Sensor_Array",
+    "uuid": "0cc6a02c-daa3-4674-b00a-7b795874d653"
+  },
+  "propConfig": {
+    "params.configuring": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value:\n\t\tsystem.perspective.openPopup(id\u003dself.params.uuid, view\u003d\"templates/Tag Selector\", params\u003d{\"uuid\": self.params.uuid}, title\u003d\"Display Value\", viewportBound\u003dTrue)"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.header": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.uuid": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value!\u003d \"\" and self.params.tagPath\u003d\u003d\u0027\u0027:\n\t\tsystem.perspective.openPopup(id\u003dself.params.uuid, view\u003d\"templates/Tag Selector\", params\u003d{\"uuid\": self.params.uuid}, title\u003d\"Display Value\", viewportBound\u003dTrue)"
+      },
+      "paramDirection": "inout",
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "32px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}.tooltip"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "FlexRepeater"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "props.instances[0].tagPath": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.tagPath}+\"/Rain_Rate\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.instances[1].tagPath": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.tagPath}+\"/Rain_Event\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.instances[2].tagPath": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.tagPath}+\"/Rain_Hourly\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.instances[3].tagPath": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.tagPath}+\"/Rain_Daily\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.instances[4].tagPath": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.tagPath}+\"/Rain_Weekly\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.instances[5].tagPath": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.tagPath}+\"/Rain_Monthly\""
+              },
+              "type": "expr"
+            }
+          },
+          "props.instances[6].tagPath": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.tagPath}+\"/Rain_Yearly\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "direction": "column",
+          "elementStyle": {
+            "margin": "2px"
+          },
+          "instances": [
+            {
+              "labelWidth": 100,
+              "uuid": "995ca192-ee85-4b03-a2e0-f25b7ab2b0ff"
+            },
+            {
+              "labelWidth": 100,
+              "uuid": "660250ab-15c1-4282-b1b7-9dfad33188c5"
+            },
+            {
+              "labelWidth": 100,
+              "uuid": "c3c2327e-398b-42d7-b74b-b68824b267e2"
+            },
+            {
+              "labelWidth": 100,
+              "uuid": "bf6480dd-8c48-44b6-8f90-4c5971d9d384"
+            },
+            {
+              "labelWidth": 100,
+              "uuid": "13e9a5ac-0159-4f14-b9a4-5d05b2bf5010"
+            },
+            {
+              "labelWidth": 100,
+              "uuid": "93bb1b93-1efa-4797-b5ae-91d542d2b22b"
+            },
+            {
+              "labelWidth": 100,
+              "uuid": "046c843b-33e0-463b-a010-e10bb9a6dcaa"
+            }
+          ],
+          "path": "templates/valueDisplayHorz",
+          "useDefaultViewHeight": false,
+          "useDefaultViewWidth": false
+        },
+        "type": "ia.display.flex-repeater"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "changeDisplayValue",
+          "pageScope": true,
+          "script": "\tif payload[\u0027uuid\u0027]\u003d\u003dself.view.params.uuid:\n\t\tself.view.params.tagPath\u003dpayload[\u0027tagPath\u0027]",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

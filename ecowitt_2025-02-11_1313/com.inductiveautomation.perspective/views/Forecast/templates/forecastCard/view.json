@@ -1,0 +1,508 @@
+{
+  "custom": {
+    "level": {
+      "Day": {
+        "ChanceOfRain": "/system/images/WeatherIcons/rain.svg",
+        "ChanceSnowShowers": "/system/images/WeatherIcons/partly-cloudy-day-snow.svg",
+        "Clear": "/system/images/WeatherIcons/clear-day.svg",
+        "Cloudy": "/system/images/WeatherIcons/overcast.svg",
+        "Drizzle": "/system/images/WeatherIcons/drizzle.svg",
+        "ExtremeCold": "/system/images/WeatherIcons/thermometer-colder.svg",
+        "ExtremeHeat": "/system/images/WeatherIcons/sun-hot.svg",
+        "Fog": "/system/images/WeatherIcons/fog-day.svg",
+        "FreezingDrizzle": "/system/images/WeatherIcons/sleet.svg",
+        "FreezingRain": "/system/images/WeatherIcons/sleet.svg",
+        "Haze": "/system/images/WeatherIcons/haze-day.svg",
+        "HeavyRain": "/system/images/WeatherIcons/extreme-rain.svg",
+        "HeavySnow": "/system/images/WeatherIcons/extreme-snow.svg",
+        "Hot": "/system/images/WeatherIcons/sun-hot.svg",
+        "IsolatedThunderstorms": "/system/images/WeatherIcons/thunderstorms-day.svg",
+        "LightRain": "/system/images/WeatherIcons/drizzle.svg",
+        "LightSnow": "/system/images/WeatherIcons/snow.svg",
+        "LightSnowShowers": "/system/images/WeatherIcons/snow.svg",
+        "MostlyClear": "/system/images/WeatherIcons/partly-cloudy-day.svg",
+        "MostlyCloudy": "/system/images/WeatherIcons/cloudy.svg",
+        "MostlySunny": "/system/images/WeatherIcons/partly-cloudy-day.svg",
+        "NotAvailable": "/system/images/WeatherIcons/not-available.svg",
+        "PartlyCloudy": "/system/images/WeatherIcons/partly-cloudy-day.svg",
+        "PartlySunny": "/system/images/WeatherIcons/partly-cloudy-day.svg",
+        "PatchyFog": "/system/images/WeatherIcons/fog-day.svg",
+        "Rain": "/system/images/WeatherIcons/rain.svg",
+        "RainAndSnow": "/system/images/WeatherIcons/sleet.svg",
+        "RainShowers": "/system/images/WeatherIcons/rain.svg",
+        "RainandSnow": "/system/images/WeatherIcons/sleet.svg",
+        "ShowersAndThunderstorms": "/system/images/WeatherIcons/thunderstorms-day-rain.svg",
+        "Sleet": "/system/images/WeatherIcons/sleet.svg",
+        "SlightChanceOfRain": "/system/images/WeatherIcons/partly-cloudy-day-rain.svg",
+        "SlightChanceOfSnow": "/system/images/WeatherIcons/partly-cloudy-day-snow.svg",
+        "SlightChanceSnowShowers": "/system/images/WeatherIcons/partly-cloudy-day-snow.svg",
+        "Snow": "/system/images/WeatherIcons/snow.svg",
+        "SnowShowers": "/system/images/WeatherIcons/snow.svg",
+        "Sunny": "/system/images/WeatherIcons/clear-day.svg",
+        "Thunderstorms": "/system/images/WeatherIcons/thunderstorms-day.svg",
+        "ThunderstormsAndSnow": "/system/images/WeatherIcons/thunderstorms-day-snow.svg"
+      },
+      "Night": {
+        "ChanceOfRain": "/system/images/WeatherIcons/rain.svg",
+        "ChanceSnowShowers": "/system/images/WeatherIcons/partly-cloudy-night-snow.svg",
+        "Clear": "/system/images/WeatherIcons/clear-night.svg",
+        "ClearNight": "/system/images/WeatherIcons/clear-night.svg",
+        "Cloudy": "/system/images/WeatherIcons/overcast.svg",
+        "Cold": "/system/images/WeatherIcons/thermometer-colder.svg",
+        "Drizzle": "/system/images/WeatherIcons/drizzle.svg",
+        "ExtremeCold": "/system/images/WeatherIcons/thermometer-colder.svg",
+        "Fog": "/system/images/WeatherIcons/fog-night.svg",
+        "FreezingDrizzle": "/system/images/WeatherIcons/sleet.svg",
+        "FreezingRain": "/system/images/WeatherIcons/sleet.svg",
+        "Haze": "/system/images/WeatherIcons/haze-night.svg",
+        "HeavyRain": "/system/images/WeatherIcons/extreme-rain.svg",
+        "HeavySnow": "/system/images/WeatherIcons/extreme-snow.svg",
+        "IsolatedThunderstorms": "/system/images/WeatherIcons/thunderstorms-night.svg",
+        "LightRain": "/system/images/WeatherIcons/drizzle.svg",
+        "LightSnow": "/system/images/WeatherIcons/snow.svg",
+        "LightSnowShowers": "/system/images/WeatherIcons/snow.svg",
+        "MostlyClear": "/system/images/WeatherIcons/partly-cloudy-night.svg",
+        "MostlyClearNight": "/system/images/WeatherIcons/partly-cloudy-night.svg",
+        "MostlyCloudy": "/system/images/WeatherIcons/cloudy.svg",
+        "NotAvailable": "/system/images/WeatherIcons/not-available.svg",
+        "PartlyCloudy": "/system/images/WeatherIcons/partly-cloudy-night.svg",
+        "PatchyFog": "/system/images/WeatherIcons/fog-night.svg",
+        "Rain": "/system/images/WeatherIcons/rain.svg",
+        "RainAndSnow": "/system/images/WeatherIcons/sleet.svg",
+        "RainShowers": "/system/images/WeatherIcons/rain.svg",
+        "RainandSnow": "/system/images/WeatherIcons/sleet.svg",
+        "ShowersAndThunderstorms": "/system/images/WeatherIcons/thunderstorms-night-rain.svg",
+        "Sleet": "/system/images/WeatherIcons/sleet.svg",
+        "SlightChanceOfRain": "/system/images/WeatherIcons/partly-cloudy-night-rain.svg",
+        "SlightChanceOfSnow": "/system/images/WeatherIcons/partly-cloudy-night-snow.svg",
+        "SlightChanceSnowShowers": "/system/images/WeatherIcons/partly-cloudy-night-snow.svg",
+        "Snow": "/system/images/WeatherIcons/snow.svg",
+        "SnowShowers": "/system/images/WeatherIcons/snow.svg",
+        "Thunderstorms": "/system/images/WeatherIcons/thunderstorms-night.svg",
+        "ThunderstormsAndSnow": "/system/images/WeatherIcons/thunderstorms-night-snow.svg"
+      }
+    }
+  },
+  "params": {
+    "detailedForecast": "",
+    "dewpoint": {
+      "unitCode": "wmoUnit:degC",
+      "value": -7.777777777777778
+    },
+    "endTime": "2025-01-06T11:00:00-05:00",
+    "icon": "https://api.weather.gov/icons/land/night/ovc?size\u003dsmall",
+    "isDaytime": true,
+    "name": "",
+    "number": 1,
+    "probabilityOfPrecipitation": {
+      "unitCode": "wmoUnit:percent",
+      "value": 95
+    },
+    "relativeHumidity": {
+      "unitCode": "wmoUnit:percent",
+      "value": 92
+    },
+    "shortForecast": "Chance Rain and Snow",
+    "startTime": "2025-01-06T10:00:00-05:00",
+    "temperature": 20,
+    "temperatureTrend": "",
+    "temperatureUnit": "F",
+    "windDirection": "E",
+    "windSpeed": "7 mph"
+  },
+  "propConfig": {
+    "custom.level": {
+      "persistent": true
+    },
+    "params.detailedForecast": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.dewpoint": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.endTime": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.icon": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.isDaytime": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.name": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.number": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.probabilityOfPrecipitation": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.relativeHumidity": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.shortForecast": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.startTime": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.temperature": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.temperatureTrend": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.temperatureUnit": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.windDirection": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.windSpeed": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 337,
+      "width": 78
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_2"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.startTime"
+              },
+              "transforms": [
+                {
+                  "code": "\tparsed_date \u003d system.date.parse(value, \"yyyy-MM-dd\u0027T\u0027HH:mm:ssXXX\")\n\tif system.date.format(system.date.now(), \"yyyy-MM-dd\")\u003d\u003dsystem.date.format(parsed_date, \"yyyy-MM-dd\"):\n\t\treturn \"Today\"\n\t# Format to 12-hour time with AM/PM\n\tformatted_time \u003d system.date.format(parsed_date, \"EEE dd\")\n\treturn formatted_time",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "style": {
+            "marginTop": "8px"
+          },
+          "textStyle": {
+            "fontSize": "12px",
+            "key": "value",
+            "marginBottom": "2px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_4"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.startTime"
+              },
+              "transforms": [
+                {
+                  "code": "\tparsed_date \u003d system.date.parse(value, \"yyyy-MM-dd\u0027T\u0027HH:mm:ssXXX\")\n\n\t# Format to 12-hour time with AM/PM\n\tformatted_time \u003d system.date.format(parsed_date, \"h a\")\n\treturn formatted_time",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "textStyle": {
+            "fontSize": "15px",
+            "key": "value",
+            "marginBottom": "2px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.style.backgroundColor": {
+            "binding": {
+              "config": {
+                "path": "view.params.number"
+              },
+              "transforms": [
+                {
+                  "code": "\tif value\u003d\u003d1:\n\t\treturn \u0027--neutral-60\u0027\n\treturn \u0027--neutral-10\u0027",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "{view.params.temperature}+\"°\"+{view.params.temperatureUnit}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "borderBottomLeftRadius": "16px",
+            "borderBottomRightRadius": "16px",
+            "borderTopLeftRadius": "16px",
+            "borderTopRightRadius": "16px",
+            "margin": "8px",
+            "marginBottom": "2px",
+            "padding": "4px"
+          },
+          "textStyle": {
+            "fontSize": 16,
+            "fontWeight": "bolder",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "50px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.shortForecast"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "top",
+          "style": {
+            "marginRight": "2px",
+            "overflow": "visible",
+            "paddingLeft": "2px"
+          },
+          "textStyle": {
+            "fontSize": "12px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Image"
+        },
+        "propConfig": {
+          "props.source": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "day": "{view.params.isDaytime}",
+                  "desc": "{view.params.shortForecast}",
+                  "list": "{view.custom.level}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\tshortForecast\u003dvalue[\u0027desc\u0027].replace(\" \",\"\")\n\tremoveList\u003d[\u0027Slight\u0027,\u0027Chance\u0027,\u0027Likely\u0027]\n\tif value[\u0027day\u0027]:\n\t\tIconlist\u003dvalue[\u0027list\u0027].Day\n\telse:\n\t\tIconlist\u003dvalue[\u0027list\u0027].Night\n\tfor x in removeList:\n\t\tshortForecast\u003dshortForecast.replace(x,\"\")\n\tif shortForecast in Iconlist.keys():\n\t\treturn Iconlist[str(shortForecast)]\n\treturn Iconlist[\"NotAvailable\"]",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "fit": {
+            "mode": "contain"
+          }
+        },
+        "type": "ia.display.image"
+      },
+      {
+        "meta": {
+          "name": "Label_1"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.probabilityOfPrecipitation.value"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"{}%\".format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontSize": "14px",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_3"
+        },
+        "props": {
+          "style": {
+            "marginTop": "4px"
+          },
+          "text": "Wind",
+          "textStyle": {
+            "fontSize": "12px",
+            "fontWeight": "bolder",
+            "textAlign": "center",
+            "whiteSpace": "pre"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_5"
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "dir": "{view.params.windDirection}",
+                  "speed": "{view.params.windSpeed}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \"{} @\\n{}\".format(value[\u0027dir\u0027],value[\u0027speed\u0027])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "textStyle": {
+            "fontSize": "12px",
+            "fontWeight": "normal",
+            "textAlign": "center",
+            "whiteSpace": "pre"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root",
+      "tooltip": {
+        "enabled": true,
+        "location": "center",
+        "style": {
+          "whiteSpace": "pre-wrap"
+        },
+        "width": "200px"
+      }
+    },
+    "propConfig": {
+      "meta.tooltip.text": {
+        "binding": {
+          "config": {
+            "path": "view.params.detailedForecast"
+          },
+          "type": "property"
+        }
+      },
+      "props.style.backgroundColor": {
+        "binding": {
+          "config": {
+            "path": "view.params.isDaytime"
+          },
+          "transforms": [
+            {
+              "fallback": "--neutral-10",
+              "inputType": "scalar",
+              "mappings": [
+                {
+                  "input": true,
+                  "output": "--neutral-40"
+                }
+              ],
+              "outputType": "scalar",
+              "type": "map"
+            }
+          ],
+          "type": "property"
+        }
+      }
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "borderBottomLeftRadius": "16px",
+        "borderBottomRightRadius": "16px",
+        "borderTopLeftRadius": "16px",
+        "borderTopRightRadius": "16px",
+        "margin": "2px",
+        "marginBottom": "8px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}
