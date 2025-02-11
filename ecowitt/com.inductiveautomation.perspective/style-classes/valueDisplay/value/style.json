@@ -1,0 +1,9 @@
+{
+  "base": {
+    "style": {
+      "fontSize": "16px",
+      "fontWeight": "600",
+      "marginRight": "4px"
+    }
+  }
+}

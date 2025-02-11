@@ -1,0 +1,375 @@
+{
+  "custom": {},
+  "events": {
+    "system": {
+      "onStartup": {
+        "config": {
+          "script": "\timport uuid\n\t\n\t# Generate a random UUID\n\tself.params.uuid\u003dstr(uuid.uuid4())"
+        },
+        "scope": "G",
+        "type": "script"
+      }
+    }
+  },
+  "params": {
+    "configuring": false,
+    "maximum": 0,
+    "tagPath": "",
+    "uuid": "630c70cb-4486-429a-959b-baf3b2455ffe"
+  },
+  "propConfig": {
+    "params.configuring": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value:\n\t\tsystem.perspective.openPopup(id\u003dself.params.uuid, view\u003d\"templates/Tag Selector\", params\u003d{\"uuid\": self.params.uuid}, title\u003d\"Display Value\", viewportBound\u003dTrue)"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.maximum": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.tagPath": {
+      "paramDirection": "inout",
+      "persistent": true
+    },
+    "params.uuid": {
+      "onChange": {
+        "enabled": null,
+        "script": "\tif currentValue.value!\u003d \"\" and self.params.tagPath\u003d\u003d\u0027\u0027:\n\t\tsystem.perspective.openPopup(id\u003dself.params.uuid, view\u003d\"templates/Tag Selector\", params\u003d{\"uuid\": self.params.uuid}, title\u003d\"Display Value\", viewportBound\u003dTrue)"
+      },
+      "paramDirection": "inout"
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 181,
+      "width": 108
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "basis": "Auto",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}.tooltip"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "alignVertical": "bottom",
+          "textStyle": {
+            "fontSize": "12px",
+            "fontWeight": "bolder",
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "lingrad01"
+        },
+        "position": {
+          "grow": 1
+        },
+        "propConfig": {
+          "custom.level": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn float(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "tag"
+            }
+          },
+          "props.elements[0].height": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "level": "{this.custom.level}",
+                  "max": "{view.params.maximum}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\timport math\n\tif value[\u0027max\u0027]\u003d\u003d0 or value[\u0027max\u0027] is None:\n\t\tmaxV\u003dmath.ceil(value[\u0027level\u0027]*1.0)+1\n\t\ttotal\u003dvalue[\u0027level\u0027]/maxV*100\n\telse:\n\t\tmaxV\u003dvalue[\u0027max\u0027]+1.0\n\t\ttotal\u003dvalue[\u0027level\u0027]/maxV*100.0\n\t\t\n\treturn \u0027{}%\u0027.format(total)",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "props.elements[0].y": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "level": "{this.custom.level}",
+                  "max": "{view.params.maximum}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\timport math\n\tif value[\u0027max\u0027]\u003d\u003d0 or value[\u0027max\u0027] is None:\n\t\tmaxV\u003dmath.ceil(value[\u0027level\u0027]*1.0)+1\n\t\ttotal\u003dvalue[\u0027level\u0027]/maxV*100\n\telse:\n\t\tmaxV\u003dvalue[\u0027max\u0027]+1.0\n\t\ttotal\u003dvalue[\u0027level\u0027]/maxV*100.0\n\t\t\n\treturn \u0027{}%\u0027.format(100-total)",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "props.elements[1].text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}"
+              },
+              "transforms": [
+                {
+                  "formatType": "numeric",
+                  "formatValue": "#,##0.000\"",
+                  "type": "format"
+                }
+              ],
+              "type": "tag"
+            }
+          },
+          "props.elements[1].y": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "level": "{this.custom.level}",
+                  "max": "{view.params.maximum}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\timport math\n\tif value[\u0027max\u0027]\u003d\u003d0 or value[\u0027max\u0027] is None:\n\t\tmaxV\u003dmath.ceil(value[\u0027level\u0027]*1.0)+1\n\t\ttotal\u003dvalue[\u0027level\u0027]/maxV*100\n\telse:\n\t\tmaxV\u003dvalue[\u0027max\u0027]+1.0\n\t\ttotal\u003dvalue[\u0027level\u0027]/maxV*100.0\n\t\t\n\treturn \u0027{}%\u0027.format(100-total)",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "props.elements[2].elements": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "level": "{this.custom.level}",
+                  "max": "{view.params.maximum}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\timport math\n\tif value[\u0027max\u0027]\u003d\u003d0 or value[\u0027max\u0027] is None:\n\t\tif value[\u0027level\u0027]\u003d\u003d0:\n\t\t\tunits\u003d1\n\t\telse:\n\t\t\tunits\u003dint(math.ceil(value[\u0027level\u0027]))\n\telse:\n\t\tunits\u003dint(value[\u0027max\u0027])\n\tallUnits\u003d[]\n\tfor u in range(int(units)):\n\t\tallUnits.append(\n\t\t  {\n\t\t    \"type\": \"group\",\n\t\t    \"elements\": [\n\t\t      {\n\t\t        \"type\": \"line\",\n\t\t        \"stroke\": {\n\t\t          \"paint\": \"White\",\n\t\t          \"width\": 2\n\t\t        },\n\t\t        \"name\": \"Left Tick\",\n\t\t        \"x1\": \"0%\",\n\t\t        \"x2\": \"25%\",\n\t\t        \"y1\": (units*100)-(u*100),\n\t\t        \"y2\": (units*100)-(u*100)\n\t\t      },\n\t\t      {\n\t\t        \"type\": \"line\",\n\t\t        \"stroke\": {\n\t\t          \"paint\": \"White\",\n\t\t          \"width\": 2\n\t\t        },\n\t\t        \"name\": \"Right Tick\",\n\t\t        \"x1\": \"75%\",\n\t\t        \"x2\": \"100%\",\n\t\t        \"y1\": (units*100)-(u*100),\n\t\t        \"y2\": (units*100)-(u*100)\n\t\t      },\n\t\t      {\n\t\t        \"type\": \"text\",\n\t\t        \"stroke\": \"var(--neutral-60)\",\n\t\t        \"fill\":  \"var(--neutral-60)\",\n\t\t        \"dominant-baseline\": \"middle\",\n\t\t        \"font-size\": \"150%\",\n\t\t        \"text\": \"{}\\\"\".format(u+1),\n\t\t        \"text-anchor\": \"middle\",\n\t\t        \"x\": \"20%\",\n\t\t        \"y\": (units*100)-(u*100)-10,\n\t\t        \n\t\t      },\n\t\t      {\n\t\t        \"type\": \"group\",\n\t\t        \"elements\": [\n\t\t          {\n\t\t            \"type\": \"line\",\n\t\t            \"stroke\": {\n\t\t              \"paint\": \"White\",\n\t\t              \"width\": 2\n\t\t            },\n\t\t            \"name\": \"LeftHalfTick\",\n\t\t            \"x1\": \"0%\",\n\t\t            \"x2\": \"13%\",\n\t\t            \"y1\": (units*100)-(u*100)+50,\n\t\t            \"y2\": (units*100)-(u*100)+50\n\t\t          },\n\t\t          {\n\t\t            \"type\": \"line\",\n\t\t            \"stroke\": {\n\t\t              \"paint\": \"White\",\n\t\t              \"width\": 2\n\t\t            },\n\t\t            \"name\": \"RightHalfTick\",\n\t\t            \"x1\": \"87%\",\n\t\t            \"x2\": \"100%\",\n\t\t            \"y1\": (units*100)-(u*100)+50,\n\t\t            \"y2\": (units*100)-(u*100)+50\n\t\t          },\n\t\t          {\n\t\t            \"type\": \"line\",\n\t\t            \"stroke\": {\n\t\t              \"paint\": \"White\",\n\t\t              \"width\": 2\n\t\t            },\n\t\t            \"name\": \"RightQ1Tick\",\n\t\t            \"x1\": \"91%\",\n\t\t            \"x2\": \"100%\",\n\t\t            \"y1\": (units*100)-(u*100)+25,\n\t\t            \"y2\": (units*100)-(u*100)+25\n\t\t          },\n\t\t          {\n\t\t            \"type\": \"line\",\n\t\t            \"stroke\": {\n\t\t              \"paint\": \"White\",\n\t\t              \"width\": 2\n\t\t            },\n\t\t            \"name\": \"LeftQ1Tick\",\n\t\t            \"x1\": \"0%\",\n\t\t            \"x2\": \"9%\",\n\t\t            \"y1\": (units*100)-(u*100)+25,\n\t\t            \"y2\": (units*100)-(u*100)+25\n\t\t          },\n\t\t          {\n\t\t            \"type\": \"line\",\n\t\t            \"stroke\": {\n\t\t              \"paint\": \"White\",\n\t\t              \"width\": 2\n\t\t            },\n\t\t            \"name\": \"RightQ2Tick\",\n\t\t            \"x1\": \"91%\",\n\t\t            \"x2\": \"100%\",\n\t\t            \"y1\": (units*100)-(u*100)+75,\n\t\t            \"y2\": (units*100)-(u*100)+75\n\t\t          },\n\t\t          {\n\t\t            \"type\": \"line\",\n\t\t            \"stroke\": {\n\t\t              \"paint\": \"White\",\n\t\t              \"width\": 2\n\t\t            },\n\t\t            \"name\": \"LeftQ2Tick\",\n\t\t            \"x1\": \"0%\",\n\t\t            \"x2\": \"9%\",\n\t\t            \"y1\": (units*100)-(u*100)+75,\n\t\t            \"y2\": (units*100)-(u*100)+75\n\t\t          },\n\t\t          {\n\t\t            \"type\": \"group\",\n\t\t            \"elements\": [\n\t\t              {\n\t\t                \"type\": \"line\",\n\t\t                \"stroke\": {\n\t\t                  \"paint\": \"White\",\n\t\t                  \"width\": 1\n\t\t                },\n\t\t                \"name\": \"E4Tick\",\n\t\t                \"x1\": \"0%\",\n\t\t                \"x2\": \"5%\",\n\t\t                \"y1\": (units*100)-(u*100)+87.5,\n\t\t                \"y2\": (units*100)-(u*100)+87.5\n\t\t              },\n\t\t              {\n\t\t                \"type\": \"line\",\n\t\t                \"stroke\": {\n\t\t                  \"paint\": \"White\",\n\t\t                  \"width\": 1\n\t\t                },\n\t\t                \"name\": \"E3Tick\",\n\t\t                \"x1\": \"0%\",\n\t\t                \"x2\": \"5%\",\n\t\t                \"y1\": (units*100)-(u*100)+62.5,\n\t\t                \"y2\": (units*100)-(u*100)+62.5\n\t\t              },\n\t\t              {\n\t\t                \"type\": \"line\",\n\t\t                \"stroke\": {\n\t\t                  \"paint\": \"White\",\n\t\t                  \"width\": 1\n\t\t                },\n\t\t                \"name\": \"E2Tick\",\n\t\t                \"x1\": \"0%\",\n\t\t                \"x2\": \"5%\",\n\t\t                \"y1\": (units*100)-(u*100)+37.5,\n\t\t                \"y2\": (units*100)-(u*100)+37.5\n\t\t              },\n\t\t              {\n\t\t                \"type\": \"line\",\n\t\t                \"stroke\": {\n\t\t                  \"paint\": \"White\",\n\t\t                  \"width\": 1\n\t\t                },\n\t\t                \"name\": \"E1Tick\",\n\t\t                \"x1\": \"0%\",\n\t\t                \"x2\": \"5%\",\n\t\t                \"y1\": (units*100)-(u*100)+12.5,\n\t\t                \"y2\": (units*100)-(u*100)+12.5\n\t\t              }\n\t\t            ],\n\t\t            \"name\": \"Leighths\"\n\t\t          },\n\t\t          {\n\t\t            \"type\": \"group\",\n\t\t            \"elements\": [\n\t\t              {\n\t\t                \"type\": \"line\",\n\t\t                \"stroke\": {\n\t\t                  \"paint\": \"White\",\n\t\t                  \"width\": 1\n\t\t                },\n\t\t                \"name\": \"E4Tick\",\n\t\t                \"x1\": \"95%\",\n\t\t                \"x2\": \"100%\",\n\t\t                \"y1\": (units*100)-(u*100)+87.5,\n\t\t                \"y2\": (units*100)-(u*100)+87.5\n\t\t              },\n\t\t              {\n\t\t                \"type\": \"line\",\n\t\t                \"stroke\": {\n\t\t                  \"paint\": \"White\",\n\t\t                  \"width\": 1\n\t\t                },\n\t\t                \"name\": \"E3Tick\",\n\t\t                \"x1\": \"95%\",\n\t\t                \"x2\": \"100%\",\n\t\t                \"y1\": (units*100)-(u*100)+62.5,\n\t\t                \"y2\": (units*100)-(u*100)+62.5\n\t\t              },\n\t\t              {\n\t\t                \"type\": \"line\",\n\t\t                \"stroke\": {\n\t\t                  \"paint\": \"White\",\n\t\t                  \"width\": 1\n\t\t                },\n\t\t                \"name\": \"E2Tick\",\n\t\t                \"x1\": \"95%\",\n\t\t                \"x2\": \"100%\",\n\t\t                \"y1\": (units*100)-(u*100)+37.5,\n\t\t                \"y2\": (units*100)-(u*100)+37.5\n\t\t              },\n\t\t              {\n\t\t                \"type\": \"line\",\n\t\t                \"stroke\": {\n\t\t                  \"paint\": \"White\",\n\t\t                  \"width\": 1\n\t\t                },\n\t\t                \"name\": \"E1Tick\",\n\t\t                \"x1\": \"95%\",\n\t\t                \"x2\": \"100%\",\n\t\t                \"y1\": (units*100)-(u*100)+12.5,\n\t\t                \"y2\": (units*100)-(u*100)+12.5\n\t\t              }\n\t\t            ],\n\t\t            \"name\": \"Reighths\"\n\t\t          }\n\t\t        ],\n\t\t        \"name\": \"minorTicks\"\n\t\t      }\n\t\t    ],\n\t\t    \"name\": \"FullUnit\"\n\t\t  }\n\t\t)\n\treturn allUnits\n\t\n\t",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "props.elements[3].points": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "level": "{this.custom.level}",
+                  "max": "{view.params.maximum}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\timport math\n\tif value[\u0027max\u0027]\u003d\u003d0 or value[\u0027max\u0027] is None:\n\t\tif int(math.ceil(value[\u0027level\u0027]))\u003d\u003d0:\n\t\t\treturn \u00271,0 1,{top} 199,{top} 199,0\u0027.format(top\u003dint(math.ceil(value[\u0027level\u0027])+2)*100-2)\n\t\treturn \u00271,0 1,{top} 199,{top} 199,0\u0027.format(top\u003dint(math.ceil(value[\u0027level\u0027])+1)*100-2)\n\telse:\n\t\treturn \u00272,0 2,{top} 198,{top} 198,0\u0027.format(top\u003d(int(value[\u0027max\u0027])+1)*100-2)",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "props.viewBox": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "level": "{this.custom.level}",
+                  "max": "{view.params.maximum}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\timport math\n\tif value[\u0027max\u0027]\u003d\u003d0 or value[\u0027max\u0027] is None:\n\t\tif int(math.ceil(value[\u0027level\u0027]))\u003d\u003d0:\n\t\t\treturn \u00270 0 200 {}\u0027.format(int(math.ceil(value[\u0027level\u0027])+2)*100)\n\t\treturn \u00270 0 200 {}\u0027.format(int(math.ceil(value[\u0027level\u0027])+1)*100)\n\telse:\n\t\treturn \u00270 0 200 {}\u0027.format((int(value[\u0027max\u0027])+1)*100)",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          }
+        },
+        "props": {
+          "elements": [
+            {
+              "fill": {
+                "paint": "#0000FF",
+                "width": 2
+              },
+              "name": "Box",
+              "type": "rect",
+              "width": "100%",
+              "x": 0
+            },
+            {
+              "dominant-baseline": "top",
+              "fill": "var(--neutral-100)",
+              "font-size": "150%",
+              "stroke": "transparent",
+              "style": {
+                "classes": "",
+                "transform": "translateY(-2px)"
+              },
+              "text-anchor": "middle",
+              "type": "text",
+              "x": "50%"
+            },
+            {
+              "name": "scale",
+              "type": "group"
+            },
+            {
+              "fill": "none",
+              "height": "100%",
+              "name": "Box",
+              "stroke": {
+                "paint": "White",
+                "width": 2
+              },
+              "type": "polyline",
+              "width": "100%"
+            }
+          ],
+          "preserveAspectRatio": "xMidYMin",
+          "style": {
+            "overflow": "hidden"
+          }
+        },
+        "type": "ia.shapes.svg"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "props": {
+              "text": "Gauge Level:",
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "50px"
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "bidirectional": true,
+                    "path": "view.params.maximum"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "MaxLevl"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.params.configuring"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "justify": "center",
+          "style": {
+            "fontSize": "12px",
+            "margin": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": "4px"
+      }
+    },
+    "scripts": {
+      "customMethods": [],
+      "extensionFunctions": null,
+      "messageHandlers": [
+        {
+          "messageType": "changeDisplayValue",
+          "pageScope": true,
+          "script": "\tif payload[\u0027uuid\u0027]\u003d\u003dself.view.params.uuid:\n\t\tself.view.params.tagPath\u003dpayload[\u0027tagPath\u0027]",
+          "sessionScope": false,
+          "viewScope": false
+        }
+      ]
+    },
+    "type": "ia.container.flex"
+  }
+}

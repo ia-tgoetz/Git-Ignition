@@ -1,0 +1,146 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 102
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "200px",
+              "shrink": 0
+            },
+            "props": {
+              "style": {
+                "marginRight": "4px"
+              },
+              "text": "Personal Access Token:",
+              "textStyle": {
+                "textAlign": "right"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "PasswordField"
+            },
+            "position": {
+              "basis": "150px",
+              "grow": 1
+            },
+            "type": "ia.input.password-field"
+          },
+          {
+            "meta": {
+              "name": "Icon",
+              "tooltip": {
+                "enabled": true,
+                "style": {
+                  "textAlign": "left",
+                  "whiteSpace": "pre"
+                },
+                "text": "To Generate a Personal Access Token:\n1. Navigate to Github\n2. Click on Account Avatar/Image\n3. Click Settings\n4. Click Developer settings\n5. Select Personal access tokens\n6. Select Tokens (classic)\n7. Generate new token"
+              }
+            },
+            "position": {
+              "basis": "30px"
+            },
+            "props": {
+              "path": "material/info",
+              "style": {
+                "cursor": "crosshair",
+                "marginLeft": "8px"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "Commit_Message"
+        },
+        "position": {
+          "basis": "36px",
+          "shrink": 0
+        },
+        "props": {
+          "style": {
+            "margin": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\ttoken\u003dself.parent.getChild(\"Commit_Message\").getChild(\"PasswordField\").props.text\n\tfileSystem.save_file_to_directory(token, file_name\u003d\u0027gitPAT\u0027,directory_path\u003d\"/usr/local/bin/ignition/data/tmp\")\n\tself.parent.getChild(\"Commit_Message\").getChild(\"PasswordField\").props.text\u003d\"\"\n\tself.props.value\u003d0\n\tsystem.perspective.sendMessage(\u0027token\u0027)\n\tsystem.perspective.closePopup(\"PAT\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "OneShotButton_0"
+        },
+        "position": {
+          "basis": "45px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "props.enabled": {
+            "binding": {
+              "config": {
+                "expression": "{../Commit_Message/PasswordField.props.text}!\u003d\"\""
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "readyState": {
+            "icon": {
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Save Git Token to Filesystem"
+          },
+          "style": {
+            "margin": "4px",
+            "marginLeft": "208px"
+          },
+          "writingState": {
+            "icon": {
+              "path": "material/hourglass_empty",
+              "style": {
+                "height": "24px",
+                "width": "2rem"
+              }
+            },
+            "text": "Saving"
+          }
+        },
+        "type": "ia.input.oneshotbutton"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}

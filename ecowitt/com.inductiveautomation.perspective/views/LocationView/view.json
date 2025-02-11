@@ -1,0 +1,3058 @@
+{
+  "custom": {
+    "current": {
+      "base": "stations",
+      "clouds": {
+        "all": 100
+      },
+      "cod": 200,
+      "coord": {
+        "lat": 41.4348,
+        "lon": -78.5696
+      },
+      "dt": 1736160939,
+      "id": 5210117,
+      "main": {
+        "feels_like": 260.32,
+        "grnd_level": 944,
+        "humidity": 88,
+        "pressure": 1015,
+        "sea_level": 1015,
+        "temp": 265.47,
+        "temp_max": 266.5,
+        "temp_min": 264.37
+      },
+      "name": "Saint Marys",
+      "snow": {
+        "1h": 0.34
+      },
+      "sys": {
+        "country": "US",
+        "id": 2016040,
+        "sunrise": 1736167228,
+        "sunset": 1736200777,
+        "type": 2
+      },
+      "timezone": -18000,
+      "visibility": 10000,
+      "weather": [
+        {
+          "description": "light snow",
+          "icon": "13n",
+          "id": 600,
+          "main": "Snow"
+        }
+      ],
+      "wind": {
+        "deg": 90,
+        "speed": 3.09
+      }
+    },
+    "data": {
+      "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+          "@version": "1.1",
+          "@vocab": "https://api.weather.gov/ontology#",
+          "bearing": {
+            "@type": "s:QuantitativeValue"
+          },
+          "city": "s:addressLocality",
+          "county": {
+            "@type": "@id"
+          },
+          "distance": {
+            "@id": "s:Distance",
+            "@type": "s:QuantitativeValue"
+          },
+          "forecastGridData": {
+            "@type": "@id"
+          },
+          "forecastOffice": {
+            "@type": "@id"
+          },
+          "geo": "http://www.opengis.net/ont/geosparql#",
+          "geometry": {
+            "@id": "s:GeoCoordinates",
+            "@type": "geo:wktLiteral"
+          },
+          "publicZone": {
+            "@type": "@id"
+          },
+          "s": "https://schema.org/",
+          "state": "s:addressRegion",
+          "unit": "http://codes.wmo.int/common/unit/",
+          "unitCode": {
+            "@id": "s:unitCode",
+            "@type": "@id"
+          },
+          "value": {
+            "@id": "s:value"
+          },
+          "wx": "https://api.weather.gov/ontology#"
+        }
+      ],
+      "geometry": {
+        "coordinates": [
+          -78.5696,
+          41.4348
+        ],
+        "type": "Point"
+      },
+      "id": "https://api.weather.gov/points/41.4348,-78.5696",
+      "properties": {
+        "@id": "https://api.weather.gov/points/41.4348,-78.5696",
+        "@type": "wx:Point",
+        "county": "https://api.weather.gov/zones/county/PAC047",
+        "cwa": "CTP",
+        "fireWeatherZone": "https://api.weather.gov/zones/fire/PAZ010",
+        "forecast": "https://api.weather.gov/gridpoints/CTP/41,83/forecast",
+        "forecastGridData": "https://api.weather.gov/gridpoints/CTP/41,83",
+        "forecastHourly": "https://api.weather.gov/gridpoints/CTP/41,83/forecast/hourly",
+        "forecastOffice": "https://api.weather.gov/offices/CTP",
+        "forecastZone": "https://api.weather.gov/zones/forecast/PAZ010",
+        "gridId": "CTP",
+        "gridX": 41,
+        "gridY": 83,
+        "observationStations": "https://api.weather.gov/gridpoints/CTP/41,83/stations",
+        "radarStation": "KCCX",
+        "relativeLocation": {
+          "geometry": {
+            "coordinates": [
+              -78.520228,
+              41.4550849
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "bearing": {
+              "unitCode": "wmoUnit:degree_(angle)",
+              "value": 241
+            },
+            "city": "St. Marys",
+            "distance": {
+              "unitCode": "wmoUnit:m",
+              "value": 4692.8184383544
+            },
+            "state": "PA"
+          },
+          "type": "Feature"
+        },
+        "timeZone": "America/New_York"
+      },
+      "type": "Feature"
+    },
+    "forcast": {
+      "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+          "@version": "1.1",
+          "@vocab": "https://api.weather.gov/ontology#",
+          "geo": "http://www.opengis.net/ont/geosparql#",
+          "unit": "http://codes.wmo.int/common/unit/",
+          "wx": "https://api.weather.gov/ontology#"
+        }
+      ],
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              -78.5611,
+              41.4231
+            ],
+            [
+              -78.5575999,
+              41.4448
+            ],
+            [
+              -78.5865,
+              41.4474
+            ],
+            [
+              -78.59,
+              41.4257
+            ],
+            [
+              -78.5611,
+              41.4231
+            ]
+          ]
+        ],
+        "type": "Polygon"
+      },
+      "properties": {
+        "elevation": {
+          "unitCode": "wmoUnit:m",
+          "value": 547.116
+        },
+        "forecastGenerator": "BaselineForecastGenerator",
+        "generatedAt": "2025-01-06T10:17:15+00:00",
+        "periods": [
+          {
+            "detailedForecast": "A chance of snow. Cloudy, with a low around 15. Northeast wind around 2 mph. Chance of precipitation is 30%. New snow accumulation of less than half an inch possible.",
+            "endTime": "2025-01-06T06:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/night/snow,30?size\u003dmedium",
+            "isDaytime": false,
+            "name": "Overnight",
+            "number": 1,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": 30
+            },
+            "shortForecast": "Chance Light Snow",
+            "startTime": "2025-01-06T05:00:00-05:00",
+            "temperature": 15,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "NE",
+            "windSpeed": "2 mph"
+          },
+          {
+            "detailedForecast": "Snow likely before 3pm. Cloudy, with a high near 25. Northeast wind 2 to 8 mph. Chance of precipitation is 60%. New snow accumulation of 1 to 2 inches possible.",
+            "endTime": "2025-01-06T18:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/day/snow,60/snow,30?size\u003dmedium",
+            "isDaytime": true,
+            "name": "Monday",
+            "number": 2,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": 60
+            },
+            "shortForecast": "Light Snow Likely",
+            "startTime": "2025-01-06T06:00:00-05:00",
+            "temperature": 25,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "NE",
+            "windSpeed": "2 to 8 mph"
+          },
+          {
+            "detailedForecast": "Mostly cloudy, with a low around 13. Wind chill values as low as -1. North wind 9 to 15 mph, with gusts as high as 29 mph. New snow accumulation of less than half an inch possible.",
+            "endTime": "2025-01-07T06:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/night/bkn?size\u003dmedium",
+            "isDaytime": false,
+            "name": "Monday Night",
+            "number": 3,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": null
+            },
+            "shortForecast": "Mostly Cloudy",
+            "startTime": "2025-01-06T18:00:00-05:00",
+            "temperature": 13,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "N",
+            "windSpeed": "9 to 15 mph"
+          },
+          {
+            "detailedForecast": "Areas of blowing snow between 11am and 2pm, then areas of blowing snow and a chance of snow showers. Mostly cloudy, with a high near 24. Wind chill values as low as 0. Northwest wind around 17 mph, with gusts as high as 35 mph. Chance of precipitation is 30%. New snow accumulation of less than half an inch possible.",
+            "endTime": "2025-01-07T18:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/day/blizzard/blizzard,30?size\u003dmedium",
+            "isDaytime": true,
+            "name": "Tuesday",
+            "number": 4,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": 30
+            },
+            "shortForecast": "Areas Of Blowing Snow",
+            "startTime": "2025-01-07T06:00:00-05:00",
+            "temperature": 24,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "NW",
+            "windSpeed": "17 mph"
+          },
+          {
+            "detailedForecast": "A chance of snow showers. Mostly cloudy, with a low around 15. Northwest wind 10 to 14 mph, with gusts as high as 30 mph. Chance of precipitation is 50%. New snow accumulation of around one inch possible.",
+            "endTime": "2025-01-08T06:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/night/snow,40/snow,50?size\u003dmedium",
+            "isDaytime": false,
+            "name": "Tuesday Night",
+            "number": 5,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": 50
+            },
+            "shortForecast": "Chance Snow Showers",
+            "startTime": "2025-01-07T18:00:00-05:00",
+            "temperature": 15,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "NW",
+            "windSpeed": "10 to 14 mph"
+          },
+          {
+            "detailedForecast": "A chance of snow showers. Mostly cloudy, with a high near 19. Chance of precipitation is 50%. New snow accumulation of less than one inch possible.",
+            "endTime": "2025-01-08T18:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/day/snow,50/snow,40?size\u003dmedium",
+            "isDaytime": true,
+            "name": "Wednesday",
+            "number": 6,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": 50
+            },
+            "shortForecast": "Chance Snow Showers",
+            "startTime": "2025-01-08T06:00:00-05:00",
+            "temperature": 19,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "NW",
+            "windSpeed": "10 to 14 mph"
+          },
+          {
+            "detailedForecast": "A chance of snow showers. Mostly cloudy, with a low around 9. Chance of precipitation is 40%. New snow accumulation of less than half an inch possible.",
+            "endTime": "2025-01-09T06:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/night/snow,40/snow,30?size\u003dmedium",
+            "isDaytime": false,
+            "name": "Wednesday Night",
+            "number": 7,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": 40
+            },
+            "shortForecast": "Chance Snow Showers",
+            "startTime": "2025-01-08T18:00:00-05:00",
+            "temperature": 9,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "NW",
+            "windSpeed": "10 to 14 mph"
+          },
+          {
+            "detailedForecast": "A slight chance of snow showers. Mostly cloudy, with a high near 20.",
+            "endTime": "2025-01-09T18:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/day/snow?size\u003dmedium",
+            "isDaytime": true,
+            "name": "Thursday",
+            "number": 8,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": null
+            },
+            "shortForecast": "Slight Chance Snow Showers",
+            "startTime": "2025-01-09T06:00:00-05:00",
+            "temperature": 20,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "NW",
+            "windSpeed": "16 mph"
+          },
+          {
+            "detailedForecast": "A slight chance of snow showers before 7pm. Mostly cloudy, with a low around 13.",
+            "endTime": "2025-01-10T06:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/night/snow/bkn?size\u003dmedium",
+            "isDaytime": false,
+            "name": "Thursday Night",
+            "number": 9,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": null
+            },
+            "shortForecast": "Slight Chance Snow Showers then Mostly Cloudy",
+            "startTime": "2025-01-09T18:00:00-05:00",
+            "temperature": 13,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "NW",
+            "windSpeed": "9 to 14 mph"
+          },
+          {
+            "detailedForecast": "Partly sunny, with a high near 25.",
+            "endTime": "2025-01-10T18:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/day/bkn?size\u003dmedium",
+            "isDaytime": true,
+            "name": "Friday",
+            "number": 10,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": null
+            },
+            "shortForecast": "Partly Sunny",
+            "startTime": "2025-01-10T06:00:00-05:00",
+            "temperature": 25,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "NW",
+            "windSpeed": "5 to 8 mph"
+          },
+          {
+            "detailedForecast": "A slight chance of snow showers after 1am. Mostly cloudy, with a low around 14.",
+            "endTime": "2025-01-11T06:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/night/bkn/snow?size\u003dmedium",
+            "isDaytime": false,
+            "name": "Friday Night",
+            "number": 11,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": null
+            },
+            "shortForecast": "Mostly Cloudy then Slight Chance Snow Showers",
+            "startTime": "2025-01-10T18:00:00-05:00",
+            "temperature": 14,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "W",
+            "windSpeed": "5 mph"
+          },
+          {
+            "detailedForecast": "A chance of snow showers. Mostly cloudy, with a high near 27. Chance of precipitation is 30%.",
+            "endTime": "2025-01-11T18:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/day/snow,30?size\u003dmedium",
+            "isDaytime": true,
+            "name": "Saturday",
+            "number": 12,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": 30
+            },
+            "shortForecast": "Chance Snow Showers",
+            "startTime": "2025-01-11T06:00:00-05:00",
+            "temperature": 27,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "W",
+            "windSpeed": "5 to 8 mph"
+          },
+          {
+            "detailedForecast": "A chance of snow showers before 7pm. Mostly cloudy, with a low around 16. Chance of precipitation is 30%.",
+            "endTime": "2025-01-12T06:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/night/snow,30/bkn?size\u003dmedium",
+            "isDaytime": false,
+            "name": "Saturday Night",
+            "number": 13,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": 30
+            },
+            "shortForecast": "Chance Snow Showers then Mostly Cloudy",
+            "startTime": "2025-01-11T18:00:00-05:00",
+            "temperature": 16,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "NW",
+            "windSpeed": "6 mph"
+          },
+          {
+            "detailedForecast": "Mostly cloudy, with a high near 28.",
+            "endTime": "2025-01-12T18:00:00-05:00",
+            "icon": "https://api.weather.gov/icons/land/day/bkn?size\u003dmedium",
+            "isDaytime": true,
+            "name": "Sunday",
+            "number": 14,
+            "probabilityOfPrecipitation": {
+              "unitCode": "wmoUnit:percent",
+              "value": null
+            },
+            "shortForecast": "Mostly Cloudy",
+            "startTime": "2025-01-12T06:00:00-05:00",
+            "temperature": 28,
+            "temperatureTrend": "",
+            "temperatureUnit": "F",
+            "windDirection": "W",
+            "windSpeed": "7 mph"
+          }
+        ],
+        "units": "us",
+        "updateTime": "2025-01-06T09:12:56+00:00",
+        "validTimes": "2025-01-06T03:00:00+00:00/P7DT13H"
+      },
+      "type": "Feature"
+    },
+    "forcastHourly": [
+      {
+        "data": [
+          {
+            "Dewpoint": 14,
+            "Temperature": 16,
+            "time": 1736161200000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 17,
+            "time": 1736164800000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 17,
+            "time": 1736168400000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 18,
+            "time": 1736172000000
+          },
+          {
+            "Dewpoint": 17,
+            "Temperature": 19,
+            "time": 1736175600000
+          },
+          {
+            "Dewpoint": 18,
+            "Temperature": 21,
+            "time": 1736179200000
+          },
+          {
+            "Dewpoint": 18,
+            "Temperature": 22,
+            "time": 1736182800000
+          },
+          {
+            "Dewpoint": 18,
+            "Temperature": 23,
+            "time": 1736186400000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 24,
+            "time": 1736190000000
+          },
+          {
+            "Dewpoint": 18,
+            "Temperature": 25,
+            "time": 1736193600000
+          },
+          {
+            "Dewpoint": 18,
+            "Temperature": 24,
+            "time": 1736197200000
+          },
+          {
+            "Dewpoint": 17,
+            "Temperature": 24,
+            "time": 1736200800000
+          },
+          {
+            "Dewpoint": 16,
+            "Temperature": 22,
+            "time": 1736204400000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 20,
+            "time": 1736208000000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 18,
+            "time": 1736211600000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 17,
+            "time": 1736215200000
+          },
+          {
+            "Dewpoint": 11,
+            "Temperature": 15,
+            "time": 1736218800000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 14,
+            "time": 1736222400000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 14,
+            "time": 1736226000000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 14,
+            "time": 1736229600000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 13,
+            "time": 1736233200000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 14,
+            "time": 1736236800000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 14,
+            "time": 1736240400000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 14,
+            "time": 1736244000000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 14,
+            "time": 1736247600000
+          },
+          {
+            "Dewpoint": 10,
+            "Temperature": 15,
+            "time": 1736251200000
+          },
+          {
+            "Dewpoint": 10,
+            "Temperature": 15,
+            "time": 1736254800000
+          },
+          {
+            "Dewpoint": 11,
+            "Temperature": 16,
+            "time": 1736258400000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 17,
+            "time": 1736262000000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 18,
+            "time": 1736265600000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 19,
+            "time": 1736269200000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 21,
+            "time": 1736272800000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 22,
+            "time": 1736276400000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 22,
+            "time": 1736280000000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 22,
+            "time": 1736283600000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 22,
+            "time": 1736287200000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 21,
+            "time": 1736290800000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 21,
+            "time": 1736294400000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 20,
+            "time": 1736298000000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 19,
+            "time": 1736301600000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 18,
+            "time": 1736305200000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 18,
+            "time": 1736308800000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 17,
+            "time": 1736312400000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 17,
+            "time": 1736316000000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 17,
+            "time": 1736319600000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 17,
+            "time": 1736323200000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 17,
+            "time": 1736326800000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 17,
+            "time": 1736330400000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 16,
+            "time": 1736334000000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 16,
+            "time": 1736337600000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 16,
+            "time": 1736341200000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 16,
+            "time": 1736344800000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 17,
+            "time": 1736348400000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 18,
+            "time": 1736352000000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 18,
+            "time": 1736355600000
+          },
+          {
+            "Dewpoint": 11,
+            "Temperature": 19,
+            "time": 1736359200000
+          },
+          {
+            "Dewpoint": 11,
+            "Temperature": 19,
+            "time": 1736362800000
+          },
+          {
+            "Dewpoint": 11,
+            "Temperature": 19,
+            "time": 1736366400000
+          },
+          {
+            "Dewpoint": 11,
+            "Temperature": 18,
+            "time": 1736370000000
+          },
+          {
+            "Dewpoint": 11,
+            "Temperature": 18,
+            "time": 1736373600000
+          },
+          {
+            "Dewpoint": 10,
+            "Temperature": 17,
+            "time": 1736377200000
+          },
+          {
+            "Dewpoint": 10,
+            "Temperature": 16,
+            "time": 1736380800000
+          },
+          {
+            "Dewpoint": 10,
+            "Temperature": 15,
+            "time": 1736384400000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 15,
+            "time": 1736388000000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 14,
+            "time": 1736391600000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 14,
+            "time": 1736395200000
+          },
+          {
+            "Dewpoint": 8,
+            "Temperature": 14,
+            "time": 1736398800000
+          },
+          {
+            "Dewpoint": 8,
+            "Temperature": 13,
+            "time": 1736402400000
+          },
+          {
+            "Dewpoint": 7,
+            "Temperature": 13,
+            "time": 1736406000000
+          },
+          {
+            "Dewpoint": 7,
+            "Temperature": 12,
+            "time": 1736409600000
+          },
+          {
+            "Dewpoint": 7,
+            "Temperature": 12,
+            "time": 1736413200000
+          },
+          {
+            "Dewpoint": 7,
+            "Temperature": 11,
+            "time": 1736416800000
+          },
+          {
+            "Dewpoint": 7,
+            "Temperature": 11,
+            "time": 1736420400000
+          },
+          {
+            "Dewpoint": 7,
+            "Temperature": 11,
+            "time": 1736424000000
+          },
+          {
+            "Dewpoint": 7,
+            "Temperature": 12,
+            "time": 1736427600000
+          },
+          {
+            "Dewpoint": 8,
+            "Temperature": 13,
+            "time": 1736431200000
+          },
+          {
+            "Dewpoint": 8.999999999999996,
+            "Temperature": 14,
+            "time": 1736434800000
+          },
+          {
+            "Dewpoint": 10,
+            "Temperature": 15,
+            "time": 1736438400000
+          },
+          {
+            "Dewpoint": 10,
+            "Temperature": 16,
+            "time": 1736442000000
+          },
+          {
+            "Dewpoint": 11,
+            "Temperature": 18,
+            "time": 1736445600000
+          },
+          {
+            "Dewpoint": 11,
+            "Temperature": 19,
+            "time": 1736449200000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 19,
+            "time": 1736452800000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 20,
+            "time": 1736456400000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 20,
+            "time": 1736460000000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 20,
+            "time": 1736463600000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 19,
+            "time": 1736467200000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 19,
+            "time": 1736470800000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 19,
+            "time": 1736474400000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 18,
+            "time": 1736478000000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 18,
+            "time": 1736481600000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 17,
+            "time": 1736485200000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 17,
+            "time": 1736488800000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 16,
+            "time": 1736492400000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 16,
+            "time": 1736496000000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 15,
+            "time": 1736499600000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 15,
+            "time": 1736503200000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 14,
+            "time": 1736506800000
+          },
+          {
+            "Dewpoint": 11,
+            "Temperature": 14,
+            "time": 1736510400000
+          },
+          {
+            "Dewpoint": 11,
+            "Temperature": 13,
+            "time": 1736514000000
+          },
+          {
+            "Dewpoint": 12,
+            "Temperature": 15,
+            "time": 1736517600000
+          },
+          {
+            "Dewpoint": 13,
+            "Temperature": 16,
+            "time": 1736521200000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 18,
+            "time": 1736524800000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 20,
+            "time": 1736528400000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 21,
+            "time": 1736532000000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 23,
+            "time": 1736535600000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 24,
+            "time": 1736539200000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 24,
+            "time": 1736542800000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 25,
+            "time": 1736546400000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 24,
+            "time": 1736550000000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 22,
+            "time": 1736553600000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 21,
+            "time": 1736557200000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 20,
+            "time": 1736560800000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 19,
+            "time": 1736564400000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 18,
+            "time": 1736568000000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 18,
+            "time": 1736571600000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 18,
+            "time": 1736575200000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 18,
+            "time": 1736578800000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 17,
+            "time": 1736582400000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 17,
+            "time": 1736586000000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 16,
+            "time": 1736589600000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 16,
+            "time": 1736593200000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 16,
+            "time": 1736596800000
+          },
+          {
+            "Dewpoint": 14,
+            "Temperature": 16,
+            "time": 1736600400000
+          },
+          {
+            "Dewpoint": 15,
+            "Temperature": 18,
+            "time": 1736604000000
+          },
+          {
+            "Dewpoint": 16,
+            "Temperature": 19,
+            "time": 1736607600000
+          },
+          {
+            "Dewpoint": 17,
+            "Temperature": 21,
+            "time": 1736611200000
+          },
+          {
+            "Dewpoint": 18,
+            "Temperature": 22,
+            "time": 1736614800000
+          },
+          {
+            "Dewpoint": 18,
+            "Temperature": 24,
+            "time": 1736618400000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 25,
+            "time": 1736622000000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 26,
+            "time": 1736625600000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 26,
+            "time": 1736629200000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 27,
+            "time": 1736632800000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 26,
+            "time": 1736636400000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 25,
+            "time": 1736640000000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 24,
+            "time": 1736643600000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 23,
+            "time": 1736647200000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 22,
+            "time": 1736650800000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 21,
+            "time": 1736654400000
+          },
+          {
+            "Dewpoint": 18,
+            "Temperature": 21,
+            "time": 1736658000000
+          },
+          {
+            "Dewpoint": 18,
+            "Temperature": 20,
+            "time": 1736661600000
+          },
+          {
+            "Dewpoint": 17,
+            "Temperature": 20,
+            "time": 1736665200000
+          },
+          {
+            "Dewpoint": 17,
+            "Temperature": 19,
+            "time": 1736668800000
+          },
+          {
+            "Dewpoint": 17,
+            "Temperature": 19,
+            "time": 1736672400000
+          },
+          {
+            "Dewpoint": 17,
+            "Temperature": 18,
+            "time": 1736676000000
+          },
+          {
+            "Dewpoint": 17,
+            "Temperature": 18,
+            "time": 1736679600000
+          },
+          {
+            "Dewpoint": 16,
+            "Temperature": 17,
+            "time": 1736683200000
+          },
+          {
+            "Dewpoint": 16,
+            "Temperature": 17,
+            "time": 1736686800000
+          },
+          {
+            "Dewpoint": 16,
+            "Temperature": 19,
+            "time": 1736690400000
+          },
+          {
+            "Dewpoint": 17,
+            "Temperature": 20,
+            "time": 1736694000000
+          },
+          {
+            "Dewpoint": 17,
+            "Temperature": 22,
+            "time": 1736697600000
+          },
+          {
+            "Dewpoint": 18,
+            "Temperature": 24,
+            "time": 1736701200000
+          },
+          {
+            "Dewpoint": 18,
+            "Temperature": 25,
+            "time": 1736704800000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 27,
+            "time": 1736708400000
+          },
+          {
+            "Dewpoint": 19,
+            "Temperature": 27,
+            "time": 1736712000000
+          },
+          {
+            "Dewpoint": 20,
+            "Temperature": 28,
+            "time": 1736715600000
+          },
+          {
+            "Dewpoint": 20,
+            "Temperature": 28,
+            "time": 1736719200000
+          }
+        ],
+        "name": "Temp"
+      },
+      {
+        "data": [
+          {
+            "Humidity": 92,
+            "Precip": 25,
+            "time": 1736161200000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 40,
+            "time": 1736164800000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 49,
+            "time": 1736168400000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 57,
+            "time": 1736172000000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 58,
+            "time": 1736175600000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 51,
+            "time": 1736179200000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 41,
+            "time": 1736182800000
+          },
+          {
+            "Humidity": 81,
+            "Precip": 33,
+            "time": 1736186400000
+          },
+          {
+            "Humidity": 81,
+            "Precip": 30,
+            "time": 1736190000000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 21,
+            "time": 1736193600000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 7,
+            "time": 1736197200000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 5,
+            "time": 1736200800000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 3,
+            "time": 1736204400000
+          },
+          {
+            "Humidity": 81,
+            "Precip": 4,
+            "time": 1736208000000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 2,
+            "time": 1736211600000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 2,
+            "time": 1736215200000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 3,
+            "time": 1736218800000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 3,
+            "time": 1736222400000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 3,
+            "time": 1736226000000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 4,
+            "time": 1736229600000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 4,
+            "time": 1736233200000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 4,
+            "time": 1736236800000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 6,
+            "time": 1736240400000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 7,
+            "time": 1736244000000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 8,
+            "time": 1736247600000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 9,
+            "time": 1736251200000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 10,
+            "time": 1736254800000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 10,
+            "time": 1736258400000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 10,
+            "time": 1736262000000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 10,
+            "time": 1736265600000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 11,
+            "time": 1736269200000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 11,
+            "time": 1736272800000
+          },
+          {
+            "Humidity": 71,
+            "Precip": 13,
+            "time": 1736276400000
+          },
+          {
+            "Humidity": 71,
+            "Precip": 16,
+            "time": 1736280000000
+          },
+          {
+            "Humidity": 71,
+            "Precip": 19,
+            "time": 1736283600000
+          },
+          {
+            "Humidity": 71,
+            "Precip": 22,
+            "time": 1736287200000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 25,
+            "time": 1736290800000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 28,
+            "time": 1736294400000
+          },
+          {
+            "Humidity": 81,
+            "Precip": 42,
+            "time": 1736298000000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 42,
+            "time": 1736301600000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 42,
+            "time": 1736305200000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 42,
+            "time": 1736308800000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 42,
+            "time": 1736312400000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 42,
+            "time": 1736316000000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 45,
+            "time": 1736319600000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 45,
+            "time": 1736323200000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 45,
+            "time": 1736326800000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 45,
+            "time": 1736330400000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 45,
+            "time": 1736334000000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 45,
+            "time": 1736337600000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 42,
+            "time": 1736341200000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 42,
+            "time": 1736344800000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 42,
+            "time": 1736348400000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 42,
+            "time": 1736352000000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 42,
+            "time": 1736355600000
+          },
+          {
+            "Humidity": 70,
+            "Precip": 42,
+            "time": 1736359200000
+          },
+          {
+            "Humidity": 70,
+            "Precip": 42,
+            "time": 1736362800000
+          },
+          {
+            "Humidity": 70,
+            "Precip": 42,
+            "time": 1736366400000
+          },
+          {
+            "Humidity": 73,
+            "Precip": 42,
+            "time": 1736370000000
+          },
+          {
+            "Humidity": 73,
+            "Precip": 42,
+            "time": 1736373600000
+          },
+          {
+            "Humidity": 73,
+            "Precip": 42,
+            "time": 1736377200000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 42,
+            "time": 1736380800000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 28,
+            "time": 1736384400000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 28,
+            "time": 1736388000000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 28,
+            "time": 1736391600000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 28,
+            "time": 1736395200000
+          },
+          {
+            "Humidity": 76,
+            "Precip": 28,
+            "time": 1736398800000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 28,
+            "time": 1736402400000
+          },
+          {
+            "Humidity": 76,
+            "Precip": 23,
+            "time": 1736406000000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 23,
+            "time": 1736409600000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 23,
+            "time": 1736413200000
+          },
+          {
+            "Humidity": 83,
+            "Precip": 23,
+            "time": 1736416800000
+          },
+          {
+            "Humidity": 83,
+            "Precip": 23,
+            "time": 1736420400000
+          },
+          {
+            "Humidity": 83,
+            "Precip": 23,
+            "time": 1736424000000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 22,
+            "time": 1736427600000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 22,
+            "time": 1736431200000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 22,
+            "time": 1736434800000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 22,
+            "time": 1736438400000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 22,
+            "time": 1736442000000
+          },
+          {
+            "Humidity": 73,
+            "Precip": 22,
+            "time": 1736445600000
+          },
+          {
+            "Humidity": 70,
+            "Precip": 20,
+            "time": 1736449200000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 20,
+            "time": 1736452800000
+          },
+          {
+            "Humidity": 71,
+            "Precip": 20,
+            "time": 1736456400000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 20,
+            "time": 1736460000000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 20,
+            "time": 1736463600000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 20,
+            "time": 1736467200000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 6,
+            "time": 1736470800000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 6,
+            "time": 1736474400000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 6,
+            "time": 1736478000000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 6,
+            "time": 1736481600000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 6,
+            "time": 1736485200000
+          },
+          {
+            "Humidity": 80,
+            "Precip": 6,
+            "time": 1736488800000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 2,
+            "time": 1736492400000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 2,
+            "time": 1736496000000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 2,
+            "time": 1736499600000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 2,
+            "time": 1736503200000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 2,
+            "time": 1736506800000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 2,
+            "time": 1736510400000
+          },
+          {
+            "Humidity": 91,
+            "Precip": 0,
+            "time": 1736514000000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 0,
+            "time": 1736517600000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 0,
+            "time": 1736521200000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 0,
+            "time": 1736524800000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 0,
+            "time": 1736528400000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 0,
+            "time": 1736532000000
+          },
+          {
+            "Humidity": 71,
+            "Precip": 2,
+            "time": 1736535600000
+          },
+          {
+            "Humidity": 68,
+            "Precip": 2,
+            "time": 1736539200000
+          },
+          {
+            "Humidity": 68,
+            "Precip": 2,
+            "time": 1736542800000
+          },
+          {
+            "Humidity": 65,
+            "Precip": 2,
+            "time": 1736546400000
+          },
+          {
+            "Humidity": 68,
+            "Precip": 2,
+            "time": 1736550000000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 2,
+            "time": 1736553600000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 10,
+            "time": 1736557200000
+          },
+          {
+            "Humidity": 81,
+            "Precip": 10,
+            "time": 1736560800000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 10,
+            "time": 1736564400000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 10,
+            "time": 1736568000000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 10,
+            "time": 1736571600000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 10,
+            "time": 1736575200000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 22,
+            "time": 1736578800000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 22,
+            "time": 1736582400000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 22,
+            "time": 1736586000000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 22,
+            "time": 1736589600000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 22,
+            "time": 1736593200000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 22,
+            "time": 1736596800000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 30,
+            "time": 1736600400000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 30,
+            "time": 1736604000000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 30,
+            "time": 1736607600000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 30,
+            "time": 1736611200000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 30,
+            "time": 1736614800000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 30,
+            "time": 1736618400000
+          },
+          {
+            "Humidity": 78,
+            "Precip": 30,
+            "time": 1736622000000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 30,
+            "time": 1736625600000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 30,
+            "time": 1736629200000
+          },
+          {
+            "Humidity": 71,
+            "Precip": 30,
+            "time": 1736632800000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 30,
+            "time": 1736636400000
+          },
+          {
+            "Humidity": 78,
+            "Precip": 30,
+            "time": 1736640000000
+          },
+          {
+            "Humidity": 81,
+            "Precip": 13,
+            "time": 1736643600000
+          },
+          {
+            "Humidity": 84,
+            "Precip": 13,
+            "time": 1736647200000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 13,
+            "time": 1736650800000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 13,
+            "time": 1736654400000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 13,
+            "time": 1736658000000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 13,
+            "time": 1736661600000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 6,
+            "time": 1736665200000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 6,
+            "time": 1736668800000
+          },
+          {
+            "Humidity": 92,
+            "Precip": 6,
+            "time": 1736672400000
+          },
+          {
+            "Humidity": 96,
+            "Precip": 6,
+            "time": 1736676000000
+          },
+          {
+            "Humidity": 96,
+            "Precip": 6,
+            "time": 1736679600000
+          },
+          {
+            "Humidity": 96,
+            "Precip": 6,
+            "time": 1736683200000
+          },
+          {
+            "Humidity": 96,
+            "Precip": 3,
+            "time": 1736686800000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 3,
+            "time": 1736690400000
+          },
+          {
+            "Humidity": 88,
+            "Precip": 3,
+            "time": 1736694000000
+          },
+          {
+            "Humidity": 81,
+            "Precip": 3,
+            "time": 1736697600000
+          },
+          {
+            "Humidity": 77,
+            "Precip": 3,
+            "time": 1736701200000
+          },
+          {
+            "Humidity": 74,
+            "Precip": 3,
+            "time": 1736704800000
+          },
+          {
+            "Humidity": 71,
+            "Precip": 9,
+            "time": 1736708400000
+          },
+          {
+            "Humidity": 71,
+            "Precip": 9,
+            "time": 1736712000000
+          },
+          {
+            "Humidity": 71,
+            "Precip": 9,
+            "time": 1736715600000
+          },
+          {
+            "Humidity": 71,
+            "Precip": 9,
+            "time": 1736719200000
+          }
+        ],
+        "name": "Humidity"
+      }
+    ],
+    "loaded": true
+  },
+  "params": {
+    "lat": 41.43475312037009,
+    "lng": -78.56959666189621
+  },
+  "propConfig": {
+    "custom.current": {
+      "binding": {
+        "config": {
+          "struct": {
+            "lat": "{view.params.lat}",
+            "lng": "{view.params.lng}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\treturn  WeatherAPI.WeatherScripts.getCurrentWeather(value[\u0027lat\u0027],value[\u0027lng\u0027])",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.data": {
+      "binding": {
+        "config": {
+          "struct": {
+            "lat": "{view.params.lat}",
+            "lng": "{view.params.lng}"
+          },
+          "waitOnAll": true
+        },
+        "transforms": [
+          {
+            "code": "\treturn  WeatherAPI.WeatherScripts.getGridForcast(value[\u0027lat\u0027],value[\u0027lng\u0027])",
+            "type": "script"
+          }
+        ],
+        "type": "expr-struct"
+      },
+      "persistent": true
+    },
+    "custom.forcast": {
+      "binding": {
+        "config": {
+          "path": "view.custom.data.properties.forecast"
+        },
+        "transforms": [
+          {
+            "code": "\treturn WeatherAPI.WeatherScripts.generalAPICall(value)",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.forcastHourly": {
+      "binding": {
+        "config": {
+          "path": "view.custom.data.properties.forecastHourly"
+        },
+        "transforms": [
+          {
+            "code": "\tforcast\u003dWeatherAPI.WeatherScripts.generalAPICall(value)[\u0027properties\u0027][\u0027periods\u0027]\n\ttempData\u003d[]\n\thumidityData\u003d[]\n\tfor x in forcast:\n\t\tdateTime\u003dsystem.date.parse(x[\u0027endTime\u0027],\"yyyy-MM-dd\u0027T\u0027HH:mm:ssXXX\")\n\t\tif self.getChild(\"root\").getChild(\"MultiStateButton\").props.controlValue\u003d\u003d1:\n\t\t\ttime\u003dsystem.date.toMillis(dateTime)\n\t\t\ttempData.append({\"Temperature\": x[\u0027temperature\u0027], \"Dewpoint\":  x[\u0027dewpoint\u0027][\u0027value\u0027]*1.8+32, \"time\": time})\n\t\t\thumidityData.append({\"Humidity\": x[\u0027relativeHumidity\u0027][\u0027value\u0027], \u0027Precip\u0027: x[\u0027probabilityOfPrecipitation\u0027][\u0027value\u0027], \"time\": time})\n\t\telif system.date.isBefore(dateTime,system.date.addDays(system.date.now(),1)):\n\t\t\ttime\u003dsystem.date.toMillis(dateTime)\n\t\t\ttempData.append({\"Temperature\": x[\u0027temperature\u0027], \"Dewpoint\":  x[\u0027dewpoint\u0027][\u0027value\u0027]*1.8+32, \"time\": time})\n\t\t\thumidityData.append({\"Humidity\": x[\u0027relativeHumidity\u0027][\u0027value\u0027], \u0027Precip\u0027: x[\u0027probabilityOfPrecipitation\u0027][\u0027value\u0027], \"time\": time})\n\ttempSeries\u003d{\u0027name\u0027: \u0027Temp\u0027, \u0027data\u0027: tempData}\n\thumSeries\u003d{\u0027name\u0027: \u0027Humidity\u0027, \u0027data\u0027: humidityData}\n\t\n\treturn [tempSeries, humSeries]",
+            "type": "script"
+          }
+        ],
+        "type": "property"
+      },
+      "persistent": true
+    },
+    "custom.loaded": {
+      "binding": {
+        "config": {
+          "expression": "{view.custom.data}!\u003dnull \u0026\u0026 {view.custom.current}!\u003dnull"
+        },
+        "overlayOptOut": true,
+        "type": "expr"
+      },
+      "persistent": true
+    },
+    "params.lat": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "direct",
+          "tagPath": "[ecowitt]WeatherStation/Parameters.lat"
+        },
+        "type": "tag"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.lng": {
+      "binding": {
+        "config": {
+          "fallbackDelay": 2.5,
+          "mode": "direct",
+          "tagPath": "[ecowitt]WeatherStation/Parameters.lng"
+        },
+        "type": "tag"
+      },
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 412,
+      "width": 399
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Location"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.current.name"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "style": {
+                "margin": "8px"
+              },
+              "textStyle": {
+                "textAlign": "center"
+              }
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.view.refreshBinding(\u0027custom.data\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Icon"
+            },
+            "position": {
+              "basis": "28px"
+            },
+            "props": {
+              "path": "material/refresh",
+              "style": {
+                "cursor": "pointer"
+              }
+            },
+            "type": "ia.display.icon"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loaded"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "Location_0"
+        },
+        "position": {
+          "display": false
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loaded"
+              },
+              "enabled": false,
+              "type": "property"
+            }
+          },
+          "props.text": {
+            "binding": {
+              "config": {
+                "path": "view.custom.current.weather[0].description"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value.capitalize()",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "margin": "8px"
+          },
+          "textStyle": {
+            "textAlign": "center"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Temp"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.value": {
+                "binding": {
+                  "config": {
+                    "expression": "round(({view.custom.current.main.temp}-273.15)*1.8+ 32,2)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Temperature:",
+                "labelWidth": "auto",
+                "unit": "ºF"
+              },
+              "path": "Value View"
+            },
+            "type": "ia.display.view"
+          },
+          {
+            "meta": {
+              "name": "Feel"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.value": {
+                "binding": {
+                  "config": {
+                    "expression": "round(({view.custom.current.main.feels_like}-273.15)*1.8+ 32,2)"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Feels Like:",
+                "labelWidth": "auto",
+                "unit": "ºF"
+              },
+              "path": "Value View"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "Temperature"
+        },
+        "position": {
+          "display": false,
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loaded"
+              },
+              "enabled": false,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "justify": "space-evenly",
+          "style": {
+            "margin": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Humidity"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.value": {
+                "binding": {
+                  "config": {
+                    "expression": "{view.custom.current.main.humidity}"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Humidity:",
+                "labelWidth": "auto",
+                "unit": "%"
+              },
+              "path": "Value View"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "Humidity"
+        },
+        "position": {
+          "display": false,
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loaded"
+              },
+              "enabled": false,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "justify": "space-evenly",
+          "style": {
+            "margin": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Pressure"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.value": {
+                "binding": {
+                  "config": {
+                    "expression": "round({view.custom.current.main.pressure}/33.864,2)\r\n"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Pressure:",
+                "labelWidth": "auto",
+                "unit": "inHg"
+              },
+              "path": "Value View"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "Pressure"
+        },
+        "position": {
+          "display": false,
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loaded"
+              },
+              "enabled": false,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "justify": "space-evenly",
+          "style": {
+            "margin": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Speed"
+            },
+            "position": {
+              "shrink": 0
+            },
+            "propConfig": {
+              "props.params.unit": {
+                "binding": {
+                  "config": {
+                    "path": "view.custom.current.wind.deg"
+                  },
+                  "transforms": [
+                    {
+                      "code": "\n\tdef degrees_to_compass(degrees):\n\t\tdirections \u003d [\n\t\t    \"N\", \"NNE\", \"NE\", \"ENE\", \n\t\t    \"E\", \"ESE\", \"SE\", \"SSE\", \n\t\t    \"S\", \"SSW\", \"SW\", \"WSW\", \n\t\t    \"W\", \"WNW\", \"NW\", \"NNW\"\n\t\t]\n\t\tindex \u003d int((degrees / 22.5) + 0.5) % 16\n\t\treturn directions[index]\n\tdegree_symbol \u003d u\u0027°\u0027\n\treturn str(value) + \u0027 \u0027 + degree_symbol+ \u0027 \u0027 + degrees_to_compass(value) + \u0027)\u0027\n",
+                      "type": "script"
+                    }
+                  ],
+                  "type": "property"
+                }
+              },
+              "props.params.value": {
+                "binding": {
+                  "config": {
+                    "expression": "round({view.custom.current.wind.speed}/1.609,2)+ \u0027 mph (\u0027"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "params": {
+                "label": "Wind:",
+                "labelWidth": "auto"
+              },
+              "path": "Value View"
+            },
+            "type": "ia.display.view"
+          }
+        ],
+        "meta": {
+          "name": "Wind"
+        },
+        "position": {
+          "display": false,
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loaded"
+              },
+              "enabled": false,
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "justify": "space-evenly",
+          "style": {
+            "margin": "4px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "meta": {
+          "name": "MultiStateButton"
+        },
+        "position": {
+          "basis": "22px",
+          "shrink": 0
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loaded"
+              },
+              "type": "property"
+            }
+          },
+          "props.controlValue": {
+            "onChange": {
+              "enabled": null,
+              "script": "\tself.view.refreshBinding(\u0027custom.forcastHourly\u0027)"
+            }
+          },
+          "props.indicatorValue": {
+            "binding": {
+              "config": {
+                "path": "this.props.controlValue"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "controlValue": 1,
+          "orientation": "row",
+          "states": [
+            {
+              "selectedStyle": {
+                "backgroundColor": "--neutral-50",
+                "classes": ""
+              },
+              "text": "24-hr",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 0
+            },
+            {
+              "selectedStyle": {
+                "backgroundColor": "--neutral-50",
+                "classes": ""
+              },
+              "text": "Long-term",
+              "unselectedStyle": {
+                "classes": ""
+              },
+              "value": 1
+            }
+          ]
+        },
+        "type": "ia.input.multi-state-button"
+      },
+      {
+        "meta": {
+          "name": "TimeSeriesChart"
+        },
+        "position": {
+          "basis": "400px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "path": "view.custom.loaded"
+              },
+              "type": "property"
+            }
+          },
+          "props.series": {
+            "binding": {
+              "config": {
+                "path": "view.custom.forcastHourly"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "autoGenerateSeriesNames": true,
+          "legend": {
+            "visible": true
+          },
+          "plots": [
+            {
+              "axes": [
+                {
+                  "alignment": "left",
+                  "grid": {
+                    "color": "",
+                    "dashArray": 0,
+                    "opacity": 0.9,
+                    "style": {
+                      "classes": ""
+                    },
+                    "visible": false
+                  },
+                  "label": {
+                    "font": {
+                      "color": "",
+                      "size": 10
+                    },
+                    "offset": 0,
+                    "style": {
+                      "classes": ""
+                    },
+                    "text": "",
+                    "visible": false
+                  },
+                  "max": "",
+                  "min": "",
+                  "name": "Nothing",
+                  "style": {
+                    "classes": ""
+                  },
+                  "tick": {
+                    "color": "",
+                    "count": "Auto",
+                    "label": {
+                      "font": {
+                        "color": "",
+                        "size": 10
+                      },
+                      "format": "Auto",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "width": 30
+                }
+              ],
+              "markers": [],
+              "relativeWeight": 1,
+              "trends": [
+                {
+                  "axis": "Nothing",
+                  "baselines": [],
+                  "breakLine": true,
+                  "columns": [
+                    {
+                      "color": "green",
+                      "key": "Temperature",
+                      "styles": {
+                        "highlighted": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "muted": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "normal": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "selected": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        }
+                      }
+                    },
+                    {
+                      "color": "blue",
+                      "key": "Dewpoint",
+                      "styles": {
+                        "highlighted": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "muted": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "normal": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "selected": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "interpolation": "curveLinear",
+                  "radius": 2,
+                  "series": "Temp",
+                  "stack": true,
+                  "type": "line",
+                  "visible": true
+                }
+              ]
+            },
+            {
+              "axes": [
+                {
+                  "alignment": "left",
+                  "grid": {
+                    "color": "",
+                    "dashArray": 0,
+                    "opacity": 0.9,
+                    "style": {
+                      "classes": ""
+                    },
+                    "visible": false
+                  },
+                  "label": {
+                    "font": {
+                      "color": "",
+                      "size": 10
+                    },
+                    "offset": 0,
+                    "style": {
+                      "classes": ""
+                    },
+                    "text": "",
+                    "visible": false
+                  },
+                  "max": "",
+                  "min": "",
+                  "name": "Nothing",
+                  "style": {
+                    "classes": ""
+                  },
+                  "tick": {
+                    "color": "",
+                    "count": "Auto",
+                    "label": {
+                      "font": {
+                        "color": "",
+                        "size": 10
+                      },
+                      "format": "Auto",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "width": 30
+                }
+              ],
+              "markers": [],
+              "relativeWeight": 1,
+              "trends": [
+                {
+                  "axis": "Nothing",
+                  "baselines": [],
+                  "breakLine": true,
+                  "columns": [
+                    {
+                      "color": "#AAAAAA",
+                      "key": "Precip",
+                      "styles": {
+                        "highlighted": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "muted": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "normal": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "selected": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "interpolation": "curveLinear",
+                  "radius": 2,
+                  "series": "Humidity",
+                  "stack": true,
+                  "type": "area",
+                  "visible": true
+                },
+                {
+                  "axis": "Nothing",
+                  "baselines": [],
+                  "breakLine": true,
+                  "columns": [
+                    {
+                      "color": "#3DB6B6",
+                      "key": "Humidity",
+                      "styles": {
+                        "highlighted": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "muted": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "normal": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        },
+                        "selected": {
+                          "fill": {
+                            "color": "",
+                            "opacity": null
+                          },
+                          "stroke": {
+                            "color": "",
+                            "dashArray": null,
+                            "opacity": null,
+                            "width": null
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "interpolation": "curveLinear",
+                  "radius": 2,
+                  "series": "Humidity",
+                  "stack": true,
+                  "type": "line",
+                  "visible": true
+                }
+              ]
+            }
+          ],
+          "timeAxis": {
+            "grid": {
+              "color": "#E51414",
+              "visible": true
+            },
+            "height": 10,
+            "tick": {
+              "label": {
+                "format": "MMM-DD HH",
+                "style": {
+                  "whiteSpace": "pre",
+                  "width": "10px"
+                }
+              }
+            },
+            "tickCount": 7,
+            "visible": false
+          }
+        },
+        "type": "ia.chart.timeseries"
+      },
+      {
+        "meta": {
+          "name": "Icon"
+        },
+        "position": {
+          "basis": "30px",
+          "grow": 1
+        },
+        "propConfig": {
+          "position.display": {
+            "binding": {
+              "config": {
+                "expression": "!{view.custom.loaded}"
+              },
+              "type": "expr"
+            }
+          }
+        },
+        "props": {
+          "path": "material/refresh",
+          "style": {
+            "classes": "rotate",
+            "overflow": "hidden",
+            "overflowX": "hidden",
+            "overflowY": "hidden"
+          }
+        },
+        "type": "ia.display.icon"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "overflow": "hidden"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -1,0 +1,625 @@
+{
+  "custom": {},
+  "params": {
+    "tagPath": "[ecowitt]WeatherStation"
+  },
+  "propConfig": {
+    "params.tagPath": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "custom": {
+          "apiKey": "f26b9b0aaefc8ffb633e07e4e4d7ddb8",
+          "key": {
+            "WMS": {
+              "format": "image/jpeg",
+              "layers": "",
+              "styles": "",
+              "transparent": false,
+              "uppercase": false,
+              "version": "1.1.1"
+            },
+            "options": {
+              "attribution": "",
+              "crossOrigin": false,
+              "detectRetina": false,
+              "errorTileUrl": "",
+              "opacity": 1,
+              "subdomains": [
+                "a",
+                "b",
+                "c"
+              ],
+              "tileSize": {
+                "height": 256,
+                "width": 256
+              },
+              "tms": false,
+              "update": {
+                "interval": 200,
+                "whenIdle": false,
+                "whenZooming": false
+              },
+              "zIndex": 1,
+              "zoom": {
+                "max": 18,
+                "min": 0,
+                "native": {
+                  "max": null,
+                  "min": null
+                },
+                "offset": 0,
+                "reverse": false
+              }
+            },
+            "url": "https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid\u003df26b9b0aaefc8ffb633e07e4e4d7ddb8",
+            "urlTemplateParams": {}
+          },
+          "urlRaw": "https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid\u003d{API key}"
+        },
+        "meta": {
+          "name": "Map"
+        },
+        "position": {
+          "basis": "400px",
+          "grow": 1
+        },
+        "propConfig": {
+          "custom.url": {
+            "binding": {
+              "config": {
+                "struct": {
+                  "api": "{this.custom.apiKey}",
+                  "url": "{this.custom.urlRaw}"
+                },
+                "waitOnAll": true
+              },
+              "transforms": [
+                {
+                  "code": "\treturn value[\u0027url\u0027].replace(\u0027{API key}\u0027,value[\u0027api\u0027])",
+                  "type": "script"
+                }
+              ],
+              "type": "expr-struct"
+            }
+          },
+          "props.init.center.lat": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}/Parameters/lat"
+              },
+              "type": "tag"
+            }
+          },
+          "props.init.center.lng": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}/Parameters/lng"
+              },
+              "type": "tag"
+            }
+          },
+          "props.layers.raster.tile[1].url": {
+            "binding": {
+              "config": {
+                "path": "../FlexContainer/FlexContainer/selectedTime.custom.utc"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn \u0027https://opengeo.ncep.noaa.gov/geoserver/conus/conus_cref_qcd/ows?TIME\u003d{}\u0027.format(value)",
+                  "type": "script"
+                }
+              ],
+              "type": "property"
+            }
+          },
+          "props.layers.ui.marker[0].lat": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}/Parameters/lat"
+              },
+              "type": "tag"
+            }
+          },
+          "props.layers.ui.marker[0].lng": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "indirect",
+                "references": {
+                  "tagPath": "{view.params.tagPath}"
+                },
+                "tagPath": "{tagPath}/Parameters/lng"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "init": {
+            "center": {},
+            "zoom": 8
+          },
+          "layers": {
+            "raster": {
+              "tile": [
+                {
+                  "WMS": {
+                    "format": "image/jpeg",
+                    "layers": "",
+                    "styles": "",
+                    "transparent": false,
+                    "uppercase": false,
+                    "version": "1.1.1"
+                  },
+                  "options": {
+                    "attribution": "",
+                    "crossOrigin": false,
+                    "detectRetina": false,
+                    "errorTileUrl": "",
+                    "opacity": 1,
+                    "subdomains": [
+                      "a",
+                      "b",
+                      "c"
+                    ],
+                    "tileSize": {
+                      "height": 256,
+                      "width": 256
+                    },
+                    "tms": false,
+                    "update": {
+                      "interval": 200,
+                      "whenIdle": false,
+                      "whenZooming": true
+                    },
+                    "zIndex": 1,
+                    "zoom": {
+                      "max": 18,
+                      "min": 0,
+                      "native": {
+                        "max": null,
+                        "min": null
+                      },
+                      "offset": 0,
+                      "reverse": false
+                    }
+                  },
+                  "url": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                  "urlTemplateParams": {}
+                },
+                {
+                  "WMS": {
+                    "format": "image/png",
+                    "layers": "conus_cref_qcd",
+                    "styles": "",
+                    "transparent": true,
+                    "uppercase": false,
+                    "version": "1.3.0"
+                  },
+                  "options": {
+                    "attribution": "NOAA WMS Radar Data",
+                    "crossOrigin": false,
+                    "detectRetina": true,
+                    "errorTileUrl": "",
+                    "opacity": 0.5,
+                    "subdomains": [
+                      "a",
+                      "b",
+                      "c"
+                    ],
+                    "tileSize": {
+                      "height": 256,
+                      "width": 256
+                    },
+                    "tms": true,
+                    "update": {
+                      "interval": 100,
+                      "whenIdle": false,
+                      "whenZooming": false
+                    },
+                    "zIndex": 1,
+                    "zoom": {
+                      "max": 18,
+                      "min": 0,
+                      "native": {
+                        "max": null,
+                        "min": null
+                      },
+                      "offset": 0,
+                      "reverse": false
+                    }
+                  },
+                  "urlTemplateParams": {
+                    "time": "2025-01-06T11:22:02.000Z"
+                  }
+                }
+              ]
+            },
+            "ui": {
+              "marker": [
+                {
+                  "enabled": true,
+                  "event": {
+                    "stopPropagation": false
+                  },
+                  "icon": {
+                    "color": "#4190F7",
+                    "path": "material/location_on",
+                    "rotate": 0,
+                    "size": {
+                      "height": 36,
+                      "width": 36
+                    },
+                    "style": {
+                      "classes": ""
+                    }
+                  },
+                  "name": "",
+                  "opacity": 1,
+                  "popup": {
+                    "autoClose": true,
+                    "closeButton": true,
+                    "closeOnClick": null,
+                    "closeOnEscapeKey": true,
+                    "content": {
+                      "text": "",
+                      "view": {
+                        "params": {},
+                        "path": ""
+                      }
+                    },
+                    "enabled": false,
+                    "height": {
+                      "max": null
+                    },
+                    "pan": {
+                      "auto": true
+                    },
+                    "width": {
+                      "max": 300,
+                      "min": 50
+                    }
+                  },
+                  "properties": {},
+                  "tooltip": {
+                    "content": {
+                      "text": "",
+                      "view": {
+                        "params": {},
+                        "path": ""
+                      }
+                    },
+                    "direction": "auto",
+                    "opacity": 1,
+                    "permanent": false,
+                    "sticky": false
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "type": "ia.display.map"
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "startTime"
+                },
+                "position": {
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateArithmetic(now(),-60,\u0027minute\u0027)"
+                      },
+                      "transforms": [
+                        {
+                          "formatType": "datetime",
+                          "formatValue": {
+                            "date": "short",
+                            "time": "short"
+                          },
+                          "type": "format"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "--neutral-70",
+                    "fontSize": "12px"
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "selectedTime"
+                },
+                "propConfig": {
+                  "custom.utc": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateArithmetic(now(),{.../Slider.props.value}-60,\u0027minute\u0027)"
+                      },
+                      "transforms": [
+                        {
+                          "formatType": "datetime",
+                          "formatValue": {
+                            "date": "short",
+                            "time": "short"
+                          },
+                          "timezone": "Universal",
+                          "type": "format"
+                        },
+                        {
+                          "code": "\treturn system.date.format(system.date.parse(value,\"MM/dd/yy, h:mm a\"),\"yyyy-MM-dd\u0027T\u0027HH:mm:00.000\u0027Z\u0027\")",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  },
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "dateArithmetic(now(),{.../Slider.props.value}-60,\u0027minute\u0027)"
+                      },
+                      "transforms": [
+                        {
+                          "formatType": "datetime",
+                          "formatValue": {
+                            "date": "short",
+                            "time": "short"
+                          },
+                          "type": "format"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  }
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "endTime"
+                },
+                "propConfig": {
+                  "props.text": {
+                    "binding": {
+                      "config": {
+                        "expression": "now()"
+                      },
+                      "transforms": [
+                        {
+                          "formatType": "datetime",
+                          "formatValue": {
+                            "date": "medium",
+                            "time": "short"
+                          },
+                          "type": "format"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "textStyle": {
+                    "color": "--neutral-70",
+                    "fontSize": "12px"
+                  }
+                },
+                "type": "ia.display.label"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "34px"
+            },
+            "props": {
+              "justify": "space-between"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "custom": {
+              "loop": false,
+              "play": false,
+              "transitionRate": 750
+            },
+            "meta": {
+              "name": "Slider"
+            },
+            "position": {
+              "basis": "32px"
+            },
+            "propConfig": {
+              "custom.change": {
+                "binding": {
+                  "config": {
+                    "expression": "now({this.custom.transitionRate})"
+                  },
+                  "type": "expr"
+                },
+                "onChange": {
+                  "enabled": null,
+                  "script": "\tif self.custom.play:\n\t\tmaxV\u003dself.props.max\n\t\tstep\u003dself.props.step\n\t\tvalue\u003dself.props.value\n\t\tif value+step\u003c\u003dmaxV:\n\t\t\tself.props.value+\u003dstep\n\t\telse:\n\t\t\tif self.custom.loop:\n\t\t\t\tself.props.value\u003d0\n\t\t\telse:\n\t\t\t\tself.custom.play\u003dFalse"
+                }
+              }
+            },
+            "props": {
+              "labels": {
+                "interval": 0
+              },
+              "max": 60,
+              "step": 5,
+              "style": {
+                "marginLeft": "16px",
+                "marginRight": "16px"
+              },
+              "value": 60
+            },
+            "type": "ia.input.slider"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "RW"
+                },
+                "position": {
+                  "basis": "30px"
+                },
+                "props": {
+                  "path": "material/fast_rewind"
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tif not self.parent.parent.getChild(\"Slider\").custom.play:\n\t\tif self.parent.parent.getChild(\"Slider\").props.value\u003e\u003dself.parent.parent.getChild(\"Slider\").props.max:\n\t\t\tself.parent.parent.getChild(\"Slider\").props.value\u003d0\n\tself.parent.parent.getChild(\"Slider\").custom.play\u003dnot self.parent.parent.getChild(\"Slider\").custom.play"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Play"
+                },
+                "position": {
+                  "basis": "30px"
+                },
+                "propConfig": {
+                  "props.path": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Slider.custom.play"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "material/pause",
+                          "inputType": "scalar",
+                          "mappings": [
+                            {
+                              "input": false,
+                              "output": "material/play_arrow"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "cursor": "pointer"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "FF"
+                },
+                "position": {
+                  "basis": "30px"
+                },
+                "props": {
+                  "path": "material/fast_forward"
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "meta": {
+                  "name": "Checkbox"
+                },
+                "propConfig": {
+                  "props.selected": {
+                    "binding": {
+                      "config": {
+                        "bidirectional": true,
+                        "path": ".../Slider.custom.loop"
+                      },
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "style": {
+                    "marginLeft": "16px"
+                  },
+                  "text": "Loop"
+                },
+                "type": "ia.input.checkbox"
+              }
+            ],
+            "meta": {
+              "name": "AnimationControl"
+            },
+            "props": {
+              "justify": "center"
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "padding": 8
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}
